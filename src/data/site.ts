@@ -25,6 +25,8 @@ export const media = {
     "/Suéltate Ma en Vivo por x IG 🎄🧡 Sorpresa para ustedes! Feliz navidad 🎁 %23SueltateMaLive.mp4",
   careerStep:
     "/Me siento muy feliz y orgulloso de este nuevo paso en mi carrera junto a uno de los más grandes .mp4",
+  cocoaCollaboration:
+    "/En mi amado @cocoarecordstudio junto a @antoniorioseloriginalok @orekeneltrack @franggenuino_ Sa.mp4",
 };
 
 export const services = [
@@ -125,6 +127,14 @@ export const gallery = [
 
 export const videos = [
   {
+    title: "Cocoa Record Studio",
+    description:
+      "Colaboracion en estudio junto a Antonio Rios, Oreken el Track y Fran G Genuino: una senal clara de red, oficio y presente creativo.",
+    meta: "Colaboracion / estudio",
+    src: media.cocoaCollaboration,
+    format: "portrait",
+  },
+  {
     title: "Sesion con los grandes",
     description:
       "Un registro de estudio con energia real: direccion, interpretacion y criterio musical ocurriendo en la misma sala.",
@@ -155,6 +165,49 @@ export const videos = [
     meta: "Artist story / vertical",
     src: media.careerStep,
     format: "portrait",
+  },
+];
+
+export const officialProductions = [
+  {
+    title: 'GENUINO "HISTORIA"',
+    artist: "Campbell G / Fran G Genuino",
+    year: "Video oficial",
+    videoId: "aJG0zRex7EU",
+    description:
+      "Una pieza clave para presentar la identidad de Genuino desde relato, caracter y presencia artistica.",
+  },
+  {
+    title: "Diosa",
+    artist: "Genuino x Campbell G",
+    year: "Genuino Family Inc.",
+    videoId: "IMRNuKaX9qM",
+    description:
+      "Produccion de alto alcance para mostrar colaboracion, lenguaje urbano y direccion visual consolidada.",
+  },
+  {
+    title: "Champagne",
+    artist: "Fran G Genuino feat. Afy",
+    year: "Produccion musical",
+    videoId: "bPJhFwQz_Ok",
+    description:
+      "Cancion y audiovisual con foco en colaboracion, identidad vocal y una estetica directa de lanzamiento.",
+  },
+  {
+    title: "Pensandote",
+    artist: "Fran G Genuino",
+    year: "Lyrics video",
+    videoId: "BJMqy8UdpK8",
+    description:
+      "Formato lirico para ampliar vida digital de una cancion y sostener cercania con audiencia.",
+  },
+  {
+    title: "Caribe",
+    artist: "Vladi Cachai x DW x Solo di Medina x Fran G",
+    year: "Official video",
+    videoId: "0cJH7mw8dKM",
+    description:
+      "Participacion en una produccion colaborativa con lectura audiovisual y proyeccion de catalogo.",
   },
 ];
 

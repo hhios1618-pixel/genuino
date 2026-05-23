@@ -1,7 +1,14 @@
 import { Film, Play } from "lucide-react";
-import { videos } from "@/data/site";
+import Image from "next/image";
+import { officialProductions, videos } from "@/data/site";
+
+function youtubeThumbnail(videoId: string) {
+  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+}
 
 export default function VideoShowcase() {
+  const [featuredProduction, ...secondaryProductions] = officialProductions;
+
   return (
     <section id="video" className="py-20 md:py-28">
       <div className="section-shell">
@@ -11,13 +18,123 @@ export default function VideoShowcase() {
               Video showcase
             </p>
             <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-white md:text-4xl">
-              Genuino en movimiento: estudio, vivo, relato y presencia.
+              Fran G Genuino: catalogo, presencia y obra en pantalla.
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-white/54">
-            Material real listo para mostrar lo que pasa alrededor de una obra:
-            toma, energia, audiencia y direccion audiovisual.
+            Producciones donde Fran G Genuino participa directamente, presentadas
+            como una vitrina publica de trayectoria, colaboracion y criterio.
           </p>
+        </div>
+
+        <div className="mb-12 overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] shadow-2xl shadow-black/35">
+          <div className="grid lg:grid-cols-[1.45fr_0.55fr]">
+            <a
+              href={`https://www.youtube.com/watch?v=${featuredProduction.videoId}`}
+              target="_blank"
+              rel="noreferrer"
+              className="group/feature relative block aspect-video overflow-hidden bg-black"
+              aria-label={`Ver ${featuredProduction.title} en YouTube`}
+            >
+              <Image
+                src={youtubeThumbnail(featuredProduction.videoId)}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover opacity-88 transition duration-700 group-hover/feature:scale-[1.035]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0.52)),linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+              <div className="absolute left-6 top-6 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
+                YouTube oficial
+              </div>
+              <div className="absolute inset-0 grid place-items-center">
+                <span className="grid size-18 place-items-center rounded-full border border-white/18 bg-white/12 text-white shadow-2xl backdrop-blur-md transition group-hover/feature:scale-105">
+                  <Play size={22} fill="currentColor" />
+                </span>
+              </div>
+            </a>
+            <div className="flex flex-col justify-between p-6 md:p-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
+                  Produccion destacada
+                </p>
+                <h3 className="mt-5 text-2xl font-medium tracking-[-0.02em] text-white md:text-3xl">
+                  {featuredProduction.title}
+                </h3>
+                <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/42">
+                  {featuredProduction.artist}
+                </p>
+                <p className="mt-6 text-sm leading-7 text-white/62">
+                  {featuredProduction.description}
+                </p>
+              </div>
+              <a
+                href={`https://www.youtube.com/watch?v=${featuredProduction.videoId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-[#d8b76b]/34 px-5 text-sm font-medium text-[#f8e7b3] transition hover:bg-[#d8b76b]/10"
+              >
+                Ver en YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-16 grid gap-5 md:grid-cols-2">
+          {secondaryProductions.map((production) => (
+            <article
+              key={production.videoId}
+              className="overflow-hidden rounded-[1.6rem] border hairline bg-[#0b0a09]"
+            >
+              <a
+                href={`https://www.youtube.com/watch?v=${production.videoId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="group/thumb relative block aspect-video overflow-hidden bg-black"
+                aria-label={`Ver ${production.title} en YouTube`}
+              >
+                <Image
+                  src={youtubeThumbnail(production.videoId)}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="lazy"
+                  className="object-cover opacity-90 transition duration-700 group-hover/thumb:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.68))]" />
+                <div className="absolute inset-0 grid place-items-center">
+                  <span className="grid size-13 place-items-center rounded-full border border-white/16 bg-white/12 text-white backdrop-blur-md transition group-hover/thumb:scale-105">
+                    <Play size={17} fill="currentColor" />
+                  </span>
+                </div>
+              </a>
+              <div className="p-6">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="text-xl font-medium text-white">{production.title}</h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.2em] text-[#d8b76b]/72">
+                      {production.artist}
+                    </p>
+                  </div>
+                  <span className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs text-white/46">
+                    {production.year}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm leading-7 text-white/58">
+                  {production.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mb-8 max-w-2xl">
+          <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
+            Backstage y contenido social
+          </p>
+          <h3 className="mt-4 text-2xl font-medium tracking-[-0.02em] text-white">
+            Energia actual desde el estudio, el vivo y la calle.
+          </h3>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-12">
