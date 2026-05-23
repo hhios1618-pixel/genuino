@@ -40,7 +40,7 @@ export default function Hero() {
               data-cursor-mode="link"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
             >
-              Ver catalogo y prueba social <ArrowDownRight size={16} />
+              Ver trabajos <ArrowDownRight size={16} />
             </a>
             <a
               href="/contacto"

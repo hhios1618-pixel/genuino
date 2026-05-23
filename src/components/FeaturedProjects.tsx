@@ -1,6 +1,12 @@
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/site";
 
+function projectHref(href: string) {
+  if (href === "#video") return "/video";
+  if (href === "#sonido") return "/sonido";
+  return href;
+}
+
 export default function FeaturedProjects() {
   return (
     <section id="proyectos" className="border-y hairline bg-[#090908] py-20 md:py-28">
@@ -11,13 +17,12 @@ export default function FeaturedProjects() {
               Trayectoria y posicionamiento
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
-              Prueba social: red, catalogo y colaboraciones.
+              Catalogo, colaboraciones y presencia publica.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/58">
-            La pagina tiene que explicar por que un artista deberia trabajar con
-            Genuino: porque hay escena, contactos, contenido, criterio de estudio y
-            experiencia moviendo canciones.
+            Producciones, registros de estudio y cruces artisticos que muestran una
+            forma concreta de trabajar: sonido, direccion, contenido y red.
           </p>
         </div>
 
@@ -26,7 +31,7 @@ export default function FeaturedProjects() {
             <ProjectCard
               key={project.title}
               {...project}
-              href={project.href.startsWith("#") ? "/proyectos" : project.href}
+              href={projectHref(project.href)}
               wide={index === 2}
               className={`${
                 index === 0 ? "lg:col-span-5" : ""

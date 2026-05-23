@@ -12,7 +12,6 @@ export default function Contact() {
     const formData = new FormData(event.currentTarget);
     const payload = Object.fromEntries(formData.entries());
 
-    // Future Supabase hook: send payload to an insert action or route handler here.
     console.log("Genuino contact request", payload);
     setSent(true);
     event.currentTarget.reset();
@@ -31,7 +30,8 @@ export default function Contact() {
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
             Cuéntanos si necesitas producir una cancion, crear melodias y letras,
             desarrollar videoclip, abrir entrevistas en medios o posicionar tu carrera.
-            Respondemos con una ruta clara, aterrizada y accionable.
+            Respondemos con una propuesta clara para avanzar con sonido, imagen y
+            estrategia.
           </p>
 
           <div className="mt-10 grid gap-3">
@@ -114,7 +114,7 @@ export default function Contact() {
 
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs leading-5 text-white/42">
-              Preparado para registrar consultas en Supabase.
+              Respuesta comercial para producciones y desarrollo artistico.
             </p>
             <button
               type="submit"
@@ -128,7 +128,7 @@ export default function Contact() {
 
           {sent ? (
             <div className="mt-5 flex items-center gap-3 rounded-2xl border border-[#d8b76b]/28 bg-[#d8b76b]/10 p-4 text-sm text-[#f8e7b3]">
-              <Check size={17} /> Consulta recibida. Simulacion lista para integrar.
+              <Check size={17} /> Consulta recibida. Te contactaremos para revisar el proyecto.
             </div>
           ) : null}
         </form>

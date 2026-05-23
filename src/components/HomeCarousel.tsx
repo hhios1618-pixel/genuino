@@ -11,7 +11,7 @@ const slides = [
   {
     eyebrow: "Ahora",
     title: "Produccion, catalogo y presencia visual en una sola firma.",
-    body: "Un home corto para decidir rapido: sonido, imagen, prueba social y contacto directo.",
+    body: "Canciones, direccion artistica y contenido audiovisual para que el proyecto salga con identidad y presencia.",
     image: media.studioSession,
     kind: "video",
     href: "/proyectos",
@@ -51,7 +51,7 @@ export default function HomeCarousel() {
               Seleccion viva
             </p>
             <h2 data-reveal-title className="mt-4 max-w-3xl text-3xl font-medium text-white md:text-5xl">
-              El punto de entrada.
+              Sonido, imagen y movimiento.
             </h2>
           </div>
           <div className="hidden gap-3 md:flex">

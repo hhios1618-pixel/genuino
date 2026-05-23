@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import PlayableVideo from "@/components/PlayableVideo";
 import { blurDataUrl } from "@/data/site";
 
 type ProjectCardProps = {
@@ -26,6 +27,40 @@ export default function ProjectCard({
   className = "",
   wide = false,
 }: ProjectCardProps) {
+  if (image.endsWith(".mp4")) {
+    return (
+      <motion.article
+        className={`bento-card group relative min-h-[360px] overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] ${className}`}
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <PlayableVideo
+          src={image}
+          label={title}
+          className="absolute inset-0"
+          videoClassName="h-[112%] opacity-90"
+          overlayClassName="bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.84))]"
+        >
+          <span className="pointer-events-none absolute inset-x-5 top-5 z-10 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-white/64">
+            <span>{type}</span>
+            <span>{year}</span>
+          </span>
+          <span className="glass-caption pointer-events-none absolute inset-x-4 bottom-4 z-10 block rounded-[1.25rem] border border-white/12 bg-black/28 p-5 backdrop-blur-xl">
+            <span className="flex items-start justify-between gap-5">
+              <span>
+                <span className="block text-2xl font-medium text-white">{title}</span>
+                <span className="mt-3 block text-sm leading-6 text-white/64">{description}</span>
+              </span>
+              <span className="grid size-11 shrink-0 place-items-center rounded-full border border-white/14 bg-black/22 text-white">
+                <ArrowUpRight size={18} />
+              </span>
+            </span>
+          </span>
+        </PlayableVideo>
+      </motion.article>
+    );
+  }
+
   return (
     <motion.a
       href={href}
