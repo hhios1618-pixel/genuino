@@ -2,13 +2,13 @@ import {
   AudioLines,
   Clapperboard,
   Disc3,
+  Headphones,
+  Megaphone,
   Mic2,
   PenLine,
   Radio,
-  Send,
-  SlidersHorizontal,
-  Sparkles,
   Tv,
+  UsersRound,
 } from "lucide-react";
 import { mediaUrl } from "@/lib/supabase/media";
 
@@ -74,51 +74,99 @@ export const artistProfileImages = [
 export const services = [
   {
     title: "Produccion musical",
+    kicker: "Idea / Beat / Cancion",
     description:
       "Creacion de beats, arreglos, melodias y direccion musical para canciones con identidad urbana, energia y proyeccion.",
+    detail:
+      "Trabajo desde la idea inicial hasta una maqueta solida: beat, estructura, referencias, tono artistico y direccion de la sesion para que la cancion tenga caracter propio.",
+    image: artistProfileImages[0].src,
+    imageAlt: "Sesion de produccion musical en estudio",
     icon: Disc3,
+    deliverables: ["Beat o produccion original", "Direccion de estructura", "Sesion guiada en estudio"],
   },
   {
     title: "Mezcla y mastering",
+    kicker: "Balance / Presencia / Final",
     description:
       "Balance, profundidad, traduccion y acabado final para que cada cancion respire con presencia en cualquier sistema.",
-    icon: SlidersHorizontal,
+    detail:
+      "Proceso tecnico y musical para que la voz, el bajo, el beat y los detalles convivan con claridad, volumen competitivo y una terminacion lista para plataformas.",
+    image: "https://i.ytimg.com/vi/aJG0zRex7EU/hqdefault.jpg",
+    imageAlt: "Referencia visual de catalogo musical Genuino",
+    icon: Headphones,
+    deliverables: ["Mezcla stereo", "Master para plataformas", "Revision de traduccion sonora"],
   },
   {
     title: "Direccion artistica",
+    kicker: "Criterio / Lenguaje / Ruta",
     description:
       "Criterio para ordenar referencias, lenguaje, narrativa, imagen y decisiones esteticas durante todo el proceso.",
+    detail:
+      "Acompanamiento para ordenar el universo del artista: que se dice, como se muestra, que referencias sirven y que decisiones conviene tomar antes de grabar o lanzar.",
+    image: artistProfileImages[3].src,
+    imageAlt: "Imagen artistica de Fran G Genuino",
     icon: PenLine,
+    deliverables: ["Mapa de referencias", "Direccion de identidad", "Criterio para lanzamientos"],
   },
   {
     title: "Marketing artistico",
+    kicker: "Posicion / Campana / Crecimiento",
     description:
       "Posicionamiento del artista en el lugar idoneo para desarrollar su carrera, con herramientas concretas para crecer.",
-    icon: Sparkles,
+    detail:
+      "Lectura comercial para transformar una cancion o etapa artistica en presencia: relato, piezas, calendario, colaboraciones y acciones que muevan audiencia real.",
+    image: artistProfileImages[2].src,
+    imageAlt: "Presencia publica de Fran G Genuino",
+    icon: Megaphone,
+    deliverables: ["Estrategia de salida", "Piezas para redes", "Ruta de visibilidad"],
   },
   {
     title: "Entrevistas radio y TV",
+    kicker: "Medios / Prensa / Escena",
     description:
       "Gestion y preparacion de apariciones en medios para amplificar lanzamientos, colaboraciones y momentos clave.",
+    detail:
+      "Preparacion de mensaje, foco del lanzamiento y gestion de instancias donde la historia del artista pueda presentarse con contexto profesional.",
+    image: artistProfileImages[1].src,
+    imageAlt: "Colaboracion y aparicion publica en medios",
     icon: Tv,
+    deliverables: ["Preparacion de entrevista", "Foco comunicacional", "Gestion de oportunidades"],
   },
   {
     title: "Grabacion y edicion vocal",
+    kicker: "Cabina / Toma / Edicion",
     description:
       "Direccion de toma, comping, limpieza, afinacion transparente y edicion rítmica al servicio de la interpretacion.",
+    detail:
+      "Sesion enfocada en sacar una interpretacion con intencion: direccion de voz, seleccion de tomas, limpieza, afinacion musical y edicion sin perder humanidad.",
+    image: artistProfileImages[0].src,
+    imageAlt: "Fran G Genuino en cabina de grabacion",
     icon: Mic2,
+    deliverables: ["Direccion de toma vocal", "Comping y limpieza", "Afinacion y timing"],
   },
   {
     title: "Videoclips y contenido",
+    kicker: "Video / Reels / Presencia",
     description:
       "Desarrollo de videoclips, piezas sociales y registros de estudio para que la cancion tenga presencia visual.",
+    detail:
+      "Contenido pensado para el ciclo real de una cancion: pieza principal, cortes sociales, registro de proceso y material que sostenga el lanzamiento sin verse generico.",
+    image: "https://i.ytimg.com/vi/bPJhFwQz_Ok/hqdefault.jpg",
+    imageAlt: "Referencia audiovisual para videoclips y contenido",
     icon: Clapperboard,
+    deliverables: ["Concepto audiovisual", "Piezas para redes", "Direccion de registro"],
   },
   {
     title: "Desarrollo de artistas",
+    kicker: "Vision / Red / Carrera",
     description:
       "Acompanamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
-    icon: Send,
+    detail:
+      "Proceso de mediano plazo para construir repertorio, mejorar presencia, elegir colaboraciones y tomar decisiones con sentido de carrera.",
+    image: artistProfileImages[1].src,
+    imageAlt: "Red de colaboraciones de Genuino",
+    icon: UsersRound,
+    deliverables: ["Plan de repertorio", "Ruta de colaboraciones", "Acompanamiento creativo"],
   },
 ];
 
