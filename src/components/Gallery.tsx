@@ -5,12 +5,12 @@ export default function Gallery() {
   return (
     <section id="galeria" className="border-y hairline bg-[#080807] py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
+        <div className="mb-12 grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Prueba visual
             </p>
-            <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-white md:text-5xl">
+            <h2 className="mt-5 text-3xl font-medium text-white md:text-5xl">
               Estudio, colaboraciones y presencia publica real.
             </h2>
           </div>
@@ -21,11 +21,12 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid auto-rows-[260px] gap-4 md:grid-cols-6">
+        <div className="grid auto-rows-[260px] gap-4 md:grid-cols-6" data-stagger>
           {gallery.map((item, index) => (
             <figure
               key={item.label}
-              className={`group relative overflow-hidden rounded-[1.35rem] border hairline bg-black ${
+              data-cursor={item.kind === "video" ? "Play" : "Ver"}
+              className={`bento-card group relative overflow-hidden rounded-[1.35rem] border hairline bg-black ${
                 index === 0 ? "md:col-span-3 md:row-span-2" : ""
               } ${index === 1 ? "md:col-span-3" : ""} ${
                 index > 1 ? "md:col-span-2" : ""
@@ -33,13 +34,14 @@ export default function Gallery() {
             >
               {item.kind === "video" ? (
                 <video
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  className="glitch-media h-[112%] w-full object-cover transition duration-700 group-hover:scale-[1.045]"
                   src={item.src}
                   muted
                   loop
                   playsInline
                   autoPlay
                   preload="metadata"
+                  data-parallax
                 />
               ) : (
                 <Image
@@ -47,7 +49,8 @@ export default function Gallery() {
                   alt={item.label}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition duration-700 group-hover:scale-[1.035]"
+                  className="glitch-media object-cover transition duration-700 group-hover:scale-[1.045]"
+                  data-parallax
                 />
               )}
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.76))]" />

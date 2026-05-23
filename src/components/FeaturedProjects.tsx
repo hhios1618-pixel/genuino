@@ -6,12 +6,12 @@ export default function FeaturedProjects() {
   return (
     <section id="proyectos" className="border-y hairline bg-[#090908] py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+        <div className="mb-12 grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Trayectoria y posicionamiento
             </p>
-            <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-white md:text-5xl">
+            <h2 className="mt-5 text-3xl font-medium text-white md:text-5xl">
               Prueba social: red, catalogo y colaboraciones.
             </h2>
           </div>
@@ -22,23 +22,27 @@ export default function FeaturedProjects() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {projects.map((project) => (
+        <div className="grid auto-rows-[minmax(420px,auto)] gap-5 lg:grid-cols-12" data-stagger>
+          {projects.map((project, index) => (
             <a
               key={project.title}
               href={project.href}
-              className="group overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] transition hover:-translate-y-1 hover:border-[#d8b76b]/34"
+              data-cursor="Abrir"
+              className={`bento-card group overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] transition hover:-translate-y-1 hover:border-[#d8b76b]/34 ${
+                index === 0 ? "lg:col-span-5" : ""
+              } ${index === 1 ? "lg:col-span-7" : ""} ${index === 2 ? "lg:col-span-12" : ""}`}
             >
-              <div className="relative aspect-[1.1] overflow-hidden bg-black">
+              <div className={`relative overflow-hidden bg-black ${index === 2 ? "aspect-[1.85]" : "aspect-[1.1]"}`}>
                 {project.image.endsWith(".mp4") ? (
                   <video
-                    className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.035]"
+                    className="glitch-media h-[112%] w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
                     src={project.image}
                     muted
                     loop
                     playsInline
                     autoPlay
                     preload="metadata"
+                    data-parallax
                   />
                 ) : (
                   <Image
@@ -46,7 +50,8 @@ export default function FeaturedProjects() {
                     alt={project.title}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="object-cover opacity-90 transition duration-700 group-hover:scale-[1.035]"
+                    className="glitch-media object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
+                    data-parallax
                   />
                 )}
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.78))]" />
@@ -59,7 +64,7 @@ export default function FeaturedProjects() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-medium tracking-[-0.02em] text-white">
+                <h3 className="text-2xl font-medium text-white">
                   {project.title}
                 </h3>
                 <p className="mt-5 text-sm leading-7 text-white/62">{project.description}</p>

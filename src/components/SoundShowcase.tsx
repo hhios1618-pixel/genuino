@@ -21,12 +21,12 @@ export default function SoundShowcase() {
   return (
     <section id="sonido" className="py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-10 grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+        <div className="mb-10 grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Catalogo audiovisual
             </p>
-            <h2 className="mt-5 max-w-3xl text-3xl font-medium tracking-[-0.035em] text-white md:text-5xl">
+            <h2 className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Videoclips que muestran sonido, imagen y movimiento real.
             </h2>
           </div>
@@ -37,7 +37,7 @@ export default function SoundShowcase() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-[2rem] border hairline bg-[#080807] shadow-2xl shadow-black/35">
+        <div className="overflow-hidden rounded-[2rem] border hairline bg-[#080807] shadow-2xl shadow-black/35" data-reveal>
           <div className="grid lg:grid-cols-[1.38fr_0.62fr]">
             <div className="relative aspect-video min-h-[260px] bg-black lg:aspect-auto lg:min-h-[560px]">
               <YouTubeFeature
@@ -58,7 +58,7 @@ export default function SoundShowcase() {
                     {String(active + 1).padStart(2, "0")} / {String(tracks.length).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-6 text-4xl font-medium tracking-[-0.04em] text-white md:text-5xl lg:text-4xl xl:text-5xl">
+                <h3 className="mt-6 text-4xl font-medium text-white md:text-5xl lg:text-4xl xl:text-5xl">
                   {selected.title}
                 </h3>
                 <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[#d8b76b]/76">
@@ -95,6 +95,7 @@ export default function SoundShowcase() {
                   key={track.videoId}
                   type="button"
                   onClick={() => setActive(index)}
+                  data-cursor="Play"
                   className={`group relative h-40 min-w-[235px] overflow-hidden rounded-[1.25rem] border text-left transition md:h-48 md:min-w-[310px] ${
                     active === index
                       ? "border-[#d8b76b]/60"
@@ -106,7 +107,7 @@ export default function SoundShowcase() {
                     alt=""
                     fill
                     sizes="320px"
-                    className="object-cover opacity-86 transition duration-500 group-hover:scale-[1.04]"
+                    className="glitch-media object-cover opacity-86 transition duration-500 group-hover:scale-[1.04]"
                   />
                   <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.76))]" />
                   <span className="absolute left-4 top-4 rounded-full border border-white/12 bg-black/24 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/56 backdrop-blur-md">

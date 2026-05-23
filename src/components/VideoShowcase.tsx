@@ -8,12 +8,12 @@ export default function VideoShowcase() {
   return (
     <section id="video" className="py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end" data-reveal>
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Video showcase
             </p>
-            <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-white md:text-4xl">
+            <h2 className="mt-5 text-3xl font-medium text-white md:text-4xl">
               Fran G Genuino: catalogo, presencia y obra en pantalla.
             </h2>
           </div>
@@ -23,7 +23,7 @@ export default function VideoShowcase() {
           </p>
         </div>
 
-        <div className="mb-12 overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] shadow-2xl shadow-black/35">
+        <div className="mb-12 overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] shadow-2xl shadow-black/35" data-reveal>
           <div className="grid lg:grid-cols-[1.45fr_0.55fr]">
             <div className="relative aspect-video overflow-hidden bg-black">
               <YouTubeFeature
@@ -37,7 +37,7 @@ export default function VideoShowcase() {
                 <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
                   Produccion destacada
                 </p>
-                <h3 className="mt-5 text-2xl font-medium tracking-[-0.02em] text-white md:text-3xl">
+                <h3 className="mt-5 text-2xl font-medium text-white md:text-3xl">
                   {featuredProduction.title}
                 </h3>
                 <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/42">
@@ -54,11 +54,12 @@ export default function VideoShowcase() {
           </div>
         </div>
 
-        <div className="mb-16 grid gap-5 md:grid-cols-2">
+        <div className="mb-16 grid gap-5 md:grid-cols-2" data-stagger>
           {secondaryProductions.map((production) => (
             <article
               key={production.videoId}
-              className="overflow-hidden rounded-[1.6rem] border hairline bg-[#0b0a09]"
+              className="bento-card overflow-hidden rounded-[1.6rem] border hairline bg-[#0b0a09]"
+              data-cursor="Play"
             >
               <div className="relative aspect-video overflow-hidden bg-black">
                 <YouTubeFeature title={production.title} videoId={production.videoId} />
@@ -83,26 +84,27 @@ export default function VideoShowcase() {
           ))}
         </div>
 
-        <div className="mb-8 max-w-2xl">
+        <div className="mb-8 max-w-2xl" data-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Backstage y contenido social
           </p>
-          <h3 className="mt-4 text-2xl font-medium tracking-[-0.02em] text-white">
+          <h3 className="mt-4 text-2xl font-medium text-white">
             Energia actual desde el estudio, el vivo y la calle.
           </h3>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-12">
+        <div className="grid gap-5 lg:grid-cols-12" data-stagger>
           {videos.map((video, index) => (
             <article
               key={video.title}
-              className={`group overflow-hidden rounded-[1.7rem] border hairline bg-[#0b0a09] ${
+              data-cursor="Play"
+              className={`bento-card group overflow-hidden rounded-[1.7rem] border hairline bg-[#0b0a09] ${
                 index === 1 ? "lg:col-span-7" : "lg:col-span-5"
               }`}
             >
               <div className={`relative ${video.format === "wide" ? "aspect-video" : "aspect-[4/5]"} overflow-hidden bg-black`}>
                 <video
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  className="glitch-media h-[112%] w-full object-cover transition duration-700 group-hover:scale-[1.045]"
                   src={video.src}
                   muted
                   loop
@@ -110,6 +112,7 @@ export default function VideoShowcase() {
                   controls
                   preload="metadata"
                   aria-label={video.title}
+                  data-parallax
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.34)_60%,rgba(0,0,0,0.68))]" />
                 <div className="pointer-events-none absolute inset-x-5 top-5 flex items-center justify-between gap-3">

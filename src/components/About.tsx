@@ -8,12 +8,12 @@ export default function About() {
   return (
     <section id="sobre" className="border-y hairline bg-[#090908] py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Perfil artistico
             </p>
-            <h2 className="mt-5 max-w-3xl text-3xl font-medium tracking-[-0.035em] text-white md:text-5xl">
+            <h2 className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Fran G Genuino: una firma urbana con presencia, estudio y red.
             </h2>
           </div>
@@ -25,7 +25,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-12">
+        <div className="grid gap-5 lg:grid-cols-12" data-stagger>
           <article className="cinematic-panel overflow-hidden rounded-[2rem] p-3 lg:col-span-7">
             <div className="relative min-h-[560px] overflow-hidden rounded-[1.6rem] border border-white/10">
               <Image
@@ -34,7 +34,8 @@ export default function About() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 58vw, 100vw"
-                className="object-cover"
+                className="glitch-media object-cover"
+                data-parallax
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16),rgba(0,0,0,0.72)),linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.88))]" />
               <div className="absolute left-5 top-5 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
@@ -44,7 +45,7 @@ export default function About() {
                 <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
                   Fran G Genuino
                 </p>
-                <h3 className="mt-4 max-w-xl text-3xl font-medium tracking-[-0.03em] text-white md:text-5xl">
+                <h3 className="mt-4 max-w-xl text-3xl font-medium text-white md:text-5xl">
                   Voz, direccion y oficio al centro de la produccion.
                 </h3>
                 <div className="mt-7 grid gap-3 sm:grid-cols-3">
@@ -74,7 +75,8 @@ export default function About() {
               {[collab, redCarpet, hall].map((image, index) => (
                 <figure
                   key={image.src}
-                  className={`relative overflow-hidden rounded-[1.5rem] border hairline bg-black ${
+                  data-cursor="Ver"
+                  className={`bento-card relative overflow-hidden rounded-[1.5rem] border hairline bg-black ${
                     index === 0 ? "min-h-[300px]" : "min-h-[220px]"
                   }`}
                 >
@@ -83,7 +85,8 @@ export default function About() {
                     alt={image.alt}
                     fill
                     sizes="(min-width: 1024px) 38vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
+                    className="glitch-media object-cover"
+                    data-parallax
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.74))]" />
                   <figcaption className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 text-sm text-white">
@@ -98,18 +101,20 @@ export default function About() {
           </aside>
         </div>
 
-        <div className="mt-10 grid gap-6 rounded-[2rem] border hairline bg-[linear-gradient(135deg,rgba(216,183,107,0.12),rgba(255,255,255,0.035))] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+        <div className="mt-10 grid gap-6 rounded-[2rem] border hairline bg-[linear-gradient(135deg,rgba(216,183,107,0.12),rgba(255,255,255,0.035))] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8" data-reveal>
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
               Direccion comercial y artistica
             </p>
-            <p className="mt-3 max-w-2xl text-xl leading-8 tracking-[-0.02em] text-white">
+            <p className="editorial-serif mt-3 max-w-2xl text-2xl leading-8 text-white">
               Produccion, marketing artistico, entrevistas, videoclips y desarrollo
               de talentos: hacer que el proyecto suene, se vea y tenga donde crecer.
             </p>
           </div>
           <a
             href="#contacto"
+            data-magnetic
+            data-cursor="Contacto"
             className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
           >
             Activar una produccion <ArrowDownRight size={16} />

@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#070707]/70 px-4 text-sm text-white/82 shadow-2xl shadow-black/25 backdrop-blur-xl sm:px-5">
-        <a href="#inicio" className="flex items-center" aria-label="Ir al inicio">
+        <a href="#inicio" data-cursor="Inicio" className="flex items-center" aria-label="Ir al inicio">
           <GenuinoLogo
             className="h-12 w-24 text-white transition hover:text-[#f8e7b3]"
           />
@@ -23,6 +23,7 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              data-cursor="Ir"
               className="rounded-full px-4 py-2 text-white/62 transition hover:bg-white/8 hover:text-white"
             >
               {item.label}
@@ -32,6 +33,8 @@ export default function Navbar() {
 
         <a
           href="#contacto"
+          data-magnetic
+          data-cursor="Contacto"
           className="hidden rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 lg:inline-flex"
         >
           Conversemos
@@ -40,6 +43,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
+          data-cursor="Menu"
           className="grid size-10 place-items-center rounded-full border border-white/10 text-white lg:hidden"
           aria-label={open ? "Cerrar menu" : "Abrir menu"}
         >
@@ -54,6 +58,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
+              data-cursor="Ir"
               className="block rounded-2xl px-4 py-3 transition hover:bg-white/8 hover:text-white"
             >
               {item.label}

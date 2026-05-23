@@ -4,15 +4,15 @@ export default function Services() {
   return (
     <section id="servicios" className="py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-12 max-w-2xl" data-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Servicios
           </p>
-          <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-white md:text-4xl">
+          <h2 className="mt-5 text-3xl font-medium text-white md:text-4xl">
             Un estudio para pensar, producir y terminar musica con altura.
           </h2>
         </div>
-        <div className="grid gap-px overflow-hidden rounded-[1.7rem] border hairline bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-[1.7rem] border hairline bg-white/10 md:grid-cols-2 lg:grid-cols-3" data-stagger>
           {services.map((service) => {
             const Icon = service.icon;
             return (

@@ -38,6 +38,7 @@ export default function YouTubeFeature({
     <button
       type="button"
       onClick={() => setPlaying(true)}
+      data-cursor="Play"
       className="group absolute inset-0 block overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]"
       aria-label={`Reproducir ${title}`}
     >
@@ -45,8 +46,9 @@ export default function YouTubeFeature({
         src={thumbnail(videoId)}
         alt=""
         fill
+        loading={featured ? "eager" : "lazy"}
         sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
-        className="object-cover opacity-90 transition duration-700 group-hover:scale-[1.035]"
+        className="glitch-media object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
       />
       <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16),rgba(0,0,0,0.5)),linear-gradient(180deg,transparent,rgba(0,0,0,0.76))]" />
       <span className="absolute left-5 top-5 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">

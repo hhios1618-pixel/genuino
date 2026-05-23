@@ -21,11 +21,11 @@ export default function Contact() {
   return (
     <section id="contacto" className="py-20 md:py-28">
       <div className="section-shell grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
-        <div>
+        <div data-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Contacto
           </p>
-          <h2 className="mt-5 max-w-xl text-3xl font-medium tracking-[-0.03em] text-white md:text-4xl">
+          <h2 className="mt-5 max-w-xl text-3xl font-medium text-white md:text-4xl">
             Hablemos si el proyecto necesita direccion, exposicion y resultado.
           </h2>
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
@@ -52,7 +52,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="cinematic-panel rounded-[2rem] p-5 md:p-7">
+        <form onSubmit={handleSubmit} className="cinematic-panel rounded-[2rem] p-5 md:p-7" data-reveal>
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm text-white/66">
               Nombre
@@ -118,6 +118,8 @@ export default function Contact() {
             </p>
             <button
               type="submit"
+              data-magnetic
+              data-cursor="Enviar"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706] transition hover:-translate-y-0.5"
             >
               Abrir conversacion <ArrowRight size={16} />
