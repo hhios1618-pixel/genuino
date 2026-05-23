@@ -1,9 +1,10 @@
 "use client";
 
-import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import PlayableVideo from "@/components/PlayableVideo";
 import { blurDataUrl, media, projects, tracks } from "@/data/site";
 
 const slides = [
@@ -50,7 +51,7 @@ export default function HomeCarousel() {
               Seleccion viva
             </p>
             <h2 data-reveal-title className="mt-4 max-w-3xl text-3xl font-medium text-white md:text-5xl">
-              Lo esencial, sin scroll infinito.
+              El punto de entrada.
             </h2>
           </div>
           <div className="hidden gap-3 md:flex">
@@ -78,42 +79,36 @@ export default function HomeCarousel() {
         </div>
 
         <div className="grid overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] lg:grid-cols-[1.2fr_0.8fr]" data-reveal>
-          <Link
-            href={slide.href}
-            data-cursor="PLAY"
-            data-cursor-mode="media"
-            className="group relative min-h-[460px] overflow-hidden bg-black"
-          >
+          <div className="relative min-h-[460px] overflow-hidden bg-black">
             {slide.kind === "video" ? (
-              <video
-                className="glitch-media h-[112%] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+              <PlayableVideo
                 src={slide.image}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                data-parallax-media
+                label={slide.title}
+                className="absolute inset-0"
+                videoClassName="h-[112%]"
+                overlayClassName="bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]"
               />
             ) : (
-              <Image
-                src={slide.image}
-                alt=""
-                fill
-                placeholder="blur"
-                blurDataURL={blurDataUrl}
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                className="glitch-media object-cover transition duration-700 group-hover:scale-[1.04]"
-                data-parallax-media
-              />
+              <Link
+                href={slide.href}
+                data-cursor="Ver"
+                data-cursor-mode="link"
+                className="group absolute inset-0"
+              >
+                <Image
+                  src={slide.image}
+                  alt=""
+                  fill
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl}
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="glitch-media object-cover transition duration-700 group-hover:scale-[1.04]"
+                  data-parallax-media
+                />
+                <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]" />
+              </Link>
             )}
-            <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]" />
-            <span className="absolute inset-0 grid place-items-center">
-              <span className="grid size-16 place-items-center rounded-full border border-white/18 bg-white/12 text-white backdrop-blur-md">
-                <Play size={20} fill="currentColor" />
-              </span>
-            </span>
-          </Link>
+          </div>
 
           <div className="flex flex-col justify-between p-6 md:p-9">
             <div data-parallax-text>

@@ -1,4 +1,5 @@
-import { ArrowDownRight, Play } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
+import PlayableVideo from "@/components/PlayableVideo";
 import { media } from "@/data/site";
 
 export default function Hero() {
@@ -56,34 +57,23 @@ export default function Hero() {
         <div className="cinematic-panel relative mb-2 overflow-hidden rounded-[2rem] p-4" data-reveal>
           <div className="aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
             <div className="relative h-full">
-              <video
-                className="glitch-media absolute inset-0 h-full w-full object-cover"
+              <PlayableVideo
                 src={media.studioSession}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Sesion de estudio Genuino"
-                data-parallax-media
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.12),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.84))]" />
-              <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/48">
-                <span>Studio footage</span>
-                <span>Genuino actual</span>
-              </div>
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="grid size-16 place-items-center rounded-full border border-white/18 bg-white/10 text-white backdrop-blur-md">
-                  <Play size={20} fill="currentColor" />
-                </div>
-              </div>
-              <div className="absolute inset-x-6 bottom-6">
-                <div className="waveform h-14 rounded-full border border-white/10 bg-white/[0.03]" />
-                <p className="mt-4 text-sm leading-6 text-white/62">
-                  Sesiones reales, piezas sociales y registros de performance
-                  convertidos en presencia artistica.
-                </p>
-              </div>
+                label="Sesion de estudio Genuino"
+                overlayClassName="bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.12),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.84))]"
+              >
+                <span className="pointer-events-none absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/48">
+                  <span>Studio footage</span>
+                  <span>Genuino actual</span>
+                </span>
+                <span className="pointer-events-none absolute inset-x-6 bottom-6">
+                  <span className="waveform block h-14 rounded-full border border-white/10 bg-white/[0.03]" />
+                  <span className="mt-4 block text-sm leading-6 text-white/62">
+                    Sesiones reales, piezas sociales y registros de performance
+                    convertidos en presencia artistica.
+                  </span>
+                </span>
+              </PlayableVideo>
             </div>
           </div>
         </div>

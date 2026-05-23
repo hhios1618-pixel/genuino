@@ -29,8 +29,8 @@ export default function ProjectCard({
   return (
     <motion.a
       href={href}
-      data-cursor="PLAY"
-      data-cursor-mode="media"
+      data-cursor="Ver"
+      data-cursor-mode="link"
       className={`bento-card group relative min-h-[360px] overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] ${className}`}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
