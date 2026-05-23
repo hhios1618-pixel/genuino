@@ -156,31 +156,43 @@ export const projects = [
 export const tracks = [
   {
     title: "Historia",
-    role: "Video oficial",
+    role: "GENUINO \"HISTORIA\"",
     duration: "YouTube",
-    mood: "Relato / identidad",
+    mood: "Narrativa de origen, identidad y presencia GFam.",
     href: "https://www.youtube.com/watch?v=aJG0zRex7EU",
+    videoId: "aJG0zRex7EU",
   },
   {
     title: "Champagne",
     role: "Fran G Genuino feat. Afy",
     duration: "YouTube",
-    mood: "Urbano / colaboracion",
+    mood: "Colaboracion urbana con lectura de lanzamiento.",
     href: "https://www.youtube.com/watch?v=bPJhFwQz_Ok",
+    videoId: "bPJhFwQz_Ok",
   },
   {
     title: "Caribe",
     role: "Colaboracion oficial",
     duration: "YouTube",
-    mood: "Movimiento / verano",
+    mood: "Cruce de artistas, energia radial y audiovisual.",
     href: "https://www.youtube.com/watch?v=0cJH7mw8dKM",
+    videoId: "0cJH7mw8dKM",
   },
   {
     title: "Diosa",
     role: "Genuino x Campbell G",
     duration: "YouTube",
-    mood: "Video oficial / GFam",
+    mood: "Video oficial con lenguaje urbano y marca Genuino Family.",
     href: "https://www.youtube.com/watch?v=IMRNuKaX9qM",
+    videoId: "IMRNuKaX9qM",
+  },
+  {
+    title: "Pensandote",
+    role: "Fran G Genuino",
+    duration: "YouTube",
+    mood: "Lyrics video para sostener catalogo y audiencia.",
+    href: "https://www.youtube.com/watch?v=BJMqy8UdpK8",
+    videoId: "BJMqy8UdpK8",
   },
 ];
 

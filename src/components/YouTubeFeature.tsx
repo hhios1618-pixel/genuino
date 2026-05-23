@@ -38,7 +38,7 @@ export default function YouTubeFeature({
     <button
       type="button"
       onClick={() => setPlaying(true)}
-      className="group absolute inset-0 block overflow-hidden text-left"
+      className="group absolute inset-0 block overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]"
       aria-label={`Reproducir ${title}`}
     >
       <Image
