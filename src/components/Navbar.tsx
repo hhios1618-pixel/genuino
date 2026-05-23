@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import GenuinoLogo from "@/components/GenuinoLogo";
 import { navItems } from "@/data/site";
 
 export default function Navbar() {
@@ -9,12 +10,12 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
-      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#070707]/70 px-4 text-sm text-white/82 shadow-2xl shadow-black/25 backdrop-blur-xl sm:px-5">
-        <a href="#inicio" className="flex items-center gap-3" aria-label="Ir al inicio">
-          <span className="grid size-8 place-items-center rounded-full border border-[#d8b76b]/35 bg-[#d8b76b]/10 text-[11px] font-medium text-[#f8e7b3]">
-            G
-          </span>
-          <span className="font-medium tracking-[0.22em] text-white">GENUINO</span>
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#070707]/70 px-4 text-sm text-white/82 shadow-2xl shadow-black/25 backdrop-blur-xl sm:px-5">
+        <a href="#inicio" className="flex items-center" aria-label="Ir al inicio">
+          <GenuinoLogo
+            className="h-12 w-24 text-white transition hover:text-[#f8e7b3]"
+          />
+          <span className="sr-only">Genuino</span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
