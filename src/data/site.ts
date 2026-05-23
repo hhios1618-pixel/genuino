@@ -127,6 +127,8 @@ export const projects = [
     year: "2026",
     description:
       "Union creativa junto a Go para refrescar la escena con cruces de pop, urbano y energia de colaboracion.",
+    image: artistProfileImages[1].src,
+    href: "#video",
     palette: "from-[#d8b76b]/28 via-[#2a2418] to-[#060606]",
   },
   {
@@ -135,6 +137,8 @@ export const projects = [
     year: "2025",
     description:
       "Participaciones y producciones audiovisuales junto a El Maestro, conectando generaciones y escenas.",
+    image: media.cocoaCollaboration,
+    href: "#video",
     palette: "from-[#5d6b5c]/34 via-[#171d18] to-[#050505]",
   },
   {
@@ -143,6 +147,8 @@ export const projects = [
     year: "2025",
     description:
       "Historia, Diosa, Champagne, Caribe y piezas propias que sostienen una identidad urbana chilena en expansion.",
+    image: "https://i.ytimg.com/vi/aJG0zRex7EU/hqdefault.jpg",
+    href: "#sonido",
     palette: "from-[#a96f49]/32 via-[#23140f] to-[#070606]",
   },
 ];
@@ -151,30 +157,66 @@ export const tracks = [
   {
     title: "Historia",
     role: "Video oficial",
-    duration: "02:48",
+    duration: "YouTube",
     mood: "Relato / identidad",
+    href: "https://www.youtube.com/watch?v=aJG0zRex7EU",
   },
   {
     title: "Champagne",
     role: "Fran G Genuino feat. Afy",
-    duration: "01:36",
+    duration: "YouTube",
     mood: "Urbano / colaboracion",
+    href: "https://www.youtube.com/watch?v=bPJhFwQz_Ok",
   },
   {
     title: "Caribe",
     role: "Colaboracion oficial",
-    duration: "03:21",
+    duration: "YouTube",
     mood: "Movimiento / verano",
+    href: "https://www.youtube.com/watch?v=0cJH7mw8dKM",
+  },
+  {
+    title: "Diosa",
+    role: "Genuino x Campbell G",
+    duration: "YouTube",
+    mood: "Video oficial / GFam",
+    href: "https://www.youtube.com/watch?v=IMRNuKaX9qM",
   },
 ];
 
 export const gallery = [
-  { label: "Sala de control", tone: "from-[#1b1712] to-[#050505]" },
-  { label: "Sesion vocal", tone: "from-[#24170f] to-[#080706]" },
-  { label: "Sintesis", tone: "from-[#162018] to-[#050505]" },
-  { label: "Rodaje", tone: "from-[#241f15] to-[#070707]" },
-  { label: "Ensayo", tone: "from-[#161616] to-[#080807]" },
-  { label: "Detalle analogico", tone: "from-[#2a1a11] to-[#050505]" },
+  {
+    label: "Cabina de voz",
+    category: "Produccion musical",
+    src: artistProfileImages[0].src,
+  },
+  {
+    label: "Red de colaboraciones",
+    category: "TV / escena",
+    src: artistProfileImages[1].src,
+  },
+  {
+    label: "Presencia publica",
+    category: "Posicionamiento",
+    src: artistProfileImages[2].src,
+  },
+  {
+    label: "Imagen artistica",
+    category: "Direccion visual",
+    src: artistProfileImages[3].src,
+  },
+  {
+    label: "Cocoa Record Studio",
+    category: "Colaboracion",
+    src: media.cocoaCollaboration,
+    kind: "video",
+  },
+  {
+    label: "Sesion Genuino",
+    category: "Estudio",
+    src: media.studioSession,
+    kind: "video",
+  },
 ];
 
 export const videos = [

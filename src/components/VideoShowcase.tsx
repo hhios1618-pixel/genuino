@@ -1,10 +1,6 @@
 import { Film, Play } from "lucide-react";
-import Image from "next/image";
+import YouTubeFeature from "@/components/YouTubeFeature";
 import { officialProductions, videos } from "@/data/site";
-
-function youtubeThumbnail(videoId: string) {
-  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-}
 
 export default function VideoShowcase() {
   const [featuredProduction, ...secondaryProductions] = officialProductions;
@@ -29,30 +25,13 @@ export default function VideoShowcase() {
 
         <div className="mb-12 overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] shadow-2xl shadow-black/35">
           <div className="grid lg:grid-cols-[1.45fr_0.55fr]">
-            <a
-              href={`https://www.youtube.com/watch?v=${featuredProduction.videoId}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group/feature relative block aspect-video overflow-hidden bg-black"
-              aria-label={`Ver ${featuredProduction.title} en YouTube`}
-            >
-              <Image
-                src={youtubeThumbnail(featuredProduction.videoId)}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 60vw, 100vw"
-                className="object-cover opacity-88 transition duration-700 group-hover/feature:scale-[1.035]"
+            <div className="relative aspect-video overflow-hidden bg-black">
+              <YouTubeFeature
+                title={featuredProduction.title}
+                videoId={featuredProduction.videoId}
+                featured
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0.52)),linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
-              <div className="absolute left-6 top-6 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
-                YouTube oficial
-              </div>
-              <div className="absolute inset-0 grid place-items-center">
-                <span className="grid size-18 place-items-center rounded-full border border-white/18 bg-white/12 text-white shadow-2xl backdrop-blur-md transition group-hover/feature:scale-105">
-                  <Play size={22} fill="currentColor" />
-                </span>
-              </div>
-            </a>
+            </div>
             <div className="flex flex-col justify-between p-6 md:p-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
@@ -68,14 +47,9 @@ export default function VideoShowcase() {
                   {featuredProduction.description}
                 </p>
               </div>
-              <a
-                href={`https://www.youtube.com/watch?v=${featuredProduction.videoId}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-[#d8b76b]/34 px-5 text-sm font-medium text-[#f8e7b3] transition hover:bg-[#d8b76b]/10"
-              >
-                Ver en YouTube
-              </a>
+              <p className="mt-8 rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-white/50">
+                Pulsa la portada para reproducir el video completo dentro de esta pagina.
+              </p>
             </div>
           </div>
         </div>
@@ -86,28 +60,9 @@ export default function VideoShowcase() {
               key={production.videoId}
               className="overflow-hidden rounded-[1.6rem] border hairline bg-[#0b0a09]"
             >
-              <a
-                href={`https://www.youtube.com/watch?v=${production.videoId}`}
-                target="_blank"
-                rel="noreferrer"
-                className="group/thumb relative block aspect-video overflow-hidden bg-black"
-                aria-label={`Ver ${production.title} en YouTube`}
-              >
-                <Image
-                  src={youtubeThumbnail(production.videoId)}
-                  alt=""
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  loading="lazy"
-                  className="object-cover opacity-90 transition duration-700 group-hover/thumb:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.68))]" />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="grid size-13 place-items-center rounded-full border border-white/16 bg-white/12 text-white backdrop-blur-md transition group-hover/thumb:scale-105">
-                    <Play size={17} fill="currentColor" />
-                  </span>
-                </div>
-              </a>
+              <div className="relative aspect-video overflow-hidden bg-black">
+                <YouTubeFeature title={production.title} videoId={production.videoId} />
+              </div>
               <div className="p-6">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>

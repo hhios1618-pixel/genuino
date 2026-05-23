@@ -31,7 +31,7 @@ export default function Contact() {
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
             Cuéntanos si necesitas producir una cancion, crear melodias y letras,
             desarrollar videoclip, abrir entrevistas en medios o posicionar tu carrera.
-            Respondemos con una ruta clara, no con una plantilla.
+            Respondemos con una ruta clara, aterrizada y accionable.
           </p>
 
           <div className="mt-10 grid gap-3">
@@ -79,7 +79,7 @@ export default function Contact() {
                 required
                 name="project"
                 className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="Cancion, EP, marca, videoclip, demo..."
+                placeholder="Cancion, EP, lanzamiento, videoclip, prensa..."
               />
             </label>
             <label className="grid gap-2 text-sm text-white/66 sm:col-span-2">

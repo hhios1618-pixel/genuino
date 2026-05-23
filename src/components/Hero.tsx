@@ -22,27 +22,27 @@ export default function Hero() {
       <div className="section-shell relative z-10 grid min-h-[calc(92svh-7rem)] items-end gap-10 pb-14 md:grid-cols-[1.02fr_0.78fr] md:pb-20">
         <div className="animate-lift-in max-w-3xl">
           <p className="mb-5 text-xs font-medium uppercase tracking-[0.36em] text-[#d8b76b]">
-            Productora musical boutique
+            Fran G Genuino / Genuino Family
           </p>
           <h1 className="max-w-3xl text-[clamp(3.25rem,9vw,6.7rem)] font-medium leading-[0.95] tracking-[-0.04em] text-white">
             Genuino
           </h1>
           <p className="mt-7 max-w-2xl text-balance text-lg leading-8 text-white/78 md:text-xl">
-            Produccion musical, identidad sonora y direccion creativa para artistas
-            que necesitan sonar con verdad, verse con fuerza y sostener una obra.
+            Produccion urbana, marketing artistico y desarrollo de carrera para
+            artistas que necesitan canciones, imagen, prensa y posicionamiento real.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               href="#proyectos"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
             >
-              Ver obra y trayectoria <ArrowDownRight size={16} />
+              Ver catalogo y prueba social <ArrowDownRight size={16} />
             </a>
             <a
               href="#contacto"
               className="ghost-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-medium text-white/90 transition hover:-translate-y-0.5 hover:border-[#d8b76b]/50"
             >
-              Produzcamos algo serio
+              Desarrollar mi carrera
             </a>
           </div>
         </div>

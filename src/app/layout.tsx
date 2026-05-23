@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Genuino | Productora musical boutique",
+  title: "Genuino Music | Fran G Genuino",
   description:
-    "Productora musical para artistas, marcas y piezas audiovisuales con identidad sonora, criterio creativo y precision tecnica.",
+    "Productora musical y plataforma artistica de Fran G Genuino: produccion urbana, desarrollo de artistas, videoclips, prensa y marketing artistico.",
   keywords: [
     "Genuino",
     "productora musical",
@@ -23,12 +23,14 @@ export const metadata: Metadata = {
     "mezcla",
     "mastering",
     "direccion artistica",
-    "musica para marcas",
+    "marketing artistico",
+    "Fran G Genuino",
+    "Genuino Family",
   ],
   openGraph: {
-    title: "Genuino | Productora musical boutique",
+    title: "Genuino Music | Fran G Genuino",
     description:
-      "Sonido, produccion, mezcla y direccion creativa para proyectos musicales con identidad real.",
+      "Produccion urbana, desarrollo de artistas, videoclips, prensa y marketing artistico desde Genuino Family.",
     type: "website",
     locale: "es_CL",
   },

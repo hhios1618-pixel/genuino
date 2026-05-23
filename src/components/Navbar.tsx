@@ -18,7 +18,7 @@ export default function Navbar() {
           <span className="sr-only">Genuino</span>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -32,7 +32,7 @@ export default function Navbar() {
 
         <a
           href="#contacto"
-          className="hidden rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 md:inline-flex"
+          className="hidden rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 lg:inline-flex"
         >
           Conversemos
         </a>
@@ -40,7 +40,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="grid size-10 place-items-center rounded-full border border-white/10 text-white md:hidden"
+          className="grid size-10 place-items-center rounded-full border border-white/10 text-white lg:hidden"
           aria-label={open ? "Cerrar menu" : "Abrir menu"}
         >
           {open ? <X size={18} /> : <Menu size={18} />}
@@ -48,7 +48,7 @@ export default function Navbar() {
       </nav>
 
       {open ? (
-        <div className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/10 bg-[#070707]/92 p-2 text-sm text-white/78 shadow-2xl backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/10 bg-[#070707]/92 p-2 text-sm text-white/78 shadow-2xl backdrop-blur-xl lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="section-shell flex flex-col gap-6 text-sm text-white/48 md:flex-row md:items-center md:justify-between">
         <div>
           <GenuinoLogo className="h-24 w-44 text-white" />
-          <p className="mt-2">Productora musical boutique. Santiago / remoto.</p>
+          <p className="mt-2">Genuino Music / Genuino Family. Valparaiso, Chile.</p>
         </div>
         <div className="flex flex-wrap gap-4">
           {footerLinks.map((link) => (
