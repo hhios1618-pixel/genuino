@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Play } from "lucide-react";
 import { useState } from "react";
+import { blurDataUrl } from "@/data/site";
 
 type YouTubeFeatureProps = {
   title: string;
@@ -39,6 +40,7 @@ export default function YouTubeFeature({
       type="button"
       onClick={() => setPlaying(true)}
       data-cursor="Play"
+      data-cursor-mode="media"
       className="group absolute inset-0 block overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]"
       aria-label={`Reproducir ${title}`}
     >
@@ -47,6 +49,8 @@ export default function YouTubeFeature({
         alt=""
         fill
         loading={featured ? "eager" : "lazy"}
+        placeholder="blur"
+        blurDataURL={blurDataUrl}
         sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
         className="glitch-media object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
       />

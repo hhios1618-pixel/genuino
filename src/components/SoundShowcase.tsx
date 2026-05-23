@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
 import YouTubeFeature from "@/components/YouTubeFeature";
-import { tracks } from "@/data/site";
+import { blurDataUrl, tracks } from "@/data/site";
 
 function thumbnail(videoId: string) {
   return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
@@ -26,7 +26,7 @@ export default function SoundShowcase() {
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Catalogo audiovisual
             </p>
-            <h2 className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
+            <h2 data-reveal-title className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Videoclips que muestran sonido, imagen y movimiento real.
             </h2>
           </div>
@@ -96,6 +96,7 @@ export default function SoundShowcase() {
                   type="button"
                   onClick={() => setActive(index)}
                   data-cursor="Play"
+                  data-cursor-mode="media"
                   className={`group relative h-40 min-w-[235px] overflow-hidden rounded-[1.25rem] border text-left transition md:h-48 md:min-w-[310px] ${
                     active === index
                       ? "border-[#d8b76b]/60"
@@ -106,6 +107,8 @@ export default function SoundShowcase() {
                     src={thumbnail(track.videoId)}
                     alt=""
                     fill
+                    placeholder="blur"
+                    blurDataURL={blurDataUrl}
                     sizes="320px"
                     className="glitch-media object-cover opacity-86 transition duration-500 group-hover:scale-[1.04]"
                   />

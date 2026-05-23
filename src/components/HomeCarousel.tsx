@@ -1,0 +1,153 @@
+"use client";
+
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { blurDataUrl, media, projects, tracks } from "@/data/site";
+
+const slides = [
+  {
+    eyebrow: "Ahora",
+    title: "Produccion, catalogo y presencia visual en una sola firma.",
+    body: "Un home corto para decidir rapido: sonido, imagen, prueba social y contacto directo.",
+    image: media.studioSession,
+    kind: "video",
+    href: "/proyectos",
+  },
+  {
+    eyebrow: projects[1].year,
+    title: projects[1].title,
+    body: projects[1].description,
+    image: projects[1].image,
+    kind: "video",
+    href: "/video",
+  },
+  {
+    eyebrow: tracks[0].duration,
+    title: tracks[0].title,
+    body: tracks[0].mood,
+    image: `https://i.ytimg.com/vi/${tracks[0].videoId}/hqdefault.jpg`,
+    kind: "image",
+    href: "/sonido",
+  },
+];
+
+export default function HomeCarousel() {
+  const [active, setActive] = useState(0);
+  const slide = slides[active];
+
+  function move(direction: number) {
+    setActive((current) => (current + direction + slides.length) % slides.length);
+  }
+
+  return (
+    <section className="border-y hairline bg-[#080807] py-16 md:py-20">
+      <div className="section-shell">
+        <div className="mb-8 flex items-end justify-between gap-6" data-reveal>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
+              Seleccion viva
+            </p>
+            <h2 data-reveal-title className="mt-4 max-w-3xl text-3xl font-medium text-white md:text-5xl">
+              Lo esencial, sin scroll infinito.
+            </h2>
+          </div>
+          <div className="hidden gap-3 md:flex">
+            <button
+              type="button"
+              onClick={() => move(-1)}
+              data-cursor="Prev"
+              data-cursor-mode="link"
+              className="grid size-12 place-items-center rounded-full border border-white/12 text-white/72 transition hover:border-[#d8b76b]/50 hover:text-[#f8e7b3]"
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => move(1)}
+              data-cursor="Next"
+              data-cursor-mode="link"
+              className="grid size-12 place-items-center rounded-full border border-white/12 text-white/72 transition hover:border-[#d8b76b]/50 hover:text-[#f8e7b3]"
+              aria-label="Siguiente"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid overflow-hidden rounded-[2rem] border hairline bg-[#0b0a09] lg:grid-cols-[1.2fr_0.8fr]" data-reveal>
+          <Link
+            href={slide.href}
+            data-cursor="PLAY"
+            data-cursor-mode="media"
+            className="group relative min-h-[460px] overflow-hidden bg-black"
+          >
+            {slide.kind === "video" ? (
+              <video
+                className="glitch-media h-[112%] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                src={slide.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                data-parallax-media
+              />
+            ) : (
+              <Image
+                src={slide.image}
+                alt=""
+                fill
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                className="glitch-media object-cover transition duration-700 group-hover:scale-[1.04]"
+                data-parallax-media
+              />
+            )}
+            <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]" />
+            <span className="absolute inset-0 grid place-items-center">
+              <span className="grid size-16 place-items-center rounded-full border border-white/18 bg-white/12 text-white backdrop-blur-md">
+                <Play size={20} fill="currentColor" />
+              </span>
+            </span>
+          </Link>
+
+          <div className="flex flex-col justify-between p-6 md:p-9">
+            <div data-parallax-text>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">{slide.eyebrow}</p>
+              <h3 className="mt-5 text-3xl font-medium text-white md:text-5xl">{slide.title}</h3>
+              <p className="editorial-serif mt-6 text-2xl leading-8 text-white/68">{slide.body}</p>
+            </div>
+            <div className="mt-10 flex items-center justify-between gap-5">
+              <div className="flex gap-2">
+                {slides.map((item, index) => (
+                  <button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setActive(index)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      active === index ? "w-10 bg-[#d8b76b]" : "w-4 bg-white/20"
+                    }`}
+                    aria-label={`Ver slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <Link
+                href={slide.href}
+                data-magnetic
+                data-cursor="Abrir"
+                data-cursor-mode="link"
+                className="premium-cta inline-flex h-12 items-center justify-center gap-3 rounded-full px-6 text-sm font-semibold text-[#090806]"
+              >
+                Entrar <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

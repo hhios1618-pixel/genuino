@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowDownRight, Award, Mic2, Users } from "lucide-react";
-import { artistProfileImages } from "@/data/site";
+import { artistProfileImages, blurDataUrl } from "@/data/site";
 
 export default function About() {
   const [studio, collab, redCarpet, hall] = artistProfileImages;
@@ -13,7 +13,7 @@ export default function About() {
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Perfil artistico
             </p>
-            <h2 className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
+            <h2 data-reveal-title className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Fran G Genuino: una firma urbana con presencia, estudio y red.
             </h2>
           </div>
@@ -33,9 +33,11 @@ export default function About() {
                 alt={studio.alt}
                 fill
                 priority
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
                 sizes="(min-width: 1024px) 58vw, 100vw"
                 className="glitch-media object-cover"
-                data-parallax
+                data-parallax-media
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16),rgba(0,0,0,0.72)),linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.88))]" />
               <div className="absolute left-5 top-5 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
@@ -84,9 +86,11 @@ export default function About() {
                     src={image.src}
                     alt={image.alt}
                     fill
+                    placeholder="blur"
+                    blurDataURL={blurDataUrl}
                     sizes="(min-width: 1024px) 38vw, (min-width: 640px) 50vw, 100vw"
                     className="glitch-media object-cover"
-                    data-parallax
+                    data-parallax-media
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.74))]" />
                   <figcaption className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 text-sm text-white">
@@ -112,9 +116,10 @@ export default function About() {
             </p>
           </div>
           <a
-            href="#contacto"
+            href="/contacto"
             data-magnetic
             data-cursor="Contacto"
+            data-cursor-mode="link"
             className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
           >
             Activar una produccion <ArrowDownRight size={16} />

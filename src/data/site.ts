@@ -12,14 +12,16 @@ import {
 } from "lucide-react";
 import { mediaUrl } from "@/lib/supabase/media";
 
+export const blurDataUrl =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIHZpZXdCb3g9JzAgMCAxNiAxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIGZpbGw9JyMwNTA1MDUnLz48Y2lyY2xlIGN4PScxMicgY3k9JzYnIHI9JzYnIGZpbGw9JyNkOGI3NmInIG9wYWNpdHk9Jy4zJy8+PC9zdmc+";
+
 export const navItems = [
-  { label: "Concepto", href: "#concepto" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Sonido", href: "#sonido" },
-  { label: "Video", href: "#video" },
-  { label: "Perfil", href: "#sobre" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Sonido", href: "/sonido" },
+  { label: "Video", href: "/video" },
+  { label: "Perfil", href: "/perfil" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export const media = {

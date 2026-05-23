@@ -13,7 +13,7 @@ export default function VideoShowcase() {
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Video showcase
             </p>
-            <h2 className="mt-5 text-3xl font-medium text-white md:text-4xl">
+            <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-4xl">
               Fran G Genuino: catalogo, presencia y obra en pantalla.
             </h2>
           </div>
@@ -60,6 +60,7 @@ export default function VideoShowcase() {
               key={production.videoId}
               className="bento-card overflow-hidden rounded-[1.6rem] border hairline bg-[#0b0a09]"
               data-cursor="Play"
+              data-cursor-mode="media"
             >
               <div className="relative aspect-video overflow-hidden bg-black">
                 <YouTubeFeature title={production.title} videoId={production.videoId} />
@@ -98,6 +99,7 @@ export default function VideoShowcase() {
             <article
               key={video.title}
               data-cursor="Play"
+              data-cursor-mode="media"
               className={`bento-card group overflow-hidden rounded-[1.7rem] border hairline bg-[#0b0a09] ${
                 index === 1 ? "lg:col-span-7" : "lg:col-span-5"
               }`}
@@ -112,7 +114,7 @@ export default function VideoShowcase() {
                   controls
                   preload="metadata"
                   aria-label={video.title}
-                  data-parallax
+                  data-parallax-media
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.34)_60%,rgba(0,0,0,0.68))]" />
                 <div className="pointer-events-none absolute inset-x-5 top-5 flex items-center justify-between gap-3">

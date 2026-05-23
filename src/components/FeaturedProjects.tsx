@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/site";
 
 export default function FeaturedProjects() {
@@ -11,7 +10,7 @@ export default function FeaturedProjects() {
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Trayectoria y posicionamiento
             </p>
-            <h2 className="mt-5 text-3xl font-medium text-white md:text-5xl">
+            <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
               Prueba social: red, catalogo y colaboraciones.
             </h2>
           </div>
@@ -24,52 +23,15 @@ export default function FeaturedProjects() {
 
         <div className="grid auto-rows-[minmax(420px,auto)] gap-5 lg:grid-cols-12" data-stagger>
           {projects.map((project, index) => (
-            <a
+            <ProjectCard
               key={project.title}
-              href={project.href}
-              data-cursor="Abrir"
-              className={`bento-card group overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] transition hover:-translate-y-1 hover:border-[#d8b76b]/34 ${
+              {...project}
+              href={project.href.startsWith("#") ? "/proyectos" : project.href}
+              wide={index === 2}
+              className={`${
                 index === 0 ? "lg:col-span-5" : ""
               } ${index === 1 ? "lg:col-span-7" : ""} ${index === 2 ? "lg:col-span-12" : ""}`}
-            >
-              <div className={`relative overflow-hidden bg-black ${index === 2 ? "aspect-[1.85]" : "aspect-[1.1]"}`}>
-                {project.image.endsWith(".mp4") ? (
-                  <video
-                    className="glitch-media h-[112%] w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
-                    src={project.image}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    preload="metadata"
-                    data-parallax
-                  />
-                ) : (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="glitch-media object-cover opacity-90 transition duration-700 group-hover:scale-[1.045]"
-                    data-parallax
-                  />
-                )}
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.78))]" />
-                <div className="absolute inset-x-5 top-5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-white/58">
-                  <span>{project.type}</span>
-                  <span>{project.year}</span>
-                </div>
-                <div className="absolute bottom-5 right-5 grid size-11 place-items-center rounded-full border border-white/14 bg-black/22 text-white backdrop-blur-md transition group-hover:translate-x-1 group-hover:-translate-y-1">
-                  <ArrowUpRight size={18} />
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-medium text-white">
-                  {project.title}
-                </h3>
-                <p className="mt-5 text-sm leading-7 text-white/62">{project.description}</p>
-              </div>
-            </a>
+            />
           ))}
         </div>
       </div>

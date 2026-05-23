@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { gallery } from "@/data/site";
+import { blurDataUrl, gallery } from "@/data/site";
 
 export default function Gallery() {
   return (
@@ -10,7 +10,7 @@ export default function Gallery() {
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Prueba visual
             </p>
-            <h2 className="mt-5 text-3xl font-medium text-white md:text-5xl">
+            <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
               Estudio, colaboraciones y presencia publica real.
             </h2>
           </div>
@@ -26,6 +26,7 @@ export default function Gallery() {
             <figure
               key={item.label}
               data-cursor={item.kind === "video" ? "Play" : "Ver"}
+              data-cursor-mode={item.kind === "video" ? "media" : "link"}
               className={`bento-card group relative overflow-hidden rounded-[1.35rem] border hairline bg-black ${
                 index === 0 ? "md:col-span-3 md:row-span-2" : ""
               } ${index === 1 ? "md:col-span-3" : ""} ${
@@ -41,16 +42,18 @@ export default function Gallery() {
                   playsInline
                   autoPlay
                   preload="metadata"
-                  data-parallax
+                  data-parallax-media
                 />
               ) : (
                 <Image
                   src={item.src}
                   alt={item.label}
                   fill
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl}
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="glitch-media object-cover transition duration-700 group-hover:scale-[1.045]"
-                  data-parallax
+                  data-parallax-media
                 />
               )}
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.76))]" />

@@ -33,17 +33,19 @@ export default function Hero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#proyectos"
+              href="/proyectos"
               data-magnetic
               data-cursor="Explorar"
+              data-cursor-mode="link"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
             >
               Ver catalogo y prueba social <ArrowDownRight size={16} />
             </a>
             <a
-              href="#contacto"
+              href="/contacto"
               data-magnetic
               data-cursor="Contacto"
+              data-cursor-mode="link"
               className="ghost-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-medium text-white/90 transition hover:-translate-y-0.5 hover:border-[#d8b76b]/50"
             >
               Desarrollar mi carrera
@@ -63,7 +65,7 @@ export default function Hero() {
                 playsInline
                 preload="metadata"
                 aria-label="Sesion de estudio Genuino"
-                data-parallax
+                data-parallax-media
               />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.12),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.84))]" />
               <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/48">

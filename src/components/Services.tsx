@@ -8,7 +8,7 @@ export default function Services() {
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Servicios
           </p>
-          <h2 className="mt-5 text-3xl font-medium text-white md:text-4xl">
+          <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-4xl">
             Un estudio para pensar, producir y terminar musica con altura.
           </h2>
         </div>

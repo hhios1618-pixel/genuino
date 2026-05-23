@@ -25,7 +25,7 @@ export default function Contact() {
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Contacto
           </p>
-          <h2 className="mt-5 max-w-xl text-3xl font-medium text-white md:text-4xl">
+          <h2 data-reveal-title className="mt-5 max-w-xl text-3xl font-medium text-white md:text-4xl">
             Hablemos si el proyecto necesita direccion, exposicion y resultado.
           </h2>
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">

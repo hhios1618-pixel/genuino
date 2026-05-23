@@ -6,7 +6,7 @@ export default function Manifesto() {
           <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
             Manifiesto
           </p>
-          <h2 className="mt-5 max-w-sm text-3xl font-medium text-white md:text-4xl">
+          <h2 data-reveal-title className="mt-5 max-w-sm text-3xl font-medium text-white md:text-4xl">
             Una productora para convertir talento en carrera.
           </h2>
         </div>
