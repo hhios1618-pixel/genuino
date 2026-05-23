@@ -1,11 +1,21 @@
 import { ArrowDownRight, Play } from "lucide-react";
+import { media } from "@/data/site";
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-[92svh] overflow-hidden pt-28">
       <div className="absolute inset-0 opacity-75">
-        <div className="studio-texture animate-slow-pan absolute inset-[-4%]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92),rgba(5,5,5,0.42)_54%,rgba(5,5,5,0.84))]" />
+        <video
+          className="animate-slow-pan absolute inset-[-4%] h-[108%] w-[108%] object-cover"
+          src={media.liveSession}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Registro audiovisual de Genuino en vivo"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.94),rgba(5,5,5,0.56)_46%,rgba(5,5,5,0.9)),linear-gradient(180deg,rgba(5,5,5,0.28),rgba(5,5,5,0.74))]" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
@@ -17,9 +27,9 @@ export default function Hero() {
           <h1 className="max-w-3xl text-[clamp(3.25rem,9vw,6.7rem)] font-medium leading-[0.95] tracking-[-0.04em] text-white">
             Genuino
           </h1>
-          <p className="mt-7 max-w-2xl text-balance text-lg leading-8 text-white/74 md:text-xl">
-            Produccion musical, identidad sonora y direccion creativa para obras
-            que necesitan criterio, profundidad y una firma propia.
+          <p className="mt-7 max-w-2xl text-balance text-lg leading-8 text-white/78 md:text-xl">
+            Produccion musical, identidad sonora y direccion creativa para artistas
+            que necesitan sonar con verdad, verse con fuerza y sostener una obra.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
@@ -39,11 +49,21 @@ export default function Hero() {
 
         <div className="cinematic-panel relative mb-2 overflow-hidden rounded-[2rem] p-4">
           <div className="aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
-            <div className="studio-texture relative h-full">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.2),transparent_28%),linear-gradient(180deg,transparent,rgba(0,0,0,0.78))]" />
+            <div className="relative h-full">
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                src={media.studioSession}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Sesion de estudio Genuino"
+              />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.12),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.84))]" />
               <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/48">
-                <span>Hero video</span>
-                <span>Replace / assets</span>
+                <span>Studio footage</span>
+                <span>Genuino actual</span>
               </div>
               <div className="absolute inset-0 grid place-items-center">
                 <div className="grid size-16 place-items-center rounded-full border border-white/18 bg-white/10 text-white backdrop-blur-md">
@@ -53,8 +73,8 @@ export default function Hero() {
               <div className="absolute inset-x-6 bottom-6">
                 <div className="waveform h-14 rounded-full border border-white/10 bg-white/[0.03]" />
                 <p className="mt-4 text-sm leading-6 text-white/62">
-                  Espacio listo para video de fondo, still de estudio o pieza de
-                  campana.
+                  Sesiones reales, piezas sociales y registros de performance
+                  convertidos en presencia artistica.
                 </p>
               </div>
             </div>

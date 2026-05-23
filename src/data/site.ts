@@ -13,8 +13,19 @@ export const navItems = [
   { label: "Servicios", href: "#servicios" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Sonido", href: "#sonido" },
+  { label: "Video", href: "#video" },
   { label: "Contacto", href: "#contacto" },
 ];
+
+export const media = {
+  studioSession:
+    "/¡Así se vive una sesión con los grandes! 🎥🔥Les dejamos un minuto de pura magia en el estudio. .mp4",
+  phoneMoment: "/Pongan Sus Telefonos Celulares En ✈️🎹🎙️🔴.mp4",
+  liveSession:
+    "/Suéltate Ma en Vivo por x IG 🎄🧡 Sorpresa para ustedes! Feliz navidad 🎁 %23SueltateMaLive.mp4",
+  careerStep:
+    "/Me siento muy feliz y orgulloso de este nuevo paso en mi carrera junto a uno de los más grandes .mp4",
+};
 
 export const services = [
   {
@@ -114,14 +125,36 @@ export const gallery = [
 
 export const videos = [
   {
-    title: "Live session",
-    description: "Bloque preparado para insertar un video de YouTube, Vimeo o archivo local.",
-    meta: "Formato 16:9",
+    title: "Sesion con los grandes",
+    description:
+      "Un registro de estudio con energia real: direccion, interpretacion y criterio musical ocurriendo en la misma sala.",
+    meta: "Estudio / vertical",
+    src: media.studioSession,
+    format: "portrait",
   },
   {
-    title: "Proceso creativo",
-    description: "Espacio para behind the scenes, direccion de voces o registro de estudio.",
-    meta: "Embed futuro",
+    title: "Suéltate Ma en vivo",
+    description:
+      "Performance extendida para mostrar presencia, audiencia y oficio en un formato listo para campanas y lanzamientos.",
+    meta: "Live / horizontal",
+    src: media.liveSession,
+    format: "wide",
+  },
+  {
+    title: "Modo avion",
+    description:
+      "Un momento breve, directo y memorable: ideal para piezas sociales con impacto inmediato y lectura musical clara.",
+    meta: "Social / vertical",
+    src: media.phoneMoment,
+    format: "portrait",
+  },
+  {
+    title: "Nuevo paso",
+    description:
+      "Contenido emocional de carrera, pensado para amplificar hitos artisticos con una narrativa visual cuidada.",
+    meta: "Artist story / vertical",
+    src: media.careerStep,
+    format: "portrait",
   },
 ];
 
