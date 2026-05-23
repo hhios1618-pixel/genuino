@@ -26,12 +26,12 @@ export default function Contact() {
             Contacto
           </p>
           <h2 className="mt-5 max-w-xl text-3xl font-medium tracking-[-0.03em] text-white md:text-4xl">
-            Hablemos cuando la musica tenga algo que resolver.
+            Hablemos si el proyecto necesita direccion, exposicion y resultado.
           </h2>
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
-            Cuéntanos que estas construyendo, en que punto esta el proyecto y que
-            nivel de acompanamiento necesitas. Respondemos con una ruta clara, no
-            con una plantilla.
+            Cuéntanos si necesitas producir una cancion, crear melodias y letras,
+            desarrollar videoclip, abrir entrevistas en medios o posicionar tu carrera.
+            Respondemos con una ruta clara, no con una plantilla.
           </p>
 
           <div className="mt-10 grid gap-3">
@@ -114,13 +114,13 @@ export default function Contact() {
 
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs leading-5 text-white/42">
-              Preparado para conectar a Supabase cuando existan credenciales.
+              Preparado para registrar consultas en Supabase.
             </p>
             <button
               type="submit"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#f4f1ea] px-6 text-sm font-medium text-[#080706] transition hover:bg-white"
+              className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706] transition hover:-translate-y-0.5"
             >
-              Enviar consulta <ArrowRight size={16} />
+              Abrir conversacion <ArrowRight size={16} />
             </button>
           </div>
 

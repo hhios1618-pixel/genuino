@@ -34,15 +34,15 @@ export default function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               href="#proyectos"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#f4f1ea] px-6 text-sm font-medium text-[#090806] transition hover:bg-white"
+              className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
             >
-              Ver proyectos
+              Ver obra y trayectoria <ArrowDownRight size={16} />
             </a>
             <a
               href="#contacto"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/14 px-6 text-sm font-medium text-white/88 transition hover:border-[#d8b76b]/50 hover:bg-white/7"
+              className="ghost-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-medium text-white/90 transition hover:-translate-y-0.5 hover:border-[#d8b76b]/50"
             >
-              Conversemos <ArrowDownRight size={16} />
+              Produzcamos algo serio
             </a>
           </div>
         </div>

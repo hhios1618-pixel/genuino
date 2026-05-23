@@ -5,8 +5,12 @@ import {
   Mic2,
   PenLine,
   Radio,
+  Send,
   SlidersHorizontal,
+  Sparkles,
+  Tv,
 } from "lucide-react";
+import { mediaUrl } from "@/lib/supabase/media";
 
 export const navItems = [
   { label: "Concepto", href: "#concepto" },
@@ -14,26 +18,62 @@ export const navItems = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Sonido", href: "#sonido" },
   { label: "Video", href: "#video" },
+  { label: "Perfil", href: "#sobre" },
   { label: "Contacto", href: "#contacto" },
 ];
 
 export const media = {
-  studioSession:
+  logo: mediaUrl("brand/genuino-logo.svg", "/genuino-logo.svg"),
+  studioSession: mediaUrl(
+    "videos/studio-session.mp4",
     "/¡Así se vive una sesión con los grandes! 🎥🔥Les dejamos un minuto de pura magia en el estudio. .mp4",
-  phoneMoment: "/Pongan Sus Telefonos Celulares En ✈️🎹🎙️🔴.mp4",
-  liveSession:
+  ),
+  phoneMoment: mediaUrl(
+    "videos/modo-avion.mp4",
+    "/Pongan Sus Telefonos Celulares En ✈️🎹🎙️🔴.mp4",
+  ),
+  liveSession: mediaUrl(
+    "videos/sueltate-ma-live.mp4",
     "/Suéltate Ma en Vivo por x IG 🎄🧡 Sorpresa para ustedes! Feliz navidad 🎁 %23SueltateMaLive.mp4",
-  careerStep:
+  ),
+  careerStep: mediaUrl(
+    "videos/nuevo-paso.mp4",
     "/Me siento muy feliz y orgulloso de este nuevo paso en mi carrera junto a uno de los más grandes .mp4",
-  cocoaCollaboration:
+  ),
+  cocoaCollaboration: mediaUrl(
+    "videos/cocoa-record-studio.mp4",
     "/En mi amado @cocoarecordstudio junto a @antoniorioseloriginalok @orekeneltrack @franggenuino_ Sa.mp4",
+  ),
 };
+
+export const artistProfileImages = [
+  {
+    src: mediaUrl("profile/fran-g-studio.jpg", "/profile/fran-g-studio.jpg"),
+    alt: "Fran G Genuino en cabina de grabacion",
+    label: "Cabina / voz",
+  },
+  {
+    src: mediaUrl("profile/fran-g-collab.jpg", "/profile/fran-g-collab.jpg"),
+    alt: "Fran G Genuino en instancia de colaboracion musical",
+    label: "Colaboraciones",
+  },
+  {
+    src: mediaUrl("profile/fran-g-red-carpet.jpg", "/profile/fran-g-red-carpet.jpg"),
+    alt: "Fran G Genuino en alfombra roja",
+    label: "Presencia publica",
+  },
+  {
+    src: mediaUrl("profile/fran-g-hall.jpg", "/profile/fran-g-hall.jpg"),
+    alt: "Fran G Genuino en interior cinematografico",
+    label: "Imagen artistica",
+  },
+];
 
 export const services = [
   {
     title: "Produccion musical",
     description:
-      "Arquitectura sonora desde la idea inicial hasta una pieza lista para publicar, con foco en identidad, intencion y detalle.",
+      "Creacion de beats, arreglos, melodias y direccion musical para canciones con identidad urbana, energia y proyeccion.",
     icon: Disc3,
   },
   {
@@ -45,14 +85,20 @@ export const services = [
   {
     title: "Direccion artistica",
     description:
-      "Criterio creativo para ordenar referencias, lenguaje, narrativa y decisiones esteticas durante todo el proceso.",
+      "Criterio para ordenar referencias, lenguaje, narrativa, imagen y decisiones esteticas durante todo el proceso.",
     icon: PenLine,
   },
   {
-    title: "Musica para marcas",
+    title: "Marketing artistico",
     description:
-      "Piezas originales, adaptaciones y sistemas sonoros para contenido audiovisual, campanas y experiencias digitales.",
-    icon: Clapperboard,
+      "Posicionamiento del artista en el lugar idoneo para desarrollar su carrera, con herramientas concretas para crecer.",
+    icon: Sparkles,
+  },
+  {
+    title: "Entrevistas radio y TV",
+    description:
+      "Gestion y preparacion de apariciones en medios para amplificar lanzamientos, colaboraciones y momentos clave.",
+    icon: Tv,
   },
   {
     title: "Grabacion y edicion vocal",
@@ -61,58 +107,64 @@ export const services = [
     icon: Mic2,
   },
   {
+    title: "Videoclips y contenido",
+    description:
+      "Desarrollo de videoclips, piezas sociales y registros de estudio para que la cancion tenga presencia visual.",
+    icon: Clapperboard,
+  },
+  {
     title: "Desarrollo de artistas",
     description:
-      "Acompanamiento musical y estrategico para encontrar un universo propio sin perder precision tecnica ni honestidad.",
-    icon: AudioLines,
+      "Acompanamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
+    icon: Send,
   },
 ];
 
 export const projects = [
   {
-    title: "Materia Viva",
-    type: "EP / Produccion integral",
+    title: "La Doble G",
+    type: "Proyecto colaborativo / Soy Go Music",
     year: "2026",
     description:
-      "Cinco canciones construidas desde percusion organica, sintetizadores discretos y una voz al frente, intima y precisa.",
+      "Union creativa junto a Go para refrescar la escena con cruces de pop, urbano y energia de colaboracion.",
     palette: "from-[#d8b76b]/28 via-[#2a2418] to-[#060606]",
   },
   {
-    title: "Norte Interior",
-    type: "Single / Mezcla y direccion",
+    title: "Antonio Rios",
+    type: "Colaboracion internacional / Cumbia urbana",
     year: "2025",
     description:
-      "Un cruce entre pop alternativo y textura analogica, con espacio, tension y una mezcla pensada para escucha inmersiva.",
+      "Participaciones y producciones audiovisuales junto a El Maestro, conectando generaciones y escenas.",
     palette: "from-[#5d6b5c]/34 via-[#171d18] to-[#050505]",
   },
   {
-    title: "Casa 04",
-    type: "Marca / Identidad sonora",
+    title: "Catalogo Genuino",
+    type: "Singles / remixes / videoclips",
     year: "2025",
     description:
-      "Sistema musical breve para piezas audiovisuales: motivos, golpes, ambientes y variaciones listas para contenido.",
+      "Historia, Diosa, Champagne, Caribe y piezas propias que sostienen una identidad urbana chilena en expansion.",
     palette: "from-[#a96f49]/32 via-[#23140f] to-[#070606]",
   },
 ];
 
 export const tracks = [
   {
-    title: "Toma 07",
-    role: "Demo vocal",
+    title: "Historia",
+    role: "Video oficial",
     duration: "02:48",
-    mood: "Cercano / nocturno",
+    mood: "Relato / identidad",
   },
   {
-    title: "Pulso de sala",
-    role: "Banda sonora",
+    title: "Champagne",
+    role: "Fran G Genuino feat. Afy",
     duration: "01:36",
-    mood: "Tension / aire",
+    mood: "Urbano / colaboracion",
   },
   {
-    title: "Despues del ruido",
-    role: "Mezcla final",
+    title: "Caribe",
+    role: "Colaboracion oficial",
     duration: "03:21",
-    mood: "Calido / frontal",
+    mood: "Movimiento / verano",
   },
 ];
 
@@ -215,7 +267,9 @@ export const serviceOptions = [
   "Produccion musical",
   "Mezcla y mastering",
   "Direccion artistica",
-  "Musica para marcas",
+  "Marketing artistico",
+  "Entrevistas radio y TV",
+  "Videoclips y contenido",
   "Grabacion vocal",
   "Desarrollo de artistas",
 ];
