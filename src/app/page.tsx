@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import HomeCarousel from "@/components/HomeCarousel";
 import HomeCTA from "@/components/HomeCTA";
 import InsideTheBeat from "@/components/InsideTheBeat";
-import LaunchDesigner from "@/components/LaunchDesigner";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import StudioTour from "@/components/StudioTour";
@@ -18,7 +17,6 @@ export default function Home() {
       <main>
         <Hero />
         <VideoTestimonials />
-        <LaunchDesigner />
         <HomeCarousel />
         <InsideTheBeat />
         <CareerProof />

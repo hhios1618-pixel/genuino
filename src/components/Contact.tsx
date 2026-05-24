@@ -55,14 +55,6 @@ export default function Contact() {
           </p>
 
           <div className="mt-10 grid gap-3">
-            <a
-              href="/calculador"
-              data-cursor="Diseñar"
-              data-cursor-mode="link"
-              className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706]"
-            >
-              Diseñar lanzamiento <ArrowRight size={16} />
-            </a>
             {contactChannels.map((channel) => {
               const Icon = channel.icon;
               return (

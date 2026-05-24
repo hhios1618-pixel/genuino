@@ -20,7 +20,6 @@ export const navItems = [
   { label: "Proyectos", href: "/proyectos" },
   { label: "Sonido", href: "/sonido" },
   { label: "Video", href: "/video" },
-  { label: "Calculador", href: "/calculador" },
   { label: "Perfil", href: "/perfil" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -647,44 +646,6 @@ export const insideBeatSteps = [
     body:
       "Master, contenido, calendario, prensa y colaboraciones se conectan para que el lanzamiento tenga tracción real.",
     image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
-  },
-];
-
-export const launchDesignerServices = [
-  {
-    id: "beat",
-    label: "Beat original",
-    price: 260,
-    days: 4,
-    detail: "Producción urbana desde referencia, estructura y dirección musical.",
-  },
-  {
-    id: "vocal-mix",
-    label: "Vocal mix",
-    price: 180,
-    days: 2,
-    detail: "Limpieza, comping, afinación musical y balance de voz.",
-  },
-  {
-    id: "master",
-    label: "Master",
-    price: 90,
-    days: 1,
-    detail: "Entrega lista para plataformas con volumen competitivo.",
-  },
-  {
-    id: "video",
-    label: "Video / reels",
-    price: 520,
-    days: 7,
-    detail: "Concepto audiovisual, registro y piezas cortas para campaña.",
-  },
-  {
-    id: "marketing",
-    label: "Marketing artístico",
-    price: 420,
-    days: 6,
-    detail: "Relato, calendario, piezas y ruta de medios para el lanzamiento.",
   },
 ];
 

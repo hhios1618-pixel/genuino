@@ -25,13 +25,13 @@ export default function HomeCTA() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="/calculador"
+              href="/contacto"
               data-magnetic
-              data-cursor="Diseñar"
+              data-cursor="Contacto"
               data-cursor-mode="link"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806]"
             >
-              Diseñar lanzamiento <ArrowRight size={16} />
+              Hablar del lanzamiento <ArrowRight size={16} />
             </a>
             <a
               href="/video"

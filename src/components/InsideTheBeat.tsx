@@ -65,13 +65,13 @@ export default function InsideTheBeat() {
 
         <div className="mt-10 flex justify-center">
           <a
-            href="/calculador"
+            href="/contacto"
             data-magnetic
             data-cursor="Diseñar"
             data-cursor-mode="link"
             className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806]"
           >
-            Diseñar mi lanzamiento <ArrowRight size={16} />
+            Hablar del lanzamiento <ArrowRight size={16} />
           </a>
         </div>
       </div>

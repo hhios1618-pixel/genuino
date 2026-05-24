@@ -68,7 +68,7 @@ export default function VideoTestimonials() {
                   </p>
                 </div>
                 <a
-                  href="/calculador"
+                  href="/contacto"
                   data-magnetic
                   data-cursor="Diseñar"
                   data-cursor-mode="link"

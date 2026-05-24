@@ -71,13 +71,13 @@ export default function Navbar() {
         </div>
 
         <Link
-          href="/calculador"
+          href="/contacto"
           data-magnetic
-          data-cursor="Diseñar"
+          data-cursor="Contacto"
           data-cursor-mode="link"
           className="hidden items-center gap-2 rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition duration-300 hover:-translate-y-0.5 hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]/36 lg:inline-flex"
         >
-          Diseñar lanzamiento
+          Conversemos
           <ArrowUpRight size={14} />
         </Link>
 
