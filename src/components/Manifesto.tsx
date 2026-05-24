@@ -14,12 +14,12 @@ export default function Manifesto() {
           <p>
             Genuino trabaja desde una pregunta concreta: que necesita este artista
             para estar en el lugar correcto y crecer con herramientas reales. Ahi
-            entran la cancion, el sonido, el relato, la imagen y la exposicion.
+            entran la canción, el sonido, el relato, la imagen y la exposición.
           </p>
           <p>
-            La productora integra produccion musical, melodias, letras, videoclips,
-            marketing artistico y gestion de entrevistas en radio y TV. No se trata
-            de hacer ruido: se trata de construir presencia, catalogo y movimiento.
+            La productora integra producción musical, melodías, letras, videoclips,
+            marketing artístico y gestión de entrevistas en radio y TV. No se trata
+            de hacer ruido: se trata de construir presencia, catálogo y movimiento.
           </p>
         </div>
       </div>

@@ -1,11 +1,11 @@
-import Image from "next/image";
 import { ArrowDownRight, Clapperboard, Radio, Sparkles } from "lucide-react";
-import { artistProfileImages, blurDataUrl, media } from "@/data/site";
+import YouTubeFeature from "@/components/YouTubeFeature";
+import { media } from "@/data/site";
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-[92svh] overflow-hidden pt-28">
-      <div className="absolute inset-0 opacity-80">
+      <div className="absolute inset-0 opacity-82">
         <video
           className="animate-slow-pan absolute inset-[-4%] h-[108%] w-[108%] object-cover"
           src={media.sueltateBackstage}
@@ -14,9 +14,9 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          aria-label="Backstage de Sueltate Ma"
+          aria-label="Backstage de Suéltate Ma"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.95),rgba(5,5,5,0.66)_48%,rgba(5,5,5,0.82)),linear-gradient(180deg,rgba(5,5,5,0.2),rgba(5,5,5,0.76))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.95),rgba(5,5,5,0.68)_48%,rgba(5,5,5,0.84)),linear-gradient(180deg,rgba(5,5,5,0.18),rgba(5,5,5,0.78))]" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
@@ -29,7 +29,7 @@ export default function Hero() {
             Genuino
           </h1>
           <p className="editorial-serif mt-7 max-w-2xl text-balance text-2xl leading-8 text-white/78 md:text-3xl">
-            Produccion urbana, marketing artistico y desarrollo de carrera para
+            Producción urbana, marketing artístico y desarrollo de carrera para
             artistas que necesitan canciones, imagen, prensa y posicionamiento real.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -55,34 +55,22 @@ export default function Hero() {
         </div>
 
         <div className="cinematic-panel relative mb-2 overflow-hidden rounded-[2rem] p-4" data-reveal>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
-            <Image
-              src={artistProfileImages[0].src}
-              alt={artistProfileImages[0].alt}
-              fill
-              priority
-              placeholder="blur"
-              blurDataURL={blurDataUrl}
-              sizes="(min-width: 1024px) 36vw, 100vw"
-              className="glitch-media object-cover"
-            />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_18%,rgba(216,183,107,0.16),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.86))]" />
-            <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/54">
-              <span>Studio evidence</span>
-              <span>Fran G</span>
+          <div className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
+            <div className="relative aspect-video overflow-hidden bg-black">
+              <YouTubeFeature title="Suéltate Ma" videoId="eyr_XP440kE" featured />
             </div>
-            <div className="absolute inset-x-6 bottom-6">
-              <div className="mb-4 flex gap-2">
+            <div className="p-5">
+              <div className="mb-4 flex flex-wrap gap-2">
                 {[
-                  { label: "Produccion", icon: Sparkles },
+                  { label: "Video oficial", icon: Clapperboard },
                   { label: "Medios", icon: Radio },
-                  { label: "Video", icon: Clapperboard },
+                  { label: "Dirección", icon: Sparkles },
                 ].map((item) => {
                   const Icon = item.icon;
                   return (
                     <span
                       key={item.label}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/64 backdrop-blur-md"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/64"
                     >
                       <Icon size={12} />
                       {item.label}
@@ -91,8 +79,8 @@ export default function Hero() {
                 })}
               </div>
               <p className="text-sm leading-6 text-white/66">
-                No solo estudio: direccion, red y material real para sostener un
-                lanzamiento desde la cancion hasta la pantalla.
+                Producción general, logística audiovisual y presencia de medios para
+                convertir una colaboración en un lanzamiento con escala.
               </p>
             </div>
           </div>

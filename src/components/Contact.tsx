@@ -25,11 +25,11 @@ export default function Contact() {
             Contacto
           </p>
           <h2 data-reveal-title className="mt-5 max-w-xl text-3xl font-medium text-white md:text-4xl">
-            Hablemos si el proyecto necesita direccion, exposicion y resultado.
+            Hablemos si el proyecto necesita dirección, exposición y una ruta clara.
           </h2>
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
-            Cuéntanos si necesitas producir una cancion, crear melodias y letras,
-            desarrollar videoclip, abrir entrevistas en medios o posicionar tu carrera.
+            Cuéntanos si necesitas producir una canción, crear melodías y letras,
+            desarrollar un videoclip, gestionar entrevistas en medios o posicionar tu carrera.
             Respondemos con una propuesta clara para avanzar con sonido, imagen y
             estrategia.
           </p>
@@ -79,7 +79,7 @@ export default function Contact() {
                 required
                 name="project"
                 className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="Cancion, EP, lanzamiento, videoclip, prensa..."
+                placeholder="Canción, EP, lanzamiento, videoclip, prensa..."
               />
             </label>
             <label className="grid gap-2 text-sm text-white/66 sm:col-span-2">
@@ -91,7 +91,7 @@ export default function Contact() {
                 defaultValue=""
               >
                 <option value="" disabled>
-                  Selecciona una opcion
+                  Selecciona una opción
                 </option>
                 {serviceOptions.map((option) => (
                   <option key={option} value={option}>
@@ -114,7 +114,7 @@ export default function Contact() {
 
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs leading-5 text-white/42">
-              Respuesta comercial para producciones y desarrollo artistico.
+              Respuesta comercial para producciones y desarrollo artístico.
             </p>
             <button
               type="submit"
@@ -122,7 +122,7 @@ export default function Contact() {
               data-cursor="Enviar"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706] transition hover:-translate-y-0.5"
             >
-              Abrir conversacion <ArrowRight size={16} />
+              Abrir conversación <ArrowRight size={16} />
             </button>
           </div>
 

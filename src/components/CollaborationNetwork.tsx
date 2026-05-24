@@ -19,9 +19,9 @@ export default function CollaborationNetwork() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/58 md:justify-self-end">
-            Del material enviado se ordenan dos frentes: Fran G Genuino como voz y
-            presencia en pantalla, y Genuino Family como gestion de medios,
-            logistica audiovisual y conexion entre artistas.
+            Fran G Genuino reúne dos frentes: voz y presencia en pantalla; Genuino
+            Family aporta gestión de medios, logística audiovisual y conexión entre
+            artistas.
           </p>
         </div>
 

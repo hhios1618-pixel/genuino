@@ -28,22 +28,22 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Genuino Music | Fran G Genuino",
   description:
-    "Productora musical y plataforma artistica de Fran G Genuino: produccion urbana, desarrollo de artistas, videoclips, prensa y marketing artistico.",
+    "Productora musical y plataforma artística de Fran G Genuino: producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico.",
   keywords: [
     "Genuino",
     "productora musical",
-    "produccion musical",
+    "producción musical",
     "mezcla",
     "mastering",
-    "direccion artistica",
-    "marketing artistico",
+    "dirección artística",
+    "marketing artístico",
     "Fran G Genuino",
     "Genuino Family",
   ],
   openGraph: {
     title: "Genuino Music | Fran G Genuino",
     description:
-      "Produccion urbana, desarrollo de artistas, videoclips, prensa y marketing artistico desde Genuino Family.",
+      "Producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
     type: "website",
     locale: "es_CL",
   },

@@ -12,7 +12,7 @@ type YouTubeFeatureProps = {
 };
 
 function thumbnail(videoId: string) {
-  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
 export default function YouTubeFeature({
@@ -56,7 +56,7 @@ export default function YouTubeFeature({
       />
       <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16),rgba(0,0,0,0.5)),linear-gradient(180deg,transparent,rgba(0,0,0,0.76))]" />
       <span className="absolute left-5 top-5 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
-        Reproducir aqui
+        Reproducir aquí
       </span>
       <span className="absolute inset-0 grid place-items-center">
         <span className={`${featured ? "size-18" : "size-14"} grid place-items-center rounded-full border border-white/18 bg-white/12 text-white shadow-2xl backdrop-blur-md transition group-hover:scale-105`}>

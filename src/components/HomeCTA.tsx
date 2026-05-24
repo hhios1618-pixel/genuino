@@ -5,17 +5,8 @@ import { blurDataUrl } from "@/data/site";
 export default function HomeCTA() {
   return (
     <section className="relative overflow-hidden border-y hairline bg-[#050505] py-20 md:py-28">
-      <div className="absolute inset-0 opacity-50">
-        <Image
-          src="https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg"
-          alt=""
-          fill
-          placeholder="blur"
-          blurDataURL={blurDataUrl}
-          sizes="100vw"
-          className="scale-110 object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.82)_42%,rgba(5,5,5,0.34)),linear-gradient(180deg,rgba(5,5,5,0.26),#050505)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(216,183,107,0.14),transparent_34rem),radial-gradient(circle_at_84%_18%,rgba(120,199,210,0.12),transparent_30rem),linear-gradient(180deg,#050505,#080706_48%,#050505)]">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.26),rgba(5,5,5,0.78)_58%,rgba(5,5,5,0.34))]" />
       </div>
 
       <div className="section-shell relative z-10 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -25,11 +16,11 @@ export default function HomeCTA() {
             Siguiente movimiento
           </p>
           <h2 data-reveal-title className="mt-6 max-w-4xl text-4xl font-medium leading-[0.96] text-white md:text-6xl">
-            No lancemos otra cancion al vacio.
+            Lancemos la canción con plan, relato y medios.
           </h2>
           <p className="editorial-serif mt-6 max-w-2xl text-2xl leading-9 text-white/72 md:text-3xl">
-            Armemos una salida con cancion, visuales, relato y gestion de medios.
-            Que el proyecto tenga donde sonar y una razon para ser mirado.
+            Canción, visuales, narrativa y gestión de medios trabajando como una
+            sola campaña para llegar con presencia.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -40,7 +31,7 @@ export default function HomeCTA() {
               data-cursor-mode="link"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806]"
             >
-              Disenar lanzamiento <ArrowRight size={16} />
+              Diseñar lanzamiento <ArrowRight size={16} />
             </a>
             <a
               href="/video"
@@ -48,7 +39,7 @@ export default function HomeCTA() {
               data-cursor-mode="link"
               className="ghost-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-medium text-white/90"
             >
-              Ver pruebas visuales
+              Ver videoclips
             </a>
           </div>
         </div>
@@ -57,7 +48,7 @@ export default function HomeCTA() {
           <div className="absolute left-0 top-4 w-[58%] overflow-hidden rounded-[1.4rem] border border-white/12 bg-black shadow-2xl shadow-black/40">
             <div className="relative aspect-[4/5]">
               <Image
-                src="https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg"
+                src="https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg"
                 alt="Ella Baila Sola"
                 fill
                 placeholder="blur"
@@ -75,7 +66,7 @@ export default function HomeCTA() {
           <div className="absolute right-0 top-20 w-[56%] overflow-hidden rounded-[1.4rem] border border-white/12 bg-black shadow-2xl shadow-black/40">
             <div className="relative aspect-video">
               <Image
-                src="https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg"
+                src="https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg"
                 alt="Angie Tu Cumbiera x Antonio Rios"
                 fill
                 placeholder="blur"
@@ -104,8 +95,8 @@ export default function HomeCTA() {
               })}
             </div>
             <p className="mt-5 text-sm leading-6 text-white/56">
-              Produccion musical, guion audiovisual, contenido social y gestion de
-              medios coordinados desde una misma direccion.
+              Producción musical, guion audiovisual, contenido social y gestión de
+              medios coordinados desde una misma dirección.
             </p>
           </div>
         </div>

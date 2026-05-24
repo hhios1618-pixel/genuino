@@ -9,12 +9,12 @@ import { blurDataUrl, careerMilestones, tracks } from "@/data/site";
 
 const slides = [
   {
-    eyebrow: "Ahora",
-    title: "Fran G en territorio, estudio y pantalla.",
-    body: "El sitio ahora muestra calle, estudio, videos oficiales y backstage con material propio para que la marca respire real.",
-    image: "/profile/fran-g-street-valparaiso.jpg",
-    kind: "profile",
-    href: "/proyectos",
+    eyebrow: "Gira / Suecia",
+    title: "Lejos de ti",
+    body: "Registro internacional junto a Hermanos Bernal, conectado con una etapa de gira por Dinamarca y Suecia.",
+    image: "https://i.ytimg.com/vi/uKG4RBnhghE/maxresdefault.jpg",
+    kind: "image",
+    href: "/video",
   },
   {
     eyebrow: careerMilestones[1].eyebrow,
@@ -56,7 +56,7 @@ export default function HomeCarousel() {
         <div className="mb-8 flex items-end justify-between gap-6" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-              Seleccion viva
+              Selección viva
             </p>
             <h2 data-reveal-title className="mt-4 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Sonido, imagen y movimiento.
@@ -96,25 +96,6 @@ export default function HomeCarousel() {
                 videoClassName="h-[112%]"
                 overlayClassName="bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]"
               />
-            ) : slide.kind === "profile" ? (
-              <Link
-                href={slide.href}
-                data-cursor="Ver"
-                data-cursor-mode="link"
-                className="group absolute inset-0"
-              >
-                <Image
-                  src={slide.image}
-                  alt=""
-                  fill
-                  placeholder="blur"
-                  blurDataURL={blurDataUrl}
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="glitch-media object-cover transition duration-700 group-hover:scale-[1.04]"
-                  data-parallax-media
-                />
-                <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.08),rgba(0,0,0,0.36)),linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.78))]" />
-              </Link>
             ) : (
               <Link
                 href={slide.href}

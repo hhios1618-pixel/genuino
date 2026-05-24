@@ -11,15 +11,15 @@ export default function VideoShowcase() {
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end" data-reveal>
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-              Video showcase
+              Vitrina audiovisual
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-4xl">
-              Fran G Genuino: catalogo, presencia y obra en pantalla.
+              Fran G Genuino: catálogo, presencia y obra en pantalla.
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-white/54">
             Producciones donde Fran G Genuino participa directamente, presentadas
-            como una vitrina publica de trayectoria, colaboracion y criterio.
+            como una vitrina pública de trayectoria, colaboración y criterio.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export default function VideoShowcase() {
             <div className="flex flex-col justify-between p-6 md:p-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
-                  Produccion destacada
+                  Producción destacada
                 </p>
                 <h3 className="mt-5 text-2xl font-medium text-white md:text-3xl">
                   {featuredProduction.title}

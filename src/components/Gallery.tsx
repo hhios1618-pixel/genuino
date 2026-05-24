@@ -11,13 +11,12 @@ export default function Gallery() {
               Prueba visual
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
-              Estudio, colaboraciones y presencia publica real.
+              Estudio, colaboraciones y presencia pública real.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/58">
-            Un artista no se posiciona con fondos genericos. Se posiciona mostrando
-            contexto: cabina, red, prensa, escena, colaboraciones y momentos donde
-            la carrera se vuelve visible.
+            Un artista se posiciona mostrando contexto real: cabina, red, prensa,
+            escena, colaboraciones y momentos donde la carrera se vuelve visible.
           </p>
         </div>
 

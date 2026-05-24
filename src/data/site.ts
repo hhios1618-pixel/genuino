@@ -53,71 +53,71 @@ export const artistProfileImages = [
   {
     src: "/profile/fran-g-studio-console.jpg",
     alt: "Fran G Genuino en estudio frente a consola y monitores",
-    label: "Estudio / produccion",
+    label: "Estudio / producción",
   },
   {
     src: "/profile/fran-g-street-valparaiso.jpg",
-    alt: "Fran G Genuino en exterior urbano en Valparaiso",
+    alt: "Fran G Genuino en exterior urbano en Valparaíso",
     label: "Territorio / presencia",
   },
   {
     src: mediaUrl("profile/fran-g-collab.jpg", "/profile/fran-g-collab.jpg"),
-    alt: "Fran G Genuino en instancia de colaboracion musical",
-    label: "Red artistica",
+    alt: "Fran G Genuino en instancia de colaboración musical",
+    label: "Red artística",
   },
   {
     src: mediaUrl("profile/fran-g-hall.jpg", "/profile/fran-g-hall.jpg"),
     alt: "Fran G Genuino en interior cinematografico",
-    label: "Imagen artistica",
+    label: "Imagen artística",
   },
 ];
 
 export const services = [
   {
-    title: "Produccion musical",
-    kicker: "Idea / Beat / Cancion",
+    title: "Producción musical",
+    kicker: "Idea / Beat / Canción",
     description:
-      "Creacion de beats, arreglos, melodias y direccion musical para canciones con identidad urbana, energia y proyeccion.",
+      "Creación de beats, arreglos, melodías y dirección musical para canciones con identidad urbana, energía y proyección.",
     detail:
-      "Trabajo desde la idea inicial hasta una maqueta solida: beat, estructura, referencias, tono artistico y direccion de la sesion para que la cancion tenga caracter propio.",
+      "Trabajo desde la idea inicial hasta una maqueta sólida: beat, estructura, referencias, tono artístico y dirección de la sesión para que la canción tenga carácter propio.",
     image: artistProfileImages[0].src,
-    imageAlt: "Sesion de produccion musical en estudio",
+    imageAlt: "Sesión de producción musical en estudio",
     icon: Disc3,
-    deliverables: ["Beat o produccion original", "Direccion de estructura", "Sesion guiada en estudio"],
+    deliverables: ["Beat o producción original", "Dirección de estructura", "Sesión guiada en estudio"],
   },
   {
     title: "Mezcla y mastering",
     kicker: "Balance / Presencia / Final",
     description:
-      "Balance, profundidad, traduccion y acabado final para que cada cancion respire con presencia en cualquier sistema.",
+      "Balance, profundidad, traducción y acabado final para que cada canción suene con presencia en cualquier sistema.",
     detail:
-      "Proceso tecnico y musical para que la voz, el bajo, el beat y los detalles convivan con claridad, volumen competitivo y una terminacion lista para plataformas.",
-    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/hqdefault.jpg",
-    imageAlt: "Referencia visual de catalogo musical Genuino",
+      "Proceso técnico y musical para que la voz, el bajo, el beat y los detalles convivan con claridad, volumen competitivo y una terminación lista para plataformas.",
+    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/maxresdefault.jpg",
+    imageAlt: "Referencia visual de catálogo musical Genuino",
     icon: Headphones,
-    deliverables: ["Mezcla stereo", "Master para plataformas", "Revision de traduccion sonora"],
+    deliverables: ["Mezcla stereo", "Master para plataformas", "Revisión de traducción sonora"],
   },
   {
-    title: "Direccion artistica",
+    title: "Dirección artística",
     kicker: "Criterio / Lenguaje / Ruta",
     description:
-      "Criterio para ordenar referencias, lenguaje, narrativa, imagen y decisiones esteticas durante todo el proceso.",
+      "Criterio para ordenar referencias, lenguaje, narrativa, imagen y decisiones estéticas durante todo el proceso.",
     detail:
-      "Acompanamiento para ordenar el universo del artista: que se dice, como se muestra, que referencias sirven y que decisiones conviene tomar antes de grabar o lanzar.",
-    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
-    imageAlt: "Imagen artistica de Fran G Genuino",
+      "Acompañamiento para ordenar el universo del artista: qué se dice, cómo se muestra, qué referencias sirven y qué decisiones conviene tomar antes de grabar o lanzar.",
+    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/maxresdefault.jpg",
+    imageAlt: "Imagen artística de Fran G Genuino",
     icon: PenLine,
-    deliverables: ["Mapa de referencias", "Direccion de identidad", "Criterio para lanzamientos"],
+    deliverables: ["Mapa de referencias", "Dirección de identidad", "Criterio para lanzamientos"],
   },
   {
-    title: "Marketing artistico",
-    kicker: "Posicion / Campana / Crecimiento",
+    title: "Marketing artístico",
+    kicker: "Posición / Campaña / Crecimiento",
     description:
-      "Posicionamiento del artista en el lugar idoneo para desarrollar su carrera, con herramientas concretas para crecer.",
+      "Posicionamiento del artista en el lugar idóneo para desarrollar su carrera, con herramientas concretas para crecer.",
     detail:
-      "Lectura comercial para transformar una cancion o etapa artistica en presencia: relato, piezas, calendario, colaboraciones y acciones que muevan audiencia real.",
-    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
-    imageAlt: "Presencia publica de Fran G Genuino",
+      "Lectura comercial para transformar una canción o etapa artística en presencia: relato, piezas, calendario, colaboraciones y acciones que muevan audiencia real.",
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
+    imageAlt: "Presencia pública de Fran G Genuino",
     icon: Megaphone,
     deliverables: ["Estrategia de salida", "Piezas para redes", "Ruta de visibilidad"],
   },
@@ -125,80 +125,80 @@ export const services = [
     title: "Entrevistas radio y TV",
     kicker: "Medios / Prensa / Escena",
     description:
-      "Gestion y preparacion de apariciones en medios para amplificar lanzamientos, colaboraciones y momentos clave.",
+      "Gestión y preparación de apariciones en medios para amplificar lanzamientos, colaboraciones y momentos clave.",
     detail:
-      "Preparacion de mensaje, foco del lanzamiento y gestion de instancias donde la historia del artista pueda presentarse con contexto profesional.",
-    image: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
-    imageAlt: "Colaboracion y aparicion publica en medios",
+      "Preparación de mensaje, foco del lanzamiento y gestión de instancias donde la historia del artista pueda presentarse con contexto profesional.",
+    image: "https://i.ytimg.com/vi/eyr_XP440kE/maxresdefault.jpg",
+    imageAlt: "Colaboración y aparición pública en medios",
     icon: Tv,
-    deliverables: ["Preparacion de entrevista", "Foco comunicacional", "Gestion de oportunidades"],
+    deliverables: ["Preparación de entrevista", "Foco comunicacional", "Gestión de oportunidades"],
   },
   {
-    title: "Grabacion y edicion vocal",
-    kicker: "Cabina / Toma / Edicion",
+    title: "Grabación y edición vocal",
+    kicker: "Cabina / Toma / Edición",
     description:
-      "Direccion de toma, comping, limpieza, afinacion transparente y edicion rítmica al servicio de la interpretacion.",
+      "Dirección de toma, comping, limpieza, afinación transparente y edición rítmica al servicio de la interpretación.",
     detail:
-      "Sesion enfocada en sacar una interpretacion con intencion: direccion de voz, seleccion de tomas, limpieza, afinacion musical y edicion sin perder humanidad.",
+      "Sesión enfocada en sacar una interpretación con intención: dirección de voz, selección de tomas, limpieza, afinación musical y edición sin perder humanidad.",
     image: artistProfileImages[0].src,
-    imageAlt: "Fran G Genuino en cabina de grabacion",
+    imageAlt: "Fran G Genuino en cabina de grabación",
     icon: Mic2,
-    deliverables: ["Direccion de toma vocal", "Comping y limpieza", "Afinacion y timing"],
+    deliverables: ["Dirección de toma vocal", "Comping y limpieza", "Afinación y timing"],
   },
   {
     title: "Videoclips y contenido",
     kicker: "Video / Reels / Presencia",
     description:
-      "Desarrollo de videoclips, piezas sociales y registros de estudio para que la cancion tenga presencia visual.",
+      "Desarrollo de videoclips, piezas sociales y registros de estudio para que la canción tenga presencia visual.",
     detail:
-      "Contenido pensado para el ciclo real de una cancion: pieza principal, cortes sociales, registro de proceso y material que sostenga el lanzamiento sin verse generico.",
-    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
+      "Contenido pensado para el ciclo real de una canción: pieza principal, cortes sociales, registro de proceso y material que sostenga el lanzamiento sin verse genérico.",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg",
     imageAlt: "Referencia audiovisual para videoclips y contenido",
     icon: Clapperboard,
-    deliverables: ["Concepto audiovisual", "Piezas para redes", "Direccion de registro"],
+    deliverables: ["Concepto audiovisual", "Piezas para redes", "Dirección de registro"],
   },
   {
     title: "Desarrollo de artistas",
     kicker: "Vision / Red / Carrera",
     description:
-      "Acompanamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
+      "Acompañamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
     detail:
       "Proceso de mediano plazo para construir repertorio, mejorar presencia, elegir colaboraciones y tomar decisiones con sentido de carrera.",
-    image: "https://i.ytimg.com/vi/uKG4RBnhghE/hqdefault.jpg",
+    image: "https://i.ytimg.com/vi/uKG4RBnhghE/maxresdefault.jpg",
     imageAlt: "Red de colaboraciones de Genuino",
     icon: UsersRound,
-    deliverables: ["Plan de repertorio", "Ruta de colaboraciones", "Acompanamiento creativo"],
+    deliverables: ["Plan de repertorio", "Ruta de colaboraciones", "Acompañamiento creativo"],
   },
 ];
 
 export const projects = [
   {
     title: "La Doble G",
-    type: "Alta rotacion / Soy Go Music",
+    type: "Alta rotación / Soy Go Music",
     year: "2026",
     description:
-      '"Ella Baila Sola" junto a GO: una union creativa con presencia en radios, Via X y circuito urbano chileno.',
-    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
+      '"Ella Baila Sola" junto a GO: una unión creativa con presencia en radios, Vía X y circuito urbano chileno.',
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=Q9wHNUH1eq8",
     palette: "from-[#d8b76b]/28 via-[#2a2418] to-[#060606]",
   },
   {
     title: "Antonio Rios x Angie",
-    type: "Union artistica / Logistica video",
+    type: "Unión artística / Logística video",
     year: "2025",
     description:
-      "Gestion de la union entre artistas y coordinacion logistica para un cruce de cumbia popular y lenguaje actual.",
-    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
+      "Gestión de la unión entre artistas y coordinación logística para un cruce de cumbia popular y lenguaje actual.",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=Ll-l9N5NmlM",
     palette: "from-[#5d6b5c]/34 via-[#171d18] to-[#050505]",
   },
   {
     title: "Diego Smith",
-    type: "Produccion general / Genuino Family",
+    type: "Producción general / Genuino Family",
     year: "2026",
     description:
-      'Produccion general para "Sueltate Ma", conectando equipo, criterio audiovisual y ejecucion desde Genuino Family.',
-    image: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
+      'Producción general para "Suéltate Ma", conectando equipo, criterio audiovisual y ejecución desde Genuino Family.',
+    image: "https://i.ytimg.com/vi/eyr_XP440kE/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=eyr_XP440kE",
     palette: "from-[#a96f49]/32 via-[#23140f] to-[#070606]",
   },
@@ -209,7 +209,7 @@ export const tracks = [
     title: "Historia",
     role: "GENUINO \"HISTORIA\"",
     duration: "YouTube",
-    mood: "Narrativa de origen, identidad y presencia GFam.",
+    mood: "Narrativa de origen, identidad y presencia Genuino Family.",
     href: "https://www.youtube.com/watch?v=aJG0zRex7EU",
     videoId: "aJG0zRex7EU",
   },
@@ -217,15 +217,15 @@ export const tracks = [
     title: "Champagne",
     role: "Fran G Genuino feat. Afy",
     duration: "YouTube",
-    mood: "Colaboracion urbana con lectura de lanzamiento.",
+    mood: "Colaboración urbana con lectura de lanzamiento.",
     href: "https://www.youtube.com/watch?v=bPJhFwQz_Ok",
     videoId: "bPJhFwQz_Ok",
   },
   {
     title: "Caribe",
-    role: "Colaboracion oficial",
+    role: "Colaboración oficial",
     duration: "YouTube",
-    mood: "Cruce de artistas, energia radial y audiovisual.",
+    mood: "Cruce de artistas, energía radial y audiovisual.",
     href: "https://www.youtube.com/watch?v=0cJH7mw8dKM",
     videoId: "0cJH7mw8dKM",
   },
@@ -241,7 +241,7 @@ export const tracks = [
     title: "Pensandote",
     role: "Fran G Genuino",
     duration: "YouTube",
-    mood: "Lyrics video para sostener catalogo y audiencia.",
+    mood: "Video con letra para sostener catálogo y audiencia.",
     href: "https://www.youtube.com/watch?v=BJMqy8UdpK8",
     videoId: "BJMqy8UdpK8",
   },
@@ -251,32 +251,32 @@ export const gallery = [
   {
     label: "Venimos de Abajo",
     category: "Arte Elegante x Genuino",
-    src: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
+    src: "https://i.ytimg.com/vi/zH5C4T0C-F0/maxresdefault.jpg",
   },
   {
     label: "Ella Baila Sola",
     category: "GO feat. Fran G Genuino",
-    src: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
+    src: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
   },
   {
     label: "Lejos de ti",
     category: "Hermanos Bernal feat. Genuino",
-    src: "https://i.ytimg.com/vi/uKG4RBnhghE/hqdefault.jpg",
+    src: "https://i.ytimg.com/vi/uKG4RBnhghE/maxresdefault.jpg",
   },
   {
     label: "Sueltate Ma",
-    category: "Diego Smith / Produccion general",
-    src: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
+    category: "Diego Smith / Producción general",
+    src: "https://i.ytimg.com/vi/eyr_XP440kE/maxresdefault.jpg",
   },
   {
     label: "Cocoa Record Studio",
-    category: "Colaboracion",
+    category: "Colaboración",
     src: media.cocoaCollaboration,
     kind: "video",
   },
   {
     label: "Fran en estudio",
-    category: "Consola / produccion",
+    category: "Consola / producción",
     src: "/profile/fran-g-studio-console.jpg",
   },
 ];
@@ -285,10 +285,10 @@ export const careerMilestones = [
   {
     year: "2015",
     title: "Caribe",
-    eyebrow: "Catalogo temprano",
+    eyebrow: "Catálogo temprano",
     body:
-      "Primeras senales de catalogo en plataformas con Caribe, una pieza que posiciona a Genuino en musica latina desde una etapa inicial.",
-    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/hqdefault.jpg",
+      "Primeras señales de catálogo en plataformas con Caribe, una pieza que posiciona a Genuino en música latina desde una etapa inicial.",
+    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=0cJH7mw8dKM",
   },
   {
@@ -296,8 +296,8 @@ export const careerMilestones = [
     title: "Venimos de Abajo",
     eyebrow: "Arte Elegante x Genuino",
     body:
-      "Colaboracion editada como single y video oficial, con una lectura de resiliencia, calle y alcance radial en Chile.",
-    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
+      "Colaboración editada como single y video oficial, con una lectura de resiliencia, calle y alcance radial en Chile.",
+    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=zH5C4T0C-F0",
   },
   {
@@ -306,24 +306,24 @@ export const careerMilestones = [
     eyebrow: "GO feat. Fran G Genuino",
     body:
       "Cruce de R&B, soul, rap y urbano junto a GO, desarrollado como parte de una estrategia de singles y presencia en vivo.",
-    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=Q9wHNUH1eq8",
   },
   {
     year: "Genuino Family",
-    title: "Gestion de medios",
+    title: "Gestión de medios",
     eyebrow: "Radio / TV / videos",
     body:
-      "Trabajo detras de la cancion: booking radial, gestion de television, logistica de videoclips, contenido social y uniones artisticas.",
-    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
+      "Trabajo detrás de la canción: booking radial, gestión de televisión, logística de videoclips, contenido social y uniones artísticas.",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg",
     href: "https://www.youtube.com/watch?v=Ll-l9N5NmlM",
   },
 ];
 
 export const proofStats = [
-  { value: "2015", label: "catalogo en plataformas" },
+  { value: "2015", label: "catálogo en plataformas" },
   { value: "2022", label: "single con Arte Elegante" },
-  { value: "Top 100", label: "senal radial Chile" },
+  { value: "Top 100", label: "radial en Chile" },
   { value: "360", label: "sonido, video y medios" },
 ];
 
@@ -331,23 +331,23 @@ export const videos = [
   {
     title: "Cocoa Record Studio",
     description:
-      "Colaboracion en estudio junto a Antonio Rios, Oreken el Track y Fran G Genuino: una senal clara de red, oficio y presente creativo.",
-    meta: "Colaboracion / estudio",
+      "Colaboración en estudio junto a Antonio Ríos, Oreken el Track y Fran G Genuino: una señal clara de red, oficio y presente creativo.",
+    meta: "Colaboración / estudio",
     src: media.cocoaCollaboration,
     format: "portrait",
   },
   {
     title: "Sesion con los grandes",
     description:
-      "Un registro de estudio con energia real: direccion, interpretacion y criterio musical ocurriendo en la misma sala.",
+      "Un registro de estudio con energía real: dirección, interpretación y criterio musical ocurriendo en la misma sala.",
     meta: "Estudio / vertical",
     src: media.studioSession,
     format: "portrait",
   },
   {
-    title: "Suéltate Ma en vivo",
+    title: "Suéltate Ma en vivo",
     description:
-      "Performance extendida para mostrar presencia, audiencia y oficio en un formato listo para campanas y lanzamientos.",
+      "Presentación en vivo para mostrar presencia, audiencia y oficio en un formato listo para campañas y lanzamientos.",
     meta: "Live / horizontal",
     src: media.liveSession,
     format: "wide",
@@ -363,7 +363,7 @@ export const videos = [
   {
     title: "Nuevo paso",
     description:
-      "Contenido emocional de carrera, pensado para amplificar hitos artisticos con una narrativa visual cuidada.",
+      "Contenido emocional de carrera, pensado para amplificar hitos artísticos con una narrativa visual cuidada.",
     meta: "Artist story / vertical",
     src: media.careerStep,
     format: "portrait",
@@ -372,12 +372,12 @@ export const videos = [
 
 export const officialProductions = [
   {
-    title: "Venimos de abajo",
+    title: "Venimos de Abajo",
     artist: "Arte Elegante & Genuino",
     year: "Video oficial",
     videoId: "zH5C4T0C-F0",
     description:
-      "Colaboracion con Arte Elegante, presentada como una pieza de calle, relato y estrategia dentro del catalogo Genuino.",
+      "Colaboración con Arte Elegante, presentada como una pieza de calle, relato y estrategia dentro del catálogo Genuino.",
   },
   {
     title: "Lejos de ti",
@@ -393,23 +393,23 @@ export const officialProductions = [
     year: "Radio / Via X",
     videoId: "Q9wHNUH1eq8",
     description:
-      "Cancion de La Doble G con alta rotacion en radios y Via X, conectando colaboracion artistica con visibilidad de medios.",
+      "Canción de La Doble G con alta rotación en radios y Vía X, conectando colaboración artística con visibilidad de medios.",
   },
   {
     title: "Sueltate Ma",
     artist: "Diego Smith",
-    year: "Produccion general",
+    year: "Producción general",
     videoId: "eyr_XP440kE",
     description:
-      "Produccion general realizada desde Genuino Family para Diego Smith, artista vinculado al hit global Iluminaty junto a Kidd Tetoon y Ozuna.",
+      "Producción general realizada desde Genuino Family para Diego Smith, artista vinculado al hit global Iluminaty junto a Kidd Tetoon y Ozuna.",
   },
   {
     title: "Nunca Me Faltes Remix",
     artist: "Angie Tu Cumbiera x Antonio Rios",
-    year: "Gestion y logistica",
+    year: "Gestión y logística",
     videoId: "Ll-l9N5NmlM",
     description:
-      "Genuino gestiono la union de los artistas y la logistica del video, conectando cumbia, equipo tecnico y ejecucion de lanzamiento.",
+      "Genuino gestionó la unión de los artistas y la logística del video, conectando cumbia, equipo técnico y ejecución de lanzamiento.",
   },
   {
     title: 'GENUINO "HISTORIA"',
@@ -417,7 +417,7 @@ export const officialProductions = [
     year: "Video oficial",
     videoId: "aJG0zRex7EU",
     description:
-      "Una pieza clave para presentar la identidad de Genuino desde relato, caracter y presencia artistica.",
+      "Una pieza clave para presentar la identidad de Genuino desde relato, carácter y presencia artística.",
   },
   {
     title: "Diosa",
@@ -425,23 +425,23 @@ export const officialProductions = [
     year: "Genuino Family Inc.",
     videoId: "IMRNuKaX9qM",
     description:
-      "Produccion de alto alcance para mostrar colaboracion, lenguaje urbano y direccion visual consolidada.",
+      "Producción de alto alcance para mostrar colaboración, lenguaje urbano y dirección visual consolidada.",
   },
   {
     title: "Champagne",
     artist: "Fran G Genuino feat. Afy",
-    year: "Produccion musical",
+    year: "Producción musical",
     videoId: "bPJhFwQz_Ok",
     description:
-      "Cancion y audiovisual con foco en colaboracion, identidad vocal y una estetica directa de lanzamiento.",
+      "Canción y audiovisual con foco en colaboración, identidad vocal y una estética directa de lanzamiento.",
   },
   {
     title: "Pensandote",
     artist: "Fran G Genuino",
-    year: "Lyrics video",
+    year: "Video con letra",
     videoId: "BJMqy8UdpK8",
     description:
-      "Formato lirico para ampliar vida digital de una cancion y sostener cercania con audiencia.",
+      "Formato lírico para ampliar vida digital de una canción y sostener cercanía con audiencia.",
   },
   {
     title: "Caribe",
@@ -449,7 +449,7 @@ export const officialProductions = [
     year: "Official video",
     videoId: "0cJH7mw8dKM",
     description:
-      "Participacion en una produccion colaborativa con lectura audiovisual y proyeccion de catalogo.",
+      "Participación en una producción colaborativa con lectura audiovisual y proyección de catálogo.",
   },
 ];
 
@@ -458,28 +458,28 @@ export const collaborationHighlights = [
     title: "Booking radial y medios",
     kicker: "Radios / TV / Prensa",
     description:
-      "Gestion para que canciones y artistas entren en radios, television y medios relevantes de Chile, con foco en rotacion, viralizacion y competencia anual.",
+      "Gestión para presentar canciones y artistas ante radios, televisión y medios relevantes en Chile, con foco en rotación, visibilidad y oportunidades de prensa.",
     icon: Radio,
   },
   {
-    title: "Produccion y logistica audiovisual",
+    title: "Producción y logística audiovisual",
     kicker: "Videoclips / Reels / Backstage",
     description:
-      "Coordinacion de guiones, registros previos, rodaje, contenido posterior y piezas sociales que sostienen el ciclo completo de una cancion.",
+      "Coordinación de guiones, registros previos, rodaje, contenido posterior y piezas sociales que sostienen el ciclo completo de una canción.",
     icon: Clapperboard,
   },
   {
-    title: "Uniones artisticas",
+    title: "Uniones artísticas",
     kicker: "Colaboraciones / Red",
     description:
-      "Cruces entre artistas, productores, directores y equipos de negocio para convertir una cancion en una oportunidad real de carrera.",
+      "Cruces entre artistas, productores, directores y equipos de negocio para convertir una canción en una oportunidad real de carrera.",
     icon: UsersRound,
   },
   {
     title: "Desarrollo integral",
     kicker: "Letra / Melodia / Ruta",
     description:
-      "Capacidad de entrar desde la escritura, linea melodica y direccion musical hasta la estrategia de medios y posicionamiento publico.",
+      "Capacidad de entrar desde la escritura, línea melódica y dirección musical hasta la estrategia de medios y posicionamiento público.",
     icon: Mic2,
   },
 ];
@@ -523,13 +523,13 @@ export const mediaCampaignReferences = [
 ];
 
 export const serviceOptions = [
-  "Produccion musical",
+  "Producción musical",
   "Mezcla y mastering",
-  "Direccion artistica",
-  "Marketing artistico",
+  "Dirección artística",
+  "Marketing artístico",
   "Entrevistas radio y TV",
   "Videoclips y contenido",
-  "Grabacion vocal",
+  "Grabación vocal",
   "Desarrollo de artistas",
 ];
 

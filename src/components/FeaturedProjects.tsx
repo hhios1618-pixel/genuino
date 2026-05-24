@@ -17,12 +17,12 @@ export default function FeaturedProjects() {
               Trayectoria y posicionamiento
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
-              Catalogo, colaboraciones y presencia publica.
+              Catálogo, colaboraciones y presencia pública.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/58">
-            Producciones, registros de estudio y cruces artisticos que muestran una
-            forma concreta de trabajar: sonido, direccion, contenido y red.
+            Producciones, registros de estudio y cruces artísticos que muestran una
+            forma concreta de trabajar: sonido, dirección, contenido y red.
           </p>
         </div>
 

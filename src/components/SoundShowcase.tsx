@@ -7,7 +7,7 @@ import YouTubeFeature from "@/components/YouTubeFeature";
 import { blurDataUrl, tracks } from "@/data/site";
 
 function thumbnail(videoId: string) {
-  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
 export default function SoundShowcase() {
@@ -24,7 +24,7 @@ export default function SoundShowcase() {
         <div className="mb-10 grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-              Catalogo audiovisual
+              Catálogo audiovisual
             </p>
             <h2 data-reveal-title className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Videoclips que muestran sonido, imagen y movimiento real.
@@ -32,8 +32,8 @@ export default function SoundShowcase() {
           </div>
           <p className="max-w-xl text-base leading-8 text-white/58">
             Una productora musical se posiciona con obra visible: portadas, clips,
-            colaboraciones, estética de lanzamiento y reproducción inmediata dentro
-            del sitio.
+            colaboraciones y acceso directo a la obra, con foco en sonido, imagen y
+            lanzamiento.
           </p>
         </div>
 

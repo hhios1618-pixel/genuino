@@ -125,7 +125,7 @@ export default function AmbientPlayer() {
         <i />
         <i />
       </span>
-      <span>{playing ? "Studio pulse on" : "Studio pulse"}</span>
+      <span>{playing ? "Pulso activo" : "Pulso de estudio"}</span>
     </button>
   );
 }

@@ -3,7 +3,7 @@ import { ArrowDownRight, Award, Mic2, Users } from "lucide-react";
 import { artistProfileImages, blurDataUrl } from "@/data/site";
 
 export default function About() {
-  const [studio, collab, redCarpet, hall] = artistProfileImages;
+  const [studio, street, collab, hall] = artistProfileImages;
 
   return (
     <section id="sobre" className="border-y hairline bg-[#090908] py-20 md:py-28">
@@ -11,15 +11,15 @@ export default function About() {
         <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-              Perfil artistico
+              Perfil artístico
             </p>
             <h2 data-reveal-title className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
               Fran G Genuino: una firma urbana con presencia, estudio y red.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/62">
-            Artista chileno de Valparaiso, Fran G Genuino viene de la escena urbana
-            y de una evolucion clara: de Jay G El Genuino a una etapa de catalogo,
+            Artista chileno de Valparaíso, Fran G Genuino viene de la escena urbana
+            y de una evolución clara: de Jay G El Genuino a una etapa de catálogo,
             colaboraciones y productora. Reggaeton, trap y merengue urbano conviven
             con una lectura comercial: sonar bien, aparecer bien y crecer con red.
           </p>
@@ -48,12 +48,12 @@ export default function About() {
                   Fran G Genuino
                 </p>
                 <h3 className="mt-4 max-w-xl text-3xl font-medium text-white md:text-5xl">
-                  Voz, direccion y oficio al centro de la produccion.
+                  Voz, dirección y oficio al centro de la producción.
                 </h3>
                 <div className="mt-7 grid gap-3 sm:grid-cols-3">
                   {[
                     { label: "Cabina", value: "Voz y toma", icon: Mic2 },
-                    { label: "Escena", value: "Presencia publica", icon: Award },
+                    { label: "Escena", value: "Presencia pública", icon: Award },
                     { label: "Red", value: "Colaboraciones", icon: Users },
                   ].map((item) => {
                     const Icon = item.icon;
@@ -74,7 +74,7 @@ export default function About() {
 
           <aside className="grid gap-5 lg:col-span-5">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-              {[collab, redCarpet, hall].map((image, index) => (
+              {[street, collab, hall].map((image, index) => (
                 <figure
                   key={image.src}
                   data-cursor="Ver"
@@ -108,10 +108,10 @@ export default function About() {
         <div className="mt-10 grid gap-6 rounded-[2rem] border hairline bg-[linear-gradient(135deg,rgba(216,183,107,0.12),rgba(255,255,255,0.035))] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8" data-reveal>
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
-              Direccion comercial y artistica
+              Dirección comercial y artística
             </p>
             <p className="editorial-serif mt-3 max-w-2xl text-2xl leading-8 text-white">
-              Produccion, marketing artistico, entrevistas, videoclips y desarrollo
+              Producción, marketing artístico, entrevistas, videoclips y desarrollo
               de talentos: hacer que el proyecto suene, se vea y tenga donde crecer.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function About() {
             data-cursor-mode="link"
             className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
           >
-            Activar una produccion <ArrowDownRight size={16} />
+            Activar una producción <ArrowDownRight size={16} />
           </a>
         </div>
       </div>

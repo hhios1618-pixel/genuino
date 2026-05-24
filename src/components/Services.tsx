@@ -51,12 +51,12 @@ export default function Services() {
               Servicios
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-4xl">
-              Produccion, imagen y estrategia con criterio de estudio.
+              Producción, imagen y estrategia con criterio de estudio.
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/58 md:justify-self-end">
             Una oferta clara para artistas y equipos que necesitan resolver sonido, contenido y
-            direccion sin perder identidad.
+            dirección sin perder identidad.
           </p>
         </div>
 

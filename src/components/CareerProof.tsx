@@ -14,12 +14,12 @@ export default function CareerProof() {
               Trayectoria verificable
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
-              De catalogo propio a red de medios y colaboraciones.
+              De catálogo propio a red de medios y colaboraciones.
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/58 md:justify-self-end">
-            La carrera se lee mejor cuando no parece plantilla: lanzamientos,
-            videos oficiales, cruces con artistas y trabajo real de amplificacion.
+            La trayectoria se entiende mejor desde hechos concretos: lanzamientos,
+            videos oficiales, cruces con artistas y trabajo real de amplificación.
           </p>
         </div>
 
