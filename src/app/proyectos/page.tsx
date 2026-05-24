@@ -1,3 +1,4 @@
+import CollaborationNetwork from "@/components/CollaborationNetwork";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
@@ -9,6 +10,7 @@ export default function ProyectosPage() {
       <Navbar />
       <main className="pt-24">
         <FeaturedProjects />
+        <CollaborationNetwork />
         <Gallery />
       </main>
       <Footer />

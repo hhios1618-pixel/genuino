@@ -1,3 +1,4 @@
+import CollaborationNetwork from "@/components/CollaborationNetwork";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HomeCarousel from "@/components/HomeCarousel";
@@ -12,6 +13,7 @@ export default function Home() {
       <main>
         <Hero />
         <HomeCarousel />
+        <CollaborationNetwork />
         <Services />
         <HomeCTA />
       </main>

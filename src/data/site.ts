@@ -173,32 +173,32 @@ export const services = [
 export const projects = [
   {
     title: "La Doble G",
-    type: "Proyecto colaborativo / Soy Go Music",
+    type: "Alta rotacion / Soy Go Music",
     year: "2026",
     description:
-      "Union creativa junto a Go para refrescar la escena con cruces de pop, urbano y energia de colaboracion.",
-    image: artistProfileImages[1].src,
-    href: "#video",
+      '"Ella Baila Sola" junto a GO: una union creativa con presencia en radios, Via X y circuito urbano chileno.',
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=Q9wHNUH1eq8",
     palette: "from-[#d8b76b]/28 via-[#2a2418] to-[#060606]",
   },
   {
-    title: "Antonio Rios",
-    type: "Colaboracion internacional / Cumbia urbana",
+    title: "Antonio Rios x Angie",
+    type: "Union artistica / Logistica video",
     year: "2025",
     description:
-      "Participaciones y producciones audiovisuales junto a El Maestro, conectando generaciones y escenas.",
-    image: media.cocoaCollaboration,
-    href: "#video",
+      "Gestion de la union entre artistas y coordinacion logistica para un cruce de cumbia popular y lenguaje actual.",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=Ll-l9N5NmlM",
     palette: "from-[#5d6b5c]/34 via-[#171d18] to-[#050505]",
   },
   {
-    title: "Catalogo Genuino",
-    type: "Singles / remixes / videoclips",
-    year: "2025",
+    title: "Diego Smith",
+    type: "Produccion general / Genuino Family",
+    year: "2026",
     description:
-      "Historia, Diosa, Champagne, Caribe y piezas propias que sostienen una identidad urbana chilena en expansion.",
-    image: "https://i.ytimg.com/vi/aJG0zRex7EU/hqdefault.jpg",
-    href: "#sonido",
+      'Produccion general para "Sueltate Ma", conectando equipo, criterio audiovisual y ejecucion desde Genuino Family.',
+    image: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=eyr_XP440kE",
     palette: "from-[#a96f49]/32 via-[#23140f] to-[#070606]",
   },
 ];
@@ -326,6 +326,46 @@ export const videos = [
 
 export const officialProductions = [
   {
+    title: "Venimos de abajo",
+    artist: "Arte Elegante & Genuino",
+    year: "Video oficial",
+    videoId: "zH5C4T0C-F0",
+    description:
+      "Colaboracion con Arte Elegante, presentada como una pieza de calle, relato y estrategia dentro del catalogo Genuino.",
+  },
+  {
+    title: "Lejos de ti",
+    artist: "Hermanos Bernal feat. Genuino",
+    year: "Grabado en Suecia",
+    videoId: "uKG4RBnhghE",
+    description:
+      "Video registrado durante una gira por Dinamarca y Suecia, ampliando la historia de Genuino hacia una escala internacional.",
+  },
+  {
+    title: "Ella Baila Sola",
+    artist: "GO feat. Fran G Genuino",
+    year: "Radio / Via X",
+    videoId: "Q9wHNUH1eq8",
+    description:
+      "Cancion de La Doble G con alta rotacion en radios y Via X, conectando colaboracion artistica con visibilidad de medios.",
+  },
+  {
+    title: "Sueltate Ma",
+    artist: "Diego Smith",
+    year: "Produccion general",
+    videoId: "eyr_XP440kE",
+    description:
+      "Produccion general realizada desde Genuino Family para Diego Smith, artista vinculado al hit global Iluminaty junto a Kidd Tetoon y Ozuna.",
+  },
+  {
+    title: "Nunca Me Faltes Remix",
+    artist: "Angie Tu Cumbiera x Antonio Rios",
+    year: "Gestion y logistica",
+    videoId: "Ll-l9N5NmlM",
+    description:
+      "Genuino gestiono la union de los artistas y la logistica del video, conectando cumbia, equipo tecnico y ejecucion de lanzamiento.",
+  },
+  {
     title: 'GENUINO "HISTORIA"',
     artist: "Campbell G / Fran G Genuino",
     year: "Video oficial",
@@ -364,6 +404,75 @@ export const officialProductions = [
     videoId: "0cJH7mw8dKM",
     description:
       "Participacion en una produccion colaborativa con lectura audiovisual y proyeccion de catalogo.",
+  },
+];
+
+export const collaborationHighlights = [
+  {
+    title: "Booking radial y medios",
+    kicker: "Radios / TV / Prensa",
+    description:
+      "Gestion para que canciones y artistas entren en radios, television y medios relevantes de Chile, con foco en rotacion, viralizacion y competencia anual.",
+    icon: Radio,
+  },
+  {
+    title: "Produccion y logistica audiovisual",
+    kicker: "Videoclips / Reels / Backstage",
+    description:
+      "Coordinacion de guiones, registros previos, rodaje, contenido posterior y piezas sociales que sostienen el ciclo completo de una cancion.",
+    icon: Clapperboard,
+  },
+  {
+    title: "Uniones artisticas",
+    kicker: "Colaboraciones / Red",
+    description:
+      "Cruces entre artistas, productores, directores y equipos de negocio para convertir una cancion en una oportunidad real de carrera.",
+    icon: UsersRound,
+  },
+  {
+    title: "Desarrollo integral",
+    kicker: "Letra / Melodia / Ruta",
+    description:
+      "Capacidad de entrar desde la escritura, linea melodica y direccion musical hasta la estrategia de medios y posicionamiento publico.",
+    icon: Mic2,
+  },
+];
+
+export const mediaCampaignReferences = [
+  {
+    title: "ULALA (OOH LA-LA)",
+    artist: "Myke Towers, Daddy Yankee",
+    videoId: "9k3wMoQn-DQ",
+  },
+  {
+    title: "Se Lo Juro Mor",
+    artist: "Feid",
+    videoId: "mJlE0RwK_OY",
+  },
+  {
+    title: "CORLEONE",
+    artist: "Saiko x Yandel",
+    videoId: "xVzbKU66eMQ",
+  },
+  {
+    title: "Kilerito",
+    artist: "Brytiago & Anuel AA",
+    videoId: "dhPcSr0ah38",
+  },
+  {
+    title: "La Plena",
+    artist: "Beele, Westcol, Ovy On The Drums",
+    videoId: "F1_aOX0acbY",
+  },
+  {
+    title: "Lunares",
+    artist: "Servando & Florentino",
+    videoId: "-YkA-t8CIOI",
+  },
+  {
+    title: "No Te Deseo el Mal",
+    artist: "Eladio Carrion feat. Karol G",
+    videoId: "ZPJN-aWvj_U",
   },
 ];
 

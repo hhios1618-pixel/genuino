@@ -1,3 +1,4 @@
+import CollaborationNetwork from "@/components/CollaborationNetwork";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import VideoShowcase from "@/components/VideoShowcase";
@@ -8,6 +9,7 @@ export default function VideoPage() {
       <Navbar />
       <main className="pt-24">
         <VideoShowcase />
+        <CollaborationNetwork />
       </main>
       <Footer />
     </>

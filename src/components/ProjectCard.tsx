@@ -27,6 +27,8 @@ export default function ProjectCard({
   className = "",
   wide = false,
 }: ProjectCardProps) {
+  const isExternal = href.startsWith("http");
+
   if (image.endsWith(".mp4")) {
     return (
       <motion.article
@@ -64,6 +66,8 @@ export default function ProjectCard({
   return (
     <motion.a
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noreferrer" : undefined}
       data-cursor="Ver"
       data-cursor-mode="link"
       className={`bento-card group relative min-h-[360px] overflow-hidden rounded-[1.6rem] border hairline bg-[#0d0c0a] ${className}`}
