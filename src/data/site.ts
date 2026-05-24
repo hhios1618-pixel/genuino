@@ -28,24 +28,25 @@ export const media = {
   logo: mediaUrl("brand/genuino-logo.svg", "/genuino-logo.svg"),
   studioSession: mediaUrl(
     "videos/studio-session.mp4",
-    "/¡Así se vive una sesión con los grandes! 🎥🔥Les dejamos un minuto de pura magia en el estudio. .mp4",
+    "/videos/sueltate-ma-backstage.mp4",
   ),
   phoneMoment: mediaUrl(
     "videos/modo-avion.mp4",
-    "/Pongan Sus Telefonos Celulares En ✈️🎹🎙️🔴.mp4",
+    "/videos/sueltate-ma-backstage.mp4",
   ),
   liveSession: mediaUrl(
     "videos/sueltate-ma-live.mp4",
-    "/Suéltate Ma en Vivo por x IG 🎄🧡 Sorpresa para ustedes! Feliz navidad 🎁 %23SueltateMaLive.mp4",
+    "/videos/sueltate-ma-backstage.mp4",
   ),
   sueltateBackstage: "/videos/sueltate-ma-backstage.mp4",
+  sueltateBackstagePoster: "/videos/sueltate-ma-backstage-poster.jpg",
   careerStep: mediaUrl(
     "videos/nuevo-paso.mp4",
-    "/Me siento muy feliz y orgulloso de este nuevo paso en mi carrera junto a uno de los más grandes .mp4",
+    "/videos/sueltate-ma-backstage.mp4",
   ),
   cocoaCollaboration: mediaUrl(
     "videos/cocoa-record-studio.mp4",
-    "/En mi amado @cocoarecordstudio junto a @antoniorioseloriginalok @orekeneltrack @franggenuino_ Sa.mp4",
+    "/videos/sueltate-ma-backstage.mp4",
   ),
 };
 
@@ -67,7 +68,7 @@ export const artistProfileImages = [
   },
   {
     src: mediaUrl("profile/fran-g-hall.jpg", "/profile/fran-g-hall.jpg"),
-    alt: "Fran G Genuino en interior cinematografico",
+    alt: "Fran G Genuino en interior cinematográfico",
     label: "Imagen artística",
   },
 ];
@@ -95,7 +96,7 @@ export const services = [
     image: "https://i.ytimg.com/vi/0cJH7mw8dKM/maxresdefault.jpg",
     imageAlt: "Referencia visual de catálogo musical Genuino",
     icon: Headphones,
-    deliverables: ["Mezcla stereo", "Master para plataformas", "Revisión de traducción sonora"],
+    deliverables: ["Mezcla estéreo", "Master para plataformas", "Revisión de traducción sonora"],
   },
   {
     title: "Dirección artística",
@@ -159,7 +160,7 @@ export const services = [
   },
   {
     title: "Desarrollo de artistas",
-    kicker: "Vision / Red / Carrera",
+    kicker: "Visión / Red / Carrera",
     description:
       "Acompañamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
     detail:
@@ -183,7 +184,7 @@ export const projects = [
     palette: "from-[#d8b76b]/28 via-[#2a2418] to-[#060606]",
   },
   {
-    title: "Antonio Rios x Angie",
+    title: "Antonio Ríos x Angie",
     type: "Unión artística / Logística video",
     year: "2025",
     description:
@@ -238,7 +239,7 @@ export const tracks = [
     videoId: "IMRNuKaX9qM",
   },
   {
-    title: "Pensandote",
+    title: "Pensándote",
     role: "Fran G Genuino",
     duration: "YouTube",
     mood: "Video con letra para sostener catálogo y audiencia.",
@@ -264,7 +265,7 @@ export const gallery = [
     src: "https://i.ytimg.com/vi/uKG4RBnhghE/maxresdefault.jpg",
   },
   {
-    label: "Sueltate Ma",
+    label: "Suéltate Ma",
     category: "Diego Smith / Producción general",
     src: "https://i.ytimg.com/vi/eyr_XP440kE/maxresdefault.jpg",
   },
@@ -337,7 +338,7 @@ export const videos = [
     format: "portrait",
   },
   {
-    title: "Sesion con los grandes",
+    title: "Sesión con los grandes",
     description:
       "Un registro de estudio con energía real: dirección, interpretación y criterio musical ocurriendo en la misma sala.",
     meta: "Estudio / vertical",
@@ -353,7 +354,7 @@ export const videos = [
     format: "wide",
   },
   {
-    title: "Modo avion",
+    title: "Modo avión",
     description:
       "Un momento breve, directo y memorable: ideal para piezas sociales con impacto inmediato y lectura musical clara.",
     meta: "Social / vertical",
@@ -390,22 +391,22 @@ export const officialProductions = [
   {
     title: "Ella Baila Sola",
     artist: "GO feat. Fran G Genuino",
-    year: "Radio / Via X",
+    year: "Radio / Vía X",
     videoId: "Q9wHNUH1eq8",
     description:
       "Canción de La Doble G con alta rotación en radios y Vía X, conectando colaboración artística con visibilidad de medios.",
   },
   {
-    title: "Sueltate Ma",
+    title: "Suéltate Ma",
     artist: "Diego Smith",
     year: "Producción general",
     videoId: "eyr_XP440kE",
     description:
-      "Producción general realizada desde Genuino Family para Diego Smith, artista vinculado al hit global Iluminaty junto a Kidd Tetoon y Ozuna.",
+      "Producción general realizada desde Genuino Family para Diego Smith, artista vinculado a Iluminaty junto a Kidd Tetoon y Ozuna.",
   },
   {
     title: "Nunca Me Faltes Remix",
-    artist: "Angie Tu Cumbiera x Antonio Rios",
+    artist: "Angie Tu Cumbiera x Antonio Ríos",
     year: "Gestión y logística",
     videoId: "Ll-l9N5NmlM",
     description:
@@ -436,7 +437,7 @@ export const officialProductions = [
       "Canción y audiovisual con foco en colaboración, identidad vocal y una estética directa de lanzamiento.",
   },
   {
-    title: "Pensandote",
+    title: "Pensándote",
     artist: "Fran G Genuino",
     year: "Video con letra",
     videoId: "BJMqy8UdpK8",
@@ -446,7 +447,7 @@ export const officialProductions = [
   {
     title: "Caribe",
     artist: "Vladi Cachai x DW x Solo di Medina x Fran G",
-    year: "Official video",
+    year: "Video oficial",
     videoId: "0cJH7mw8dKM",
     description:
       "Participación en una producción colaborativa con lectura audiovisual y proyección de catálogo.",
@@ -477,7 +478,7 @@ export const collaborationHighlights = [
   },
   {
     title: "Desarrollo integral",
-    kicker: "Letra / Melodia / Ruta",
+    kicker: "Letra / Melodía / Ruta",
     description:
       "Capacidad de entrar desde la escritura, línea melódica y dirección musical hasta la estrategia de medios y posicionamiento público.",
     icon: Mic2,
@@ -534,10 +535,14 @@ export const serviceOptions = [
 ];
 
 export const footerLinks = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "Vimeo", href: "https://vimeo.com" },
+  { label: "Instagram", href: "https://instagram.com/franggenuino_" },
+  { label: "YouTube", href: "https://youtube.com/@genuinomusic" },
   { label: "Email", href: "mailto:contacto@genuino.studio" },
+];
+
+export const legalLinks = [
+  { label: "Privacidad", href: "/privacidad" },
+  { label: "Términos", href: "/terminos" },
 ];
 
 export const contactChannels = [

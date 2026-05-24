@@ -1,6 +1,6 @@
 "use client";
 
-import { Pause, Volume2 } from "lucide-react";
+import { Pause, Volume2, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function AmbientPlayer() {
@@ -116,6 +116,7 @@ export default function AmbientPlayer() {
       data-cursor-mode="link"
       className="ambient-toggle"
       aria-pressed={playing}
+      title={playing ? "Pausar pulso de estudio" : "Activar pulso de estudio"}
       aria-label={playing ? "Pausar pulso de estudio" : "Activar pulso de estudio"}
     >
       {playing ? <Pause size={15} /> : <Volume2 size={15} />}
@@ -125,6 +126,7 @@ export default function AmbientPlayer() {
         <i />
         <i />
       </span>
+      <Waves className="hidden text-[#d8b76b] sm:block" size={14} aria-hidden="true" />
       <span>{playing ? "Pulso activo" : "Pulso de estudio"}</span>
     </button>
   );

@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import About from "@/components/About";
 import CareerProof from "@/components/CareerProof";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Perfil | Fran G Genuino",
+  description:
+    "Historia, trayectoria y filosofía de Fran G Genuino: artista, productor y gestor de Genuino Family desde Valparaíso, Chile.",
+};
 
 export default function PerfilPage() {
   return (

@@ -1,6 +1,5 @@
 "use client";
 
-import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
@@ -8,29 +7,6 @@ import { useEffect } from "react";
 
 export default function SmoothScroll() {
   const pathname = usePathname();
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
-
-    const lenis = new Lenis({
-      lerp: 0.085,
-      wheelMultiplier: 0.86,
-      touchMultiplier: 0.95,
-    });
-
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-
-    frame = requestAnimationFrame(raf);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

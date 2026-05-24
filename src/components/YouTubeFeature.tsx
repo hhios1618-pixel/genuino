@@ -11,16 +11,15 @@ type YouTubeFeatureProps = {
   featured?: boolean;
 };
 
-function thumbnail(videoId: string) {
-  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-}
-
 export default function YouTubeFeature({
   title,
   videoId,
   featured = false,
 }: YouTubeFeatureProps) {
   const [playing, setPlaying] = useState(false);
+  const [imageQuality, setImageQuality] = useState<"maxresdefault" | "sddefault" | "hqdefault">(
+    "maxresdefault",
+  );
 
   if (playing) {
     return (
@@ -45,10 +44,13 @@ export default function YouTubeFeature({
       aria-label={`Reproducir ${title}`}
     >
       <Image
-        src={thumbnail(videoId)}
-        alt=""
+        src={`https://i.ytimg.com/vi/${videoId}/${imageQuality}.jpg`}
+        alt={`Miniatura del video ${title}`}
         fill
         loading={featured ? "eager" : "lazy"}
+        onError={() => {
+          setImageQuality((quality) => (quality === "maxresdefault" ? "sddefault" : "hqdefault"));
+        }}
         placeholder="blur"
         blurDataURL={blurDataUrl}
         sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}

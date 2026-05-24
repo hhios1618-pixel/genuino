@@ -41,6 +41,7 @@ export default function Gallery() {
                   playsInline
                   autoPlay
                   preload="metadata"
+                  aria-label={`${item.label}: ${item.category}`}
                   data-parallax-media
                 />
               ) : (

@@ -12,8 +12,8 @@ export default function Manifesto() {
         </div>
         <div className="editorial-serif space-y-7 text-2xl leading-9 text-white/70">
           <p>
-            Genuino trabaja desde una pregunta concreta: que necesita este artista
-            para estar en el lugar correcto y crecer con herramientas reales. Ahi
+            Genuino trabaja desde una pregunta concreta: qué necesita este artista
+            para estar en el lugar correcto y crecer con herramientas reales. Ahí
             entran la canción, el sonido, el relato, la imagen y la exposición.
           </p>
           <p>

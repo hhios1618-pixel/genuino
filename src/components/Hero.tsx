@@ -9,6 +9,7 @@ export default function Hero() {
         <video
           className="animate-slow-pan absolute inset-[-4%] h-[108%] w-[108%] object-cover"
           src={media.sueltateBackstage}
+          poster="/videos/sueltate-ma-backstage-poster.jpg"
           autoPlay
           muted
           loop
@@ -80,7 +81,7 @@ export default function Hero() {
               </div>
               <p className="text-sm leading-6 text-white/66">
                 Producción general, logística audiovisual y presencia de medios para
-                convertir una colaboración en un lanzamiento con escala.
+                convertir una colaboración en un lanzamiento visible.
               </p>
             </div>
           </div>

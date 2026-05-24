@@ -67,7 +67,7 @@ export default function HomeCTA() {
             <div className="relative aspect-video">
               <Image
                 src="https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg"
-                alt="Angie Tu Cumbiera x Antonio Rios"
+                alt="Angie Tu Cumbiera x Antonio Ríos"
                 fill
                 placeholder="blur"
                 blurDataURL={blurDataUrl}

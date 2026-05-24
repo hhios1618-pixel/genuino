@@ -26,6 +26,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://genuino-five.vercel.app"),
   title: "Genuino Music | Fran G Genuino",
   description:
     "Productora musical y plataforma artística de Fran G Genuino: producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico.",
@@ -44,8 +45,25 @@ export const metadata: Metadata = {
     title: "Genuino Music | Fran G Genuino",
     description:
       "Producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+    url: "https://genuino-five.vercel.app",
+    siteName: "Genuino Music",
+    images: [
+      {
+        url: "/profile/fran-g-studio-console.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Fran G Genuino en estudio",
+      },
+    ],
     type: "website",
     locale: "es_CL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Genuino Music | Fran G Genuino",
+    description:
+      "Producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+    images: ["/profile/fran-g-studio-console.jpg"],
   },
 };
 

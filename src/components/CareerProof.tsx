@@ -83,7 +83,7 @@ export default function CareerProof() {
                 <div className="relative bg-black">
                   <Image
                     src={item.image}
-                    alt=""
+                    alt={`Miniatura de ${item.title}`}
                     fill
                     placeholder="blur"
                     blurDataURL={blurDataUrl}

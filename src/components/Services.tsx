@@ -127,7 +127,7 @@ export default function Services() {
                 >
                   <Image
                     src={service.image}
-                    alt=""
+                    alt={service.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 32vw"
                     className="object-cover opacity-36 transition duration-700 group-hover:scale-[1.055] group-hover:opacity-52"

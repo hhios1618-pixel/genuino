@@ -48,7 +48,7 @@ export default function VideoShowcase() {
                 </p>
               </div>
               <p className="mt-8 rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-white/50">
-                Pulsa la portada para reproducir el video completo dentro de esta pagina.
+                Pulsa la portada para reproducir el video completo dentro de esta página.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function VideoShowcase() {
             Backstage y contenido social
           </p>
           <h3 className="mt-4 text-2xl font-medium text-white">
-            Energia actual desde el estudio, el vivo y la calle.
+            Energía actual desde el estudio, el vivo y la calle.
           </h3>
         </div>
 

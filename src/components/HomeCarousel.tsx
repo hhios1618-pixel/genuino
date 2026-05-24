@@ -36,7 +36,7 @@ const slides = [
     eyebrow: tracks[0].duration,
     title: tracks[0].title,
     body: tracks[0].mood,
-    image: `https://i.ytimg.com/vi/${tracks[0].videoId}/hqdefault.jpg`,
+    image: `https://i.ytimg.com/vi/${tracks[0].videoId}/maxresdefault.jpg`,
     kind: "image",
     href: "/sonido",
   },
@@ -102,10 +102,11 @@ export default function HomeCarousel() {
                 data-cursor="Ver"
                 data-cursor-mode="link"
                 className="group absolute inset-0"
+                aria-label={`Ver ${slide.title}`}
               >
                 <Image
                   src={slide.image}
-                  alt=""
+                  alt={`Imagen de ${slide.title}`}
                   fill
                   placeholder="blur"
                   blurDataURL={blurDataUrl}

@@ -10,9 +10,17 @@ export default function Contact() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const project = String(formData.get("project") ?? "");
+    const service = String(formData.get("service") ?? "");
+    const message = String(formData.get("message") ?? "");
 
-    console.log("Genuino contact request", payload);
+    const subject = encodeURIComponent(`Proyecto para Genuino Music: ${project}`);
+    const body = encodeURIComponent(
+      `Nombre: ${name}\nEmail: ${email}\nServicio: ${service}\nProyecto: ${project}\n\n${message}`,
+    );
+    window.location.href = `mailto:contacto@genuino.studio?subject=${subject}&body=${body}`;
     setSent(true);
     event.currentTarget.reset();
   }
@@ -128,7 +136,7 @@ export default function Contact() {
 
           {sent ? (
             <div className="mt-5 flex items-center gap-3 rounded-2xl border border-[#d8b76b]/28 bg-[#d8b76b]/10 p-4 text-sm text-[#f8e7b3]">
-              <Check size={17} /> Consulta recibida. Te contactaremos para revisar el proyecto.
+              <Check size={17} /> Se abrió tu correo con la consulta lista para enviar.
             </div>
           ) : null}
         </form>

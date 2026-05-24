@@ -1,17 +1,20 @@
 type GenuinoLogoProps = {
   className?: string;
+  decorative?: boolean;
   showWordmark?: boolean;
 };
 
 export default function GenuinoLogo({
   className = "",
+  decorative = false,
   showWordmark = true,
 }: GenuinoLogoProps) {
   return (
     <svg
       viewBox={showWordmark ? "0 0 420 220" : "0 0 260 170"}
-      role="img"
-      aria-label="Genuino"
+      role={decorative ? undefined : "img"}
+      aria-hidden={decorative ? "true" : undefined}
+      aria-label={decorative ? undefined : "Genuino"}
       className={className}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -88,8 +88,10 @@ export default function SoundShowcase() {
             </aside>
           </div>
 
-          <div className="border-t hairline p-3">
-            <div className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="relative border-t hairline p-3">
+            <div className="pointer-events-none absolute bottom-3 left-3 top-3 z-10 w-10 bg-gradient-to-r from-[#080807] to-transparent" />
+            <div className="pointer-events-none absolute bottom-3 right-3 top-3 z-10 w-10 bg-gradient-to-l from-[#080807] to-transparent" />
+            <div className="flex snap-x gap-3 overflow-x-auto pb-2 pr-8 [scrollbar-width:thin] [scrollbar-color:rgba(216,183,107,0.45)_transparent]">
               {tracks.map((track, index) => (
                 <button
                   key={track.videoId}
@@ -97,7 +99,7 @@ export default function SoundShowcase() {
                   onClick={() => setActive(index)}
                   data-cursor="Play"
                   data-cursor-mode="media"
-                  className={`group relative h-40 min-w-[235px] overflow-hidden rounded-[1.25rem] border text-left transition md:h-48 md:min-w-[310px] ${
+                  className={`group relative h-40 min-w-[235px] snap-start overflow-hidden rounded-[1.25rem] border text-left transition md:h-48 md:min-w-[310px] ${
                     active === index
                       ? "border-[#d8b76b]/60"
                       : "border-white/10 hover:border-white/24"
@@ -105,7 +107,7 @@ export default function SoundShowcase() {
                 >
                   <Image
                     src={thumbnail(track.videoId)}
-                    alt=""
+                    alt={`Miniatura de ${track.title}`}
                     fill
                     placeholder="blur"
                     blurDataURL={blurDataUrl}
