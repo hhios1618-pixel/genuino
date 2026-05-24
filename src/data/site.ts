@@ -38,6 +38,7 @@ export const media = {
     "videos/sueltate-ma-live.mp4",
     "/Suéltate Ma en Vivo por x IG 🎄🧡 Sorpresa para ustedes! Feliz navidad 🎁 %23SueltateMaLive.mp4",
   ),
+  sueltateBackstage: "/videos/sueltate-ma-backstage.mp4",
   careerStep: mediaUrl(
     "videos/nuevo-paso.mp4",
     "/Me siento muy feliz y orgulloso de este nuevo paso en mi carrera junto a uno de los más grandes .mp4",
@@ -50,19 +51,19 @@ export const media = {
 
 export const artistProfileImages = [
   {
-    src: mediaUrl("profile/fran-g-studio.jpg", "/profile/fran-g-studio.jpg"),
-    alt: "Fran G Genuino en cabina de grabacion",
-    label: "Cabina / voz",
+    src: "/profile/fran-g-studio-console.jpg",
+    alt: "Fran G Genuino en estudio frente a consola y monitores",
+    label: "Estudio / produccion",
+  },
+  {
+    src: "/profile/fran-g-street-valparaiso.jpg",
+    alt: "Fran G Genuino en exterior urbano en Valparaiso",
+    label: "Territorio / presencia",
   },
   {
     src: mediaUrl("profile/fran-g-collab.jpg", "/profile/fran-g-collab.jpg"),
     alt: "Fran G Genuino en instancia de colaboracion musical",
-    label: "Colaboraciones",
-  },
-  {
-    src: mediaUrl("profile/fran-g-red-carpet.jpg", "/profile/fran-g-red-carpet.jpg"),
-    alt: "Fran G Genuino en alfombra roja",
-    label: "Presencia publica",
+    label: "Red artistica",
   },
   {
     src: mediaUrl("profile/fran-g-hall.jpg", "/profile/fran-g-hall.jpg"),
@@ -274,10 +275,9 @@ export const gallery = [
     kind: "video",
   },
   {
-    label: "Sesion Genuino",
-    category: "Estudio",
-    src: media.studioSession,
-    kind: "video",
+    label: "Fran en estudio",
+    category: "Consola / produccion",
+    src: "/profile/fran-g-studio-console.jpg",
   },
 ];
 

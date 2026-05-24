@@ -5,15 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import PlayableVideo from "@/components/PlayableVideo";
-import { blurDataUrl, careerMilestones, media, tracks } from "@/data/site";
+import { blurDataUrl, careerMilestones, tracks } from "@/data/site";
 
 const slides = [
   {
     eyebrow: "Ahora",
-    title: "Produccion, catalogo y presencia visual en una sola firma.",
-    body: "Canciones, direccion artistica y contenido audiovisual para que el proyecto salga con identidad y presencia.",
-    image: media.studioSession,
-    kind: "video",
+    title: "Fran G en territorio, estudio y pantalla.",
+    body: "El sitio ahora muestra calle, estudio, videos oficiales y backstage con material propio para que la marca respire real.",
+    image: "/profile/fran-g-street-valparaiso.jpg",
+    kind: "profile",
     href: "/proyectos",
   },
   {
@@ -96,6 +96,25 @@ export default function HomeCarousel() {
                 videoClassName="h-[112%]"
                 overlayClassName="bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.78))]"
               />
+            ) : slide.kind === "profile" ? (
+              <Link
+                href={slide.href}
+                data-cursor="Ver"
+                data-cursor-mode="link"
+                className="group absolute inset-0"
+              >
+                <Image
+                  src={slide.image}
+                  alt=""
+                  fill
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl}
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="glitch-media object-cover transition duration-700 group-hover:scale-[1.04]"
+                  data-parallax-media
+                />
+                <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.08),rgba(0,0,0,0.36)),linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.78))]" />
+              </Link>
             ) : (
               <Link
                 href={slide.href}

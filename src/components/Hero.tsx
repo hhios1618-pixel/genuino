@@ -1,22 +1,22 @@
-import { ArrowDownRight } from "lucide-react";
-import PlayableVideo from "@/components/PlayableVideo";
-import { media } from "@/data/site";
+import Image from "next/image";
+import { ArrowDownRight, Clapperboard, Radio, Sparkles } from "lucide-react";
+import { artistProfileImages, blurDataUrl, media } from "@/data/site";
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-[92svh] overflow-hidden pt-28">
-      <div className="absolute inset-0 opacity-75">
+      <div className="absolute inset-0 opacity-80">
         <video
           className="animate-slow-pan absolute inset-[-4%] h-[108%] w-[108%] object-cover"
-          src={media.liveSession}
+          src={media.sueltateBackstage}
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          aria-label="Registro audiovisual de Genuino en vivo"
+          aria-label="Backstage de Sueltate Ma"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.94),rgba(5,5,5,0.56)_46%,rgba(5,5,5,0.9)),linear-gradient(180deg,rgba(5,5,5,0.28),rgba(5,5,5,0.74))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.95),rgba(5,5,5,0.66)_48%,rgba(5,5,5,0.82)),linear-gradient(180deg,rgba(5,5,5,0.2),rgba(5,5,5,0.76))]" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
@@ -55,25 +55,45 @@ export default function Hero() {
         </div>
 
         <div className="cinematic-panel relative mb-2 overflow-hidden rounded-[2rem] p-4" data-reveal>
-          <div className="aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
-            <div className="relative h-full">
-              <PlayableVideo
-                src={media.studioSession}
-                label="Sesion de estudio Genuino"
-                overlayClassName="bg-[radial-gradient(circle_at_50%_38%,rgba(216,183,107,0.12),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.84))]"
-              >
-                <span className="pointer-events-none absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/48">
-                  <span>Studio footage</span>
-                  <span>Genuino actual</span>
-                </span>
-                <span className="pointer-events-none absolute inset-x-6 bottom-6">
-                  <span className="waveform block h-14 rounded-full border border-white/10 bg-white/[0.03]" />
-                  <span className="mt-4 block text-sm leading-6 text-white/62">
-                    Sesiones reales, piezas sociales y registros de performance
-                    convertidos en presencia artistica.
-                  </span>
-                </span>
-              </PlayableVideo>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090909]">
+            <Image
+              src={artistProfileImages[0].src}
+              alt={artistProfileImages[0].alt}
+              fill
+              priority
+              placeholder="blur"
+              blurDataURL={blurDataUrl}
+              sizes="(min-width: 1024px) 36vw, 100vw"
+              className="glitch-media object-cover"
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_18%,rgba(216,183,107,0.16),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.86))]" />
+            <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/54">
+              <span>Studio evidence</span>
+              <span>Fran G</span>
+            </div>
+            <div className="absolute inset-x-6 bottom-6">
+              <div className="mb-4 flex gap-2">
+                {[
+                  { label: "Produccion", icon: Sparkles },
+                  { label: "Medios", icon: Radio },
+                  { label: "Video", icon: Clapperboard },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <span
+                      key={item.label}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/64 backdrop-blur-md"
+                    >
+                      <Icon size={12} />
+                      {item.label}
+                    </span>
+                  );
+                })}
+              </div>
+              <p className="text-sm leading-6 text-white/66">
+                No solo estudio: direccion, red y material real para sostener un
+                lanzamiento desde la cancion hasta la pantalla.
+              </p>
             </div>
           </div>
         </div>
