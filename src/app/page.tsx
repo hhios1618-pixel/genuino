@@ -1,4 +1,5 @@
 import CollaborationNetwork from "@/components/CollaborationNetwork";
+import CareerProof from "@/components/CareerProof";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HomeCarousel from "@/components/HomeCarousel";
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <HomeCarousel />
+        <CareerProof />
         <CollaborationNetwork />
         <Services />
         <HomeCTA />

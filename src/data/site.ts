@@ -91,7 +91,7 @@ export const services = [
       "Balance, profundidad, traduccion y acabado final para que cada cancion respire con presencia en cualquier sistema.",
     detail:
       "Proceso tecnico y musical para que la voz, el bajo, el beat y los detalles convivan con claridad, volumen competitivo y una terminacion lista para plataformas.",
-    image: "https://i.ytimg.com/vi/aJG0zRex7EU/hqdefault.jpg",
+    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/hqdefault.jpg",
     imageAlt: "Referencia visual de catalogo musical Genuino",
     icon: Headphones,
     deliverables: ["Mezcla stereo", "Master para plataformas", "Revision de traduccion sonora"],
@@ -103,7 +103,7 @@ export const services = [
       "Criterio para ordenar referencias, lenguaje, narrativa, imagen y decisiones esteticas durante todo el proceso.",
     detail:
       "Acompanamiento para ordenar el universo del artista: que se dice, como se muestra, que referencias sirven y que decisiones conviene tomar antes de grabar o lanzar.",
-    image: artistProfileImages[3].src,
+    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
     imageAlt: "Imagen artistica de Fran G Genuino",
     icon: PenLine,
     deliverables: ["Mapa de referencias", "Direccion de identidad", "Criterio para lanzamientos"],
@@ -115,7 +115,7 @@ export const services = [
       "Posicionamiento del artista en el lugar idoneo para desarrollar su carrera, con herramientas concretas para crecer.",
     detail:
       "Lectura comercial para transformar una cancion o etapa artistica en presencia: relato, piezas, calendario, colaboraciones y acciones que muevan audiencia real.",
-    image: artistProfileImages[2].src,
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
     imageAlt: "Presencia publica de Fran G Genuino",
     icon: Megaphone,
     deliverables: ["Estrategia de salida", "Piezas para redes", "Ruta de visibilidad"],
@@ -127,7 +127,7 @@ export const services = [
       "Gestion y preparacion de apariciones en medios para amplificar lanzamientos, colaboraciones y momentos clave.",
     detail:
       "Preparacion de mensaje, foco del lanzamiento y gestion de instancias donde la historia del artista pueda presentarse con contexto profesional.",
-    image: artistProfileImages[1].src,
+    image: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
     imageAlt: "Colaboracion y aparicion publica en medios",
     icon: Tv,
     deliverables: ["Preparacion de entrevista", "Foco comunicacional", "Gestion de oportunidades"],
@@ -151,7 +151,7 @@ export const services = [
       "Desarrollo de videoclips, piezas sociales y registros de estudio para que la cancion tenga presencia visual.",
     detail:
       "Contenido pensado para el ciclo real de una cancion: pieza principal, cortes sociales, registro de proceso y material que sostenga el lanzamiento sin verse generico.",
-    image: "https://i.ytimg.com/vi/bPJhFwQz_Ok/hqdefault.jpg",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
     imageAlt: "Referencia audiovisual para videoclips y contenido",
     icon: Clapperboard,
     deliverables: ["Concepto audiovisual", "Piezas para redes", "Direccion de registro"],
@@ -163,7 +163,7 @@ export const services = [
       "Acompanamiento integral para nuevos talentos: voz, repertorio, colaboraciones, imagen y ruta comercial.",
     detail:
       "Proceso de mediano plazo para construir repertorio, mejorar presencia, elegir colaboraciones y tomar decisiones con sentido de carrera.",
-    image: artistProfileImages[1].src,
+    image: "https://i.ytimg.com/vi/uKG4RBnhghE/hqdefault.jpg",
     imageAlt: "Red de colaboraciones de Genuino",
     icon: UsersRound,
     deliverables: ["Plan de repertorio", "Ruta de colaboraciones", "Acompanamiento creativo"],
@@ -248,24 +248,24 @@ export const tracks = [
 
 export const gallery = [
   {
-    label: "Cabina de voz",
-    category: "Produccion musical",
-    src: artistProfileImages[0].src,
+    label: "Venimos de Abajo",
+    category: "Arte Elegante x Genuino",
+    src: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
   },
   {
-    label: "Red de colaboraciones",
-    category: "TV / escena",
-    src: artistProfileImages[1].src,
+    label: "Ella Baila Sola",
+    category: "GO feat. Fran G Genuino",
+    src: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
   },
   {
-    label: "Presencia publica",
-    category: "Posicionamiento",
-    src: artistProfileImages[2].src,
+    label: "Lejos de ti",
+    category: "Hermanos Bernal feat. Genuino",
+    src: "https://i.ytimg.com/vi/uKG4RBnhghE/hqdefault.jpg",
   },
   {
-    label: "Imagen artistica",
-    category: "Direccion visual",
-    src: artistProfileImages[3].src,
+    label: "Sueltate Ma",
+    category: "Diego Smith / Produccion general",
+    src: "https://i.ytimg.com/vi/eyr_XP440kE/hqdefault.jpg",
   },
   {
     label: "Cocoa Record Studio",
@@ -279,6 +279,52 @@ export const gallery = [
     src: media.studioSession,
     kind: "video",
   },
+];
+
+export const careerMilestones = [
+  {
+    year: "2015",
+    title: "Caribe",
+    eyebrow: "Catalogo temprano",
+    body:
+      "Primeras senales de catalogo en plataformas con Caribe, una pieza que posiciona a Genuino en musica latina desde una etapa inicial.",
+    image: "https://i.ytimg.com/vi/0cJH7mw8dKM/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=0cJH7mw8dKM",
+  },
+  {
+    year: "2022",
+    title: "Venimos de Abajo",
+    eyebrow: "Arte Elegante x Genuino",
+    body:
+      "Colaboracion editada como single y video oficial, con una lectura de resiliencia, calle y alcance radial en Chile.",
+    image: "https://i.ytimg.com/vi/zH5C4T0C-F0/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=zH5C4T0C-F0",
+  },
+  {
+    year: "La Doble G",
+    title: "Ella Baila Sola",
+    eyebrow: "GO feat. Fran G Genuino",
+    body:
+      "Cruce de R&B, soul, rap y urbano junto a GO, desarrollado como parte de una estrategia de singles y presencia en vivo.",
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=Q9wHNUH1eq8",
+  },
+  {
+    year: "Genuino Family",
+    title: "Gestion de medios",
+    eyebrow: "Radio / TV / videos",
+    body:
+      "Trabajo detras de la cancion: booking radial, gestion de television, logistica de videoclips, contenido social y uniones artisticas.",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=Ll-l9N5NmlM",
+  },
+];
+
+export const proofStats = [
+  { value: "2015", label: "catalogo en plataformas" },
+  { value: "2022", label: "single con Arte Elegante" },
+  { value: "Top 100", label: "senal radial Chile" },
+  { value: "360", label: "sonido, video y medios" },
 ];
 
 export const videos = [

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import PlayableVideo from "@/components/PlayableVideo";
-import { blurDataUrl, media, projects, tracks } from "@/data/site";
+import { blurDataUrl, careerMilestones, media, tracks } from "@/data/site";
 
 const slides = [
   {
@@ -17,11 +17,19 @@ const slides = [
     href: "/proyectos",
   },
   {
-    eyebrow: projects[1].year,
-    title: projects[1].title,
-    body: projects[1].description,
-    image: projects[1].image,
-    kind: "video",
+    eyebrow: careerMilestones[1].eyebrow,
+    title: careerMilestones[1].title,
+    body: careerMilestones[1].body,
+    image: careerMilestones[1].image,
+    kind: "image",
+    href: "/video",
+  },
+  {
+    eyebrow: careerMilestones[2].eyebrow,
+    title: careerMilestones[2].title,
+    body: careerMilestones[2].body,
+    image: careerMilestones[2].image,
+    kind: "image",
     href: "/video",
   },
   {
