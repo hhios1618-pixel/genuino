@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import ExperienceLayer from "@/components/ExperienceLayer";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,22 +30,36 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://genuino-five.vercel.app"),
   title: "Genuino Music | Fran G Genuino",
   description:
-    "Productora musical y plataforma artística de Fran G Genuino: producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico.",
+    "Productora musical premium de Fran G Genuino: producción urbana, marketing artístico Chile, videoclips y desarrollo de carrera musical.",
   keywords: [
     "Genuino",
     "productora musical",
+    "producción urbana premium",
     "producción musical",
     "mezcla",
     "mastering",
     "dirección artística",
     "marketing artístico",
+    "marketing artístico Chile",
+    "desarrollo de carrera musical",
     "Fran G Genuino",
     "Genuino Family",
   ],
+  authors: [{ name: "Genuino Music" }],
+  creator: "Fran G Genuino",
+  publisher: "Genuino Music",
+  category: "Music production",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Genuino Music | Fran G Genuino",
     description:
-      "Producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+      "Producción urbana premium, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
     url: "https://genuino-five.vercel.app",
     siteName: "Genuino Music",
     images: [
@@ -62,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Genuino Music | Fran G Genuino",
     description:
-      "Producción urbana, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+      "Producción urbana premium, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
     images: ["/profile/fran-g-studio-console.jpg"],
   },
 };
@@ -78,6 +93,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
         <ExperienceLayer>{children}</ExperienceLayer>
       </body>
     </html>

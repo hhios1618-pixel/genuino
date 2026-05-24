@@ -20,6 +20,7 @@ export const navItems = [
   { label: "Proyectos", href: "/proyectos" },
   { label: "Sonido", href: "/sonido" },
   { label: "Video", href: "/video" },
+  { label: "Calculador", href: "/calculador" },
   { label: "Perfil", href: "/perfil" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -548,4 +549,165 @@ export const legalLinks = [
 export const contactChannels = [
   { label: "Comercial", value: "contacto@genuino.studio", icon: Radio },
   { label: "Estudio", value: "Santiago / remoto", icon: AudioLines },
+];
+
+export const audiovisualTestimonials = [
+  {
+    artist: "Arte Elegante",
+    role: "Colaboración oficial",
+    title: "Venimos de Abajo",
+    quote:
+      "Una unión de calle, relato y criterio de producción que puso el foco en interpretación, identidad y presencia visual.",
+    videoSrc: media.sueltateBackstage,
+    poster: "https://i.ytimg.com/vi/zH5C4T0C-F0/maxresdefault.jpg",
+    proof: "Video oficial / catálogo urbano",
+  },
+  {
+    artist: "GO",
+    role: "La Doble G",
+    title: "Ella Baila Sola",
+    quote:
+      "Cruce vocal y audiovisual con lectura radial, contenido para pantalla y una dirección pensada para sostener el single.",
+    videoSrc: media.liveSession,
+    poster: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
+    proof: "Radio / Vía X / single",
+  },
+  {
+    artist: "Diego Smith",
+    role: "Producción general",
+    title: "Suéltate Ma",
+    quote:
+      "Coordinación de estudio, video, logística y relato público para transformar una canción en una campaña visible.",
+    videoSrc: media.sueltateBackstage,
+    poster: "https://i.ytimg.com/vi/eyr_XP440kE/maxresdefault.jpg",
+    proof: "Backstage / lanzamiento",
+  },
+];
+
+export const studioGear = [
+  {
+    name: "Control room",
+    category: "Monitoreo y decisión",
+    image: "/profile/fran-g-studio-console.jpg",
+    specs: ["Escucha de referencia", "Revisión de traducción", "A/B de mezcla"],
+    description:
+      "Sala preparada para decidir bajo, voz y presencia con lectura de plataforma, club, auto y teléfono.",
+  },
+  {
+    name: "Cadena vocal",
+    category: "Toma y edición",
+    image: mediaUrl("profile/fran-g-vocal-chain.jpg", "/profile/fran-g-studio-console.jpg"),
+    specs: ["Dirección de toma", "Comping", "Afinación musical"],
+    description:
+      "Flujo enfocado en capturar intención: selección de tomas, limpieza, timing y edición transparente.",
+  },
+  {
+    name: "Beat station",
+    category: "Producción urbana",
+    image: "https://i.ytimg.com/vi/aJG0zRex7EU/maxresdefault.jpg",
+    specs: ["Drums con pegada", "808 controlado", "Arreglo para voz"],
+    description:
+      "Mesa creativa para convertir referencias en un beat con espacio, energía y una estructura lista para grabar.",
+  },
+  {
+    name: "Media desk",
+    category: "Contenido y campaña",
+    image: "https://i.ytimg.com/vi/Ll-l9N5NmlM/maxresdefault.jpg",
+    specs: ["Reels", "Backstage", "Piezas de prensa"],
+    description:
+      "Producción de material visual para sostener el lanzamiento antes, durante y después del estreno.",
+  },
+];
+
+export const insideBeatSteps = [
+  {
+    label: "Referencia",
+    title: "Se define el mundo del artista",
+    body:
+      "Antes de tocar la sesión se ordena el lenguaje: tono, referencias, público, visuales y objetivo del lanzamiento.",
+    image: "/profile/fran-g-street-valparaiso.jpg",
+  },
+  {
+    label: "Beat",
+    title: "El ritmo deja espacio para la voz",
+    body:
+      "La producción se construye alrededor de interpretación, bajo y hook. Cada elemento tiene una función narrativa.",
+    image: "/profile/fran-g-studio-console.jpg",
+  },
+  {
+    label: "Voz",
+    title: "Dirección de toma con intención",
+    body:
+      "Se trabaja fraseo, energía, respiración y edición para que la voz llegue frontal sin perder humanidad.",
+    image: "https://i.ytimg.com/vi/bPJhFwQz_Ok/maxresdefault.jpg",
+  },
+  {
+    label: "Salida",
+    title: "La canción se convierte en campaña",
+    body:
+      "Master, contenido, calendario, prensa y colaboraciones se conectan para que el lanzamiento tenga tracción real.",
+    image: "https://i.ytimg.com/vi/Q9wHNUH1eq8/maxresdefault.jpg",
+  },
+];
+
+export const launchDesignerServices = [
+  {
+    id: "beat",
+    label: "Beat original",
+    price: 260,
+    days: 4,
+    detail: "Producción urbana desde referencia, estructura y dirección musical.",
+  },
+  {
+    id: "vocal-mix",
+    label: "Vocal mix",
+    price: 180,
+    days: 2,
+    detail: "Limpieza, comping, afinación musical y balance de voz.",
+  },
+  {
+    id: "master",
+    label: "Master",
+    price: 90,
+    days: 1,
+    detail: "Entrega lista para plataformas con volumen competitivo.",
+  },
+  {
+    id: "video",
+    label: "Video / reels",
+    price: 520,
+    days: 7,
+    detail: "Concepto audiovisual, registro y piezas cortas para campaña.",
+  },
+  {
+    id: "marketing",
+    label: "Marketing artístico",
+    price: 420,
+    days: 6,
+    detail: "Relato, calendario, piezas y ruta de medios para el lanzamiento.",
+  },
+];
+
+export const clientPortalDemos = [
+  {
+    title: "Maqueta privada 01",
+    artist: "Cliente Genuino",
+    status: "Mix v2",
+    duration: "02:48",
+    comments: [
+      { time: "00:18", author: "Artista", body: "Subir presencia del lead antes del drop." },
+      { time: "01:06", author: "Fran", body: "Revisar respiración y doblaje en el hook." },
+      { time: "02:12", author: "Equipo", body: "Preparar versión clean para pauta radial." },
+    ],
+  },
+  {
+    title: "Single campaña",
+    artist: "Genuino Family",
+    status: "Master check",
+    duration: "03:11",
+    comments: [
+      { time: "00:42", author: "Fran", body: "El bajo traduce mejor en la segunda versión." },
+      { time: "01:34", author: "Marketing", body: "Cortar reel vertical desde este hook." },
+    ],
+  },
 ];

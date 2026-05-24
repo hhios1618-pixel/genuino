@@ -92,6 +92,12 @@ export default function Footer() {
             >
               <Mail size={15} /> contacto@genuino.studio
             </a>
+            <Link
+              href="/portal"
+              className="mt-3 block text-sm text-white/42 transition hover:text-[#f4d489]"
+            >
+              Portal privado de clientes
+            </Link>
           </div>
         </div>
       </div>

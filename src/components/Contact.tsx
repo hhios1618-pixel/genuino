@@ -7,7 +7,7 @@ import { contactChannels, serviceOptions } from "@/data/site";
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = String(formData.get("name") ?? "");
@@ -16,13 +16,25 @@ export default function Contact() {
     const service = String(formData.get("service") ?? "");
     const message = String(formData.get("message") ?? "");
 
-    const subject = encodeURIComponent(`Proyecto para Genuino Music: ${project}`);
-    const body = encodeURIComponent(
-      `Nombre: ${name}\nEmail: ${email}\nServicio: ${service}\nProyecto: ${project}\n\n${message}`,
-    );
-    window.location.href = `mailto:contacto@genuino.studio?subject=${subject}&body=${body}`;
-    setSent(true);
-    event.currentTarget.reset();
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, service, project, notes: message, source: "contact" }),
+      });
+
+      if (!response.ok) throw new Error("Lead request failed");
+      setSent(true);
+      event.currentTarget.reset();
+    } catch {
+      const subject = encodeURIComponent(`Proyecto para Genuino Music: ${project}`);
+      const body = encodeURIComponent(
+        `Nombre: ${name}\nEmail: ${email}\nServicio: ${service}\nProyecto: ${project}\n\n${message}`,
+      );
+      window.location.href = `mailto:contacto@genuino.studio?subject=${subject}&body=${body}`;
+      setSent(true);
+      event.currentTarget.reset();
+    }
   }
 
   return (
@@ -43,6 +55,14 @@ export default function Contact() {
           </p>
 
           <div className="mt-10 grid gap-3">
+            <a
+              href="/calculador"
+              data-cursor="Diseñar"
+              data-cursor-mode="link"
+              className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706]"
+            >
+              Diseñar lanzamiento <ArrowRight size={16} />
+            </a>
             {contactChannels.map((channel) => {
               const Icon = channel.icon;
               return (
@@ -136,7 +156,7 @@ export default function Contact() {
 
           {sent ? (
             <div className="mt-5 flex items-center gap-3 rounded-2xl border border-[#d8b76b]/28 bg-[#d8b76b]/10 p-4 text-sm text-[#f8e7b3]">
-              <Check size={17} /> Se abrió tu correo con la consulta lista para enviar.
+              <Check size={17} /> Recibimos la consulta con el contexto del proyecto.
             </div>
           ) : null}
         </form>

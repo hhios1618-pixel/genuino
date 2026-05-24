@@ -25,9 +25,9 @@ export default function HomeCTA() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="/contacto"
+              href="/calculador"
               data-magnetic
-              data-cursor="Contacto"
+              data-cursor="Diseñar"
               data-cursor-mode="link"
               className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806]"
             >

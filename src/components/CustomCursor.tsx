@@ -31,6 +31,7 @@ export default function CustomCursor() {
       if (cursorLabelRef.current !== nextLabel) {
         cursorLabelRef.current = nextLabel;
         setCursorLabel(nextLabel);
+        cursor.dataset.cursorLabel = nextLabel.toLowerCase();
       }
 
       document.documentElement.dataset.cursorMode = mode;

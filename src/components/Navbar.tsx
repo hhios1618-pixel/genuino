@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-4 md:top-4">
       <nav
-        className={`mx-auto flex h-16 max-w-6xl items-center justify-between rounded-full border px-4 text-sm text-white/82 backdrop-blur-2xl transition duration-300 supports-[backdrop-filter]:bg-[#070707]/58 sm:px-5 ${
+        className={`mx-auto flex h-16 max-w-7xl items-center justify-between rounded-full border px-4 text-sm text-white/82 backdrop-blur-2xl transition duration-300 supports-[backdrop-filter]:bg-[#070707]/58 sm:px-5 ${
           scrolled || open
             ? "border-[#d8b76b]/22 bg-[#070707]/86 shadow-2xl shadow-black/42"
             : "border-white/10 bg-[#070707]/72 shadow-2xl shadow-black/25"
@@ -71,13 +71,13 @@ export default function Navbar() {
         </div>
 
         <Link
-          href="/contacto"
+          href="/calculador"
           data-magnetic
-          data-cursor="Contacto"
+          data-cursor="Diseñar"
           data-cursor-mode="link"
           className="hidden items-center gap-2 rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition duration-300 hover:-translate-y-0.5 hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]/36 lg:inline-flex"
         >
-          Conversemos
+          Diseñar lanzamiento
           <ArrowUpRight size={14} />
         </Link>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
       </nav>
 
       {open ? (
-        <div id="mobile-nav" className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/10 bg-[#070707]/92 p-2 text-sm text-white/78 shadow-2xl backdrop-blur-xl lg:hidden">
+        <div id="mobile-nav" className="mx-auto mt-2 max-w-7xl rounded-3xl border border-white/10 bg-[#070707]/92 p-2 text-sm text-white/78 shadow-2xl backdrop-blur-xl lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.href}

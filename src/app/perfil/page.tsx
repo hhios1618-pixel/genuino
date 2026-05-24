@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Perfil | Fran G Genuino",
   description:
     "Historia, trayectoria y filosofía de Fran G Genuino: artista, productor y gestor de Genuino Family desde Valparaíso, Chile.",
+  alternates: {
+    canonical: "/perfil",
+  },
+  keywords: ["Fran G Genuino", "Genuino Family", "desarrollo de carrera musical", "productor urbano Chile"],
 };
 
 export default function PerfilPage() {

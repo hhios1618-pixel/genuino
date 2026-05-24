@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Proyectos | Genuino Music",
   description:
     "Videoclips, colaboraciones, gestión de medios y lanzamientos destacados de Fran G Genuino y Genuino Family en Chile.",
+  alternates: {
+    canonical: "/proyectos",
+  },
+  keywords: ["videoclips urbanos Chile", "producción urbana premium", "Genuino Family", "Fran G Genuino"],
 };
 
 export default function ProyectosPage() {
