@@ -11,10 +11,10 @@ export default function GenuinoLogo({
 }: GenuinoLogoProps) {
   return (
     <svg
-      viewBox={showWordmark ? "0 0 420 220" : "0 0 260 170"}
+      viewBox={showWordmark ? "0 0 420 300" : "0 0 260 170"}
       role={decorative ? undefined : "img"}
       aria-hidden={decorative ? "true" : undefined}
-      aria-label={decorative ? undefined : "Genuino"}
+      aria-label={decorative ? undefined : "Genuino Family"}
       className={className}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,21 +25,36 @@ export default function GenuinoLogo({
         transform={showWordmark ? "translate(-18 8) scale(.82)" : "translate(-44 -4) scale(.94)"}
       />
       {showWordmark ? (
-        <g transform="translate(84 166)">
-          <rect width="252" height="42" fill="currentColor" />
+        <>
+          <g transform="translate(84 166)">
+            <rect width="252" height="42" fill="currentColor" />
+            <text
+              x="126"
+              y="30"
+              textAnchor="middle"
+              fontFamily="Geist Mono, ui-monospace, monospace"
+              fontSize="27"
+              fontWeight="500"
+              letterSpacing="4"
+              fill="var(--background)"
+            >
+              GENUINO
+            </text>
+          </g>
           <text
-            x="126"
-            y="30"
+            x="210"
+            y="268"
             textAnchor="middle"
-            fontFamily="Geist Mono, ui-monospace, monospace"
-            fontSize="27"
-            fontWeight="500"
-            letterSpacing="4"
-            fill="var(--background)"
+            fontFamily="Brush Script MT, Segoe Script, Apple Chancery, cursive"
+            fontSize="78"
+            fontStyle="italic"
+            fontWeight="700"
+            fill="#e21d0f"
+            transform="skewX(-11 210 268)"
           >
-            GENUINO
+            Family
           </text>
-        </g>
+        </>
       ) : null}
     </svg>
   );

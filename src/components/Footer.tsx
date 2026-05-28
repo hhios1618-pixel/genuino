@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="section-shell grid gap-10 py-12 md:grid-cols-[1.1fr_0.9fr] md:py-16">
         <div>
           <Link href="/" aria-label="Ir al inicio" className="inline-flex">
-            <GenuinoLogo decorative className="h-24 w-44 text-white" />
+            <GenuinoLogo decorative className="h-28 w-48 text-white" />
             <span className="sr-only">Genuino Music</span>
           </Link>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/56">

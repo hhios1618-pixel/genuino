@@ -39,7 +39,7 @@ export default function Navbar() {
         <Link href="/" data-cursor="Inicio" data-cursor-mode="link" className="flex items-center" aria-label="Ir al inicio">
           <GenuinoLogo
             decorative
-            className="h-12 w-24 text-white transition hover:text-[#f8e7b3]"
+            className="h-14 w-28 text-white transition hover:text-[#f8e7b3]"
           />
           <span className="sr-only">Genuino</span>
         </Link>
