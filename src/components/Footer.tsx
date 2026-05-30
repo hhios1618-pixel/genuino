@@ -26,7 +26,8 @@ export default function Footer() {
             <span className="sr-only">Genuino Music</span>
           </Link>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/56">
-            Productora musical, desarrollo artístico, videoclips y gestión de medios
+            Genuino Family: sonido, medios y desarrollo artistico desde Chile.
+            Productora musical, videoclips, booking radial y gestion de medios
             para proyectos urbanos con identidad propia.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -96,7 +97,7 @@ export default function Footer() {
               href="/portal"
               className="mt-3 block text-sm text-white/42 transition hover:text-[#f4d489]"
             >
-              Portal privado de clientes
+              Portal privado: clientes, administración y legal
             </Link>
           </div>
         </div>

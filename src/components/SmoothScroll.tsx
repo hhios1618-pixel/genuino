@@ -30,11 +30,9 @@ export default function SmoothScroll() {
 
         gsap.fromTo(
           element.querySelectorAll(".title-letter"),
-          { autoAlpha: 0, yPercent: 48, filter: "blur(14px)" },
+          { yPercent: 48 },
           {
-            autoAlpha: 1,
             yPercent: 0,
-            filter: "blur(0px)",
             duration: 0.82,
             stagger: 0.014,
             ease: "power3.out",
@@ -50,11 +48,9 @@ export default function SmoothScroll() {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
         gsap.fromTo(
           element,
-          { autoAlpha: 0, y: 42, filter: "blur(14px)" },
+          { y: 42 },
           {
-            autoAlpha: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 1.05,
             ease: "power3.out",
             scrollTrigger: {
@@ -70,9 +66,8 @@ export default function SmoothScroll() {
         const children = gsap.utils.toArray<HTMLElement>(group.children);
         gsap.fromTo(
           children,
-          { autoAlpha: 0, y: 34 },
+          { y: 34 },
           {
-            autoAlpha: 1,
             y: 0,
             duration: 0.86,
             stagger: 0.09,

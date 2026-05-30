@@ -36,6 +36,11 @@ export default function TerminosPage() {
               Los enlaces externos a plataformas de música, video o redes sociales
               se ofrecen como referencia pública de catálogo y actividad profesional.
             </p>
+            <p>
+              El portal privado, cuando se habilite para clientes, administración o
+              revisión legal, se utilizará solo para información asociada a proyectos,
+              materiales, acuerdos y entregas autorizadas por las partes.
+            </p>
           </div>
         </section>
       </main>

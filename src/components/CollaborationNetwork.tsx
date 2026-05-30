@@ -1,11 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
-import YouTubeFeature from "@/components/YouTubeFeature";
-import { collaborationHighlights, mediaCampaignReferences } from "@/data/site";
+import Link from "next/link";
+import { ArrowUpRight, Network } from "lucide-react";
+import { collaborationHighlights } from "@/data/site";
 
 export default function CollaborationNetwork() {
-  const featuredReferences = mediaCampaignReferences.slice(0, 3);
-  const compactReferences = mediaCampaignReferences.slice(3);
-
   return (
     <section className="border-y hairline bg-[#080807] py-20 md:py-28">
       <div className="section-shell">
@@ -15,17 +12,17 @@ export default function CollaborationNetwork() {
               Colaboraciones y medios
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-4xl">
-              Una red que mueve canciones: artista, productor y gestor.
+              Una red que convierte canciones en presencia publica.
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/58 md:justify-self-end">
-            Fran G Genuino reúne dos frentes: voz y presencia en pantalla; Genuino
-            Family aporta gestión de medios, logística audiovisual y conexión entre
-            artistas.
+            Fran G Genuino aparece como artista y cantante. Genuino Family opera la
+            otra capa: medios, television, radio, logistica audiovisual y cruces entre
+            artistas, productores y equipos de negocio.
           </p>
         </div>
 
-        <div className="mb-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4" data-stagger>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4" data-stagger>
           {collaborationHighlights.map((item) => {
             const Icon = item.icon;
 
@@ -47,46 +44,24 @@ export default function CollaborationNetwork() {
           })}
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3" data-stagger>
-          {featuredReferences.map((reference) => (
-            <article
-              key={reference.videoId}
-              className="bento-card overflow-hidden rounded-[1.5rem] border hairline bg-[#0b0a09]"
-            >
-              <div className="relative aspect-video overflow-hidden bg-black">
-                <YouTubeFeature title={reference.title} videoId={reference.videoId} />
-              </div>
-              <div className="p-5">
-                <p className="text-[0.68rem] uppercase tracking-[0.24em] text-[#d8b76b]/74">
-                  Referencia de booking radial
-                </p>
-                <h3 className="mt-3 text-xl font-medium text-white">{reference.title}</h3>
-                <p className="mt-2 text-sm text-white/50">{reference.artist}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4" data-stagger>
-          {compactReferences.map((reference) => (
-            <a
-              key={reference.videoId}
-              href={`https://www.youtube.com/watch?v=${reference.videoId}`}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="YouTube"
-              data-cursor-mode="link"
-              className="group flex min-h-28 items-center justify-between gap-4 rounded-[1.15rem] border border-white/10 bg-white/[0.026] p-4 transition hover:border-[#d8b76b]/36 hover:bg-white/[0.045]"
-            >
-              <span>
-                <span className="block text-sm font-medium text-white">{reference.title}</span>
-                <span className="mt-2 block text-xs leading-5 text-white/48">{reference.artist}</span>
-              </span>
-              <span className="grid size-10 shrink-0 place-items-center rounded-full border border-white/12 text-white/70 transition group-hover:border-[#d8b76b]/34 group-hover:text-[#f4d489]">
-                <ArrowUpRight size={17} />
-              </span>
-            </a>
-          ))}
+        <div className="mt-8 flex flex-col gap-4 rounded-[1.2rem] border border-white/10 bg-white/[0.026] p-5 md:flex-row md:items-center md:justify-between">
+          <div className="flex max-w-3xl gap-4">
+            <div className="mt-1 grid size-10 shrink-0 place-items-center rounded-full border border-[#d8b76b]/24 bg-[#d8b76b]/8 text-[#d8b76b]">
+              <Network size={18} />
+            </div>
+            <p className="text-sm leading-7 text-white/58">
+              La red se entiende por capas: preparación del artista, coordinación del
+              equipo, llegada a medios y lectura comercial para cada lanzamiento.
+            </p>
+          </div>
+          <Link
+            href="/proyectos#trabajos-medios"
+            data-cursor="Ver"
+            data-cursor-mode="link"
+            className="ghost-cta inline-flex h-12 shrink-0 items-center justify-center gap-3 rounded-full px-6 text-sm font-medium text-white/90"
+          >
+            Ver trabajos en medios <ArrowUpRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

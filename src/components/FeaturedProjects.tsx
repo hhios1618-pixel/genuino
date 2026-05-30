@@ -17,12 +17,12 @@ export default function FeaturedProjects() {
               Trayectoria y posicionamiento
             </p>
             <h2 data-reveal-title className="mt-5 text-3xl font-medium text-white md:text-5xl">
-              Catálogo, colaboraciones y presencia pública.
+              Casos donde Genuino conecta canción, equipo y exposición.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/58">
-            Producciones, registros de estudio y cruces artísticos que muestran una
-            forma concreta de trabajar: sonido, dirección, contenido y red.
+            Producciones y cruces artísticos donde el rol no queda solo en cantar:
+            direccion, gestion de medios, logistica audiovisual y red profesional.
           </p>
         </div>
 

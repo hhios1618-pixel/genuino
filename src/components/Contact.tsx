@@ -49,9 +49,9 @@ export default function Contact() {
           </h2>
           <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
             Cuéntanos si necesitas producir una canción, crear melodías y letras,
-            desarrollar un videoclip, gestionar entrevistas en medios o posicionar tu carrera.
-            Respondemos con una propuesta clara para avanzar con sonido, imagen y
-            estrategia.
+            desarrollar un videoclip, gestionar entrevistas en medios, ordenar accesos
+            administrativos o posicionar tu carrera. Respondemos con una propuesta
+            clara para avanzar con sonido, imagen, estrategia y operación.
           </p>
 
           <div className="mt-10 grid gap-3">
@@ -134,7 +134,7 @@ export default function Contact() {
 
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs leading-5 text-white/42">
-              Respuesta comercial para producciones y desarrollo artístico.
+              Respuesta comercial para producciones, medios, portal y desarrollo artístico.
             </p>
             <button
               type="submit"

@@ -34,6 +34,11 @@ export default function PrivacidadPage() {
               contacto@genuino.studio.
             </p>
             <p>
+              Si se habilitan accesos privados para clientes, administración o área
+              legal, esos datos deberán tratarse como información de proyecto y
+              mantenerse restringidos a las personas autorizadas.
+            </p>
+            <p>
               Este sitio puede enlazar a plataformas externas como YouTube,
               Instagram o Vimeo, sujetas a sus propias políticas de privacidad.
             </p>

@@ -3,7 +3,7 @@
 import { LockKeyhole, MessageSquareText, Play, Send, ShieldCheck, UploadCloud } from "lucide-react";
 import { FormEvent, useState } from "react";
 import type { ReactNode } from "react";
-import { clientPortalDemos } from "@/data/site";
+import { clientPortalDemos, portalAccessRoles } from "@/data/site";
 
 export default function ClientPortalPreview() {
   const [active, setActive] = useState(0);
@@ -24,12 +24,12 @@ export default function ClientPortalPreview() {
               Portal de clientes
             </p>
             <h1 data-reveal-title className="mt-5 max-w-4xl text-4xl font-medium leading-[0.98] text-white md:text-6xl">
-              Maquetas privadas, feedback por tiempo y control de entrega.
+              Maquetas privadas, administración y carpeta legal del proyecto.
             </h1>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/60 md:justify-self-end">
-            MVP preparado para evolucionar con login real, archivos privados y
-            comentarios en marcas de tiempo cuando el proyecto lo necesite.
+            MVP preparado para evolucionar con login real, archivos privados, roles
+            para equipo administrativo y acceso legal cuando el proyecto lo necesite.
           </p>
         </div>
 
@@ -40,8 +40,8 @@ export default function ClientPortalPreview() {
             </div>
             <h2 className="text-2xl font-medium text-white">Acceso cliente</h2>
             <p className="mt-4 text-sm leading-7 text-white/58">
-              Vista privada para revisar versiones, dejar feedback y mantener el
-              proceso ordenado entre artista, producción y marketing.
+              Vista privada para revisar versiones, dejar feedback y mantener ordenados
+              artistas, producción, administración y asesoría legal.
             </p>
 
             <form onSubmit={handleAccess} className="mt-7 grid gap-3">
@@ -69,7 +69,8 @@ export default function ClientPortalPreview() {
 
             {unlocked ? (
               <p className="mt-5 rounded-2xl border border-[#d8b76b]/28 bg-[#d8b76b]/10 p-4 text-sm leading-6 text-[#f8e7b3]">
-                Demo desbloqueado. En producción este acceso debe conectarse a autenticación y storage privado.
+                Demo desbloqueado. En producción este acceso debe conectarse a autenticación,
+                roles y storage privado.
               </p>
             ) : null}
           </aside>
@@ -161,6 +162,18 @@ export default function ClientPortalPreview() {
               </div>
             ) : null}
           </div>
+        </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-3" data-stagger>
+          {portalAccessRoles.map((role) => (
+            <article
+              key={role.title}
+              className="rounded-[1.15rem] border border-white/10 bg-white/[0.026] p-5"
+            >
+              <p className="text-xs uppercase tracking-[0.24em] text-[#d8b76b]">{role.title}</p>
+              <p className="mt-4 text-sm leading-7 text-white/58">{role.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

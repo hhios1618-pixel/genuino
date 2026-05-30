@@ -4,6 +4,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
+import WorkedSongs from "@/components/WorkedSongs";
 
 export const metadata: Metadata = {
   title: "Proyectos | Genuino Music",
@@ -21,6 +22,7 @@ export default function ProyectosPage() {
       <Navbar />
       <main className="pt-24">
         <FeaturedProjects />
+        <WorkedSongs />
         <CollaborationNetwork />
         <Gallery />
       </main>

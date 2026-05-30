@@ -248,6 +248,112 @@ export const tracks = [
   },
 ];
 
+export const workedSongs = [
+  {
+    title: "Ella Baila Sola",
+    artist: "GO feat. Fran G Genuino",
+    role: "Radio / TV / single",
+    outcome: "Trabajo de visibilidad para radios, Vía X y circuito urbano chileno.",
+    videoId: "Q9wHNUH1eq8",
+    href: "https://www.youtube.com/watch?v=Q9wHNUH1eq8",
+    tags: ["Radio", "TV", "Lanzamiento"],
+    featured: true,
+  },
+  {
+    title: "Suéltate Ma",
+    artist: "Diego Smith",
+    role: "Producción general",
+    outcome: "Coordinación de equipo, campaña, audiovisual y ejecución desde Genuino Family.",
+    videoId: "eyr_XP440kE",
+    href: "https://www.youtube.com/watch?v=eyr_XP440kE",
+    tags: ["Producción", "Video", "Campaña"],
+    featured: true,
+  },
+  {
+    title: "Nunca Me Faltes Remix",
+    artist: "Angie Tu Cumbiera x Antonio Ríos",
+    role: "Unión artística / logística",
+    outcome: "Gestión de la colaboración y logística para una pieza de alcance popular.",
+    videoId: "Ll-l9N5NmlM",
+    href: "https://www.youtube.com/watch?v=Ll-l9N5NmlM",
+    tags: ["Colaboración", "Video", "Medios"],
+    featured: true,
+  },
+  {
+    title: "Venimos de Abajo",
+    artist: "Arte Elegante x Genuino",
+    role: "Catálogo / presencia",
+    outcome: "Cruce artístico con relato de calle, identidad y proyección en Chile.",
+    videoId: "zH5C4T0C-F0",
+    href: "https://www.youtube.com/watch?v=zH5C4T0C-F0",
+    tags: ["Catálogo", "Colaboración"],
+    featured: true,
+  },
+  {
+    title: "ULALA (OOH LA-LA)",
+    artist: "Myke Towers, Daddy Yankee",
+    role: "Booking radial y medios",
+    outcome: "Referencia de canción trabajada para posicionamiento radial.",
+    videoId: "9k3wMoQn-DQ",
+    href: "https://www.youtube.com/watch?v=9k3wMoQn-DQ",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "Se Lo Juro Mor",
+    artist: "Feid",
+    role: "Booking radial y medios",
+    outcome: "Referencia de campaña para radios y medios de comunicación.",
+    videoId: "mJlE0RwK_OY",
+    href: "https://www.youtube.com/watch?v=mJlE0RwK_OY",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "CORLEONE",
+    artist: "Saiko x Yandel",
+    role: "Booking radial y medios",
+    outcome: "Trabajo de visibilidad dentro del circuito musical urbano.",
+    videoId: "xVzbKU66eMQ",
+    href: "https://www.youtube.com/watch?v=xVzbKU66eMQ",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "Kilerito",
+    artist: "Brytiago & Anuel AA",
+    role: "Booking radial y medios",
+    outcome: "Referencia de canción trabajada en difusión y posicionamiento.",
+    videoId: "dhPcSr0ah38",
+    href: "https://www.youtube.com/watch?v=dhPcSr0ah38",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "La Plena",
+    artist: "Beele, Westcol, Ovy On The Drums",
+    role: "Booking radial y medios",
+    outcome: "Referencia para gestión de canción en medios.",
+    videoId: "F1_aOX0acbY",
+    href: "https://www.youtube.com/watch?v=F1_aOX0acbY",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "Lunares",
+    artist: "Servando & Florentino",
+    role: "Booking radial y medios",
+    outcome: "Referencia de difusión radial y conexión con medios.",
+    videoId: "-YkA-t8CIOI",
+    href: "https://www.youtube.com/watch?v=-YkA-t8CIOI",
+    tags: ["Radio", "Medios"],
+  },
+  {
+    title: "No Te Deseo el Mal",
+    artist: "Eladio Carrion feat. Karol G",
+    role: "Booking radial y medios",
+    outcome: "Referencia de canción trabajada para presencia en medios.",
+    videoId: "ZPJN-aWvj_U",
+    href: "https://www.youtube.com/watch?v=ZPJN-aWvj_U",
+    tags: ["Radio", "Medios"],
+  },
+];
+
 export const gallery = [
   {
     label: "Venimos de Abajo",
@@ -485,6 +591,24 @@ export const collaborationHighlights = [
   },
 ];
 
+export const portalAccessRoles = [
+  {
+    title: "Administración",
+    description:
+      "Vista para ordenar solicitudes, datos comerciales, documentos y próximos pasos del proyecto.",
+  },
+  {
+    title: "Legal",
+    description:
+      "Acceso preparado para revisar términos, privacidad, marca, contratos y uso de materiales.",
+  },
+  {
+    title: "Equipo creativo",
+    description:
+      "Espacio para compartir referencias, versiones, feedback y entregas sin perder contexto.",
+  },
+];
+
 export const mediaCampaignReferences = [
   {
     title: "ULALA (OOH LA-LA)",
@@ -528,10 +652,12 @@ export const serviceOptions = [
   "Mezcla y mastering",
   "Dirección artística",
   "Marketing artístico",
+  "Booking radial y medios",
   "Entrevistas radio y TV",
   "Videoclips y contenido",
   "Grabación vocal",
   "Desarrollo de artistas",
+  "Acceso administrativo / legal",
 ];
 
 export const footerLinks = [
@@ -548,6 +674,7 @@ export const legalLinks = [
 export const contactChannels = [
   { label: "Comercial", value: "contacto@genuino.studio", icon: Radio },
   { label: "Estudio", value: "Santiago / remoto", icon: AudioLines },
+  { label: "Portal", value: "Administración, legal y clientes", icon: UsersRound },
 ];
 
 export const audiovisualTestimonials = [
