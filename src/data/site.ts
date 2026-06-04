@@ -402,9 +402,9 @@ export const gallery = [
     kind: "video",
   },
   {
-    label: "Fran en estudio",
-    category: "Consola / producción",
-    src: "/profile/fran-g-studio-console.jpg",
+    label: "Genuino Family",
+    category: "Estudio / producción",
+    src: "/generated/gallery-studio.jpg",
   },
 ];
 
@@ -734,7 +734,7 @@ export const studioGear = [
   {
     name: "Control room",
     category: "Monitoreo y decisión",
-    image: "/profile/fran-g-studio-console.jpg",
+    image: "/generated/studio-control-room.jpg",
     specs: ["Escucha de referencia", "Revisión de traducción", "A/B de mezcla"],
     description:
       "Sala preparada para decidir bajo, voz y presencia con lectura de plataforma, club, auto y teléfono.",
@@ -742,7 +742,7 @@ export const studioGear = [
   {
     name: "Cadena vocal",
     category: "Toma y edición",
-    image: mediaUrl("profile/fran-g-vocal-chain.jpg", "/profile/fran-g-studio-console.jpg"),
+    image: "/generated/studio-vocal-chain.jpg",
     specs: ["Dirección de toma", "Comping", "Afinación musical"],
     description:
       "Flujo enfocado en capturar intención: selección de tomas, limpieza, timing y edición transparente.",
@@ -771,14 +771,14 @@ export const insideBeatSteps = [
     title: "Se define el mundo del artista",
     body:
       "Antes de tocar la sesión se ordena el lenguaje: tono, referencias, público, visuales y objetivo del lanzamiento.",
-    image: "/profile/fran-g-street-valparaiso.jpg",
+    image: "/generated/inside-beat-referencia.jpg",
   },
   {
     label: "Beat",
     title: "El ritmo deja espacio para la voz",
     body:
       "La producción se construye alrededor de interpretación, bajo y hook. Cada elemento tiene una función narrativa.",
-    image: "/profile/fran-g-studio-console.jpg",
+    image: "/generated/inside-beat-estudio.jpg",
   },
   {
     label: "Voz",
