@@ -4,11 +4,10 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HomeCarousel from "@/components/HomeCarousel";
 import HomeCTA from "@/components/HomeCTA";
-import InsideTheBeat from "@/components/InsideTheBeat";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
-import StudioTour from "@/components/StudioTour";
 import VideoTestimonials from "@/components/VideoTestimonials";
+import WorkedSongs from "@/components/WorkedSongs";
 
 export default function Home() {
   return (
@@ -18,9 +17,8 @@ export default function Home() {
         <Hero />
         <VideoTestimonials />
         <HomeCarousel />
-        <InsideTheBeat />
+        <WorkedSongs />
         <CareerProof />
-        <StudioTour />
         <CollaborationNetwork />
         <Services />
         <HomeCTA />

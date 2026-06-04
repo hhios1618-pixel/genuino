@@ -81,7 +81,7 @@ export const services = [
       "Creación de beats, arreglos, melodías y dirección musical para canciones con identidad urbana, energía y proyección.",
     detail:
       "Trabajo desde la idea inicial hasta una maqueta sólida: beat, estructura, referencias, tono artístico y dirección de la sesión para que la canción tenga carácter propio.",
-    image: artistProfileImages[0].src,
+    image: "https://i.ytimg.com/vi/aJG0zRex7EU/maxresdefault.jpg",
     imageAlt: "Sesión de producción musical en estudio",
     icon: Disc3,
     deliverables: ["Beat o producción original", "Dirección de estructura", "Sesión guiada en estudio"],
@@ -141,7 +141,7 @@ export const services = [
       "Dirección de toma, comping, limpieza, afinación transparente y edición rítmica al servicio de la interpretación.",
     detail:
       "Sesión enfocada en sacar una interpretación con intención: dirección de voz, selección de tomas, limpieza, afinación musical y edición sin perder humanidad.",
-    image: artistProfileImages[0].src,
+    image: "https://i.ytimg.com/vi/bPJhFwQz_Ok/maxresdefault.jpg",
     imageAlt: "Fran G Genuino en cabina de grabación",
     icon: Mic2,
     deliverables: ["Dirección de toma vocal", "Comping y limpieza", "Afinación y timing"],

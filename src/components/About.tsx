@@ -1,33 +1,33 @@
 import Image from "next/image";
-import { ArrowDownRight, Award, Mic2, Users } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { artistProfileImages, blurDataUrl } from "@/data/site";
 
 export default function About() {
-  const [studio, street, collab, hall] = artistProfileImages;
+  const [studio] = artistProfileImages;
 
   return (
     <section id="sobre" className="border-y hairline bg-[#090908] py-20 md:py-28">
       <div className="section-shell">
-        <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
+        <div className="mb-14 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end" data-reveal>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
               Perfil artístico
             </p>
             <h2 data-reveal-title className="mt-5 max-w-3xl text-3xl font-medium text-white md:text-5xl">
-              Fran G Genuino: una firma urbana con presencia, estudio y red.
+              Fran G Genuino: artista, productor y gestor desde Valparaíso.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-white/62">
-            Artista chileno de Valparaíso, Fran G Genuino viene de la escena urbana
-            y de una evolución clara: de Jay G El Genuino a una etapa de catálogo,
-            colaboraciones y productora. Reggaeton, trap y merengue urbano conviven
-            con una lectura comercial: sonar bien, aparecer bien y crecer con red.
+            De Jay G El Genuino a una etapa de catálogo, colaboraciones y productora.
+            Reggaeton, trap y merengue urbano con una lectura comercial: sonar bien,
+            aparecer bien y crecer con red.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-12" data-stagger>
-          <article className="cinematic-panel overflow-hidden rounded-[2rem] p-3 lg:col-span-7">
-            <div className="relative min-h-[560px] overflow-hidden rounded-[1.6rem] border border-white/10">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start" data-reveal>
+          {/* Única foto profesional */}
+          <div className="cinematic-panel overflow-hidden rounded-[2rem] p-3">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-[1.6rem] border border-white/10">
               <Image
                 src={studio.src}
                 alt={studio.alt}
@@ -35,95 +35,77 @@ export default function About() {
                 priority
                 placeholder="blur"
                 blurDataURL={blurDataUrl}
-                sizes="(min-width: 1024px) 58vw, 100vw"
+                sizes="(min-width: 1024px) 46vw, 100vw"
                 className="glitch-media object-cover"
-                data-parallax-media
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16),rgba(0,0,0,0.72)),linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.88))]" />
-              <div className="absolute left-5 top-5 rounded-full border border-white/14 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/62 backdrop-blur-md">
-                {studio.label}
-              </div>
-              <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_52%,rgba(0,0,0,0.76))]" />
+              <div className="absolute inset-x-6 bottom-6">
+                <p className="text-[0.66rem] uppercase tracking-[0.28em] text-[#d8b76b]">
                   Fran G Genuino
                 </p>
-                <h3 className="mt-4 max-w-xl text-3xl font-medium text-white md:text-5xl">
-                  Voz, dirección y oficio al centro de la producción.
-                </h3>
-                <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                  {[
-                    { label: "Cabina", value: "Voz y toma", icon: Mic2 },
-                    { label: "Escena", value: "Presencia pública", icon: Award },
-                    { label: "Red", value: "Colaboraciones", icon: Users },
-                  ].map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.055] p-4 backdrop-blur-md">
-                        <Icon className="text-[#d8b76b]" size={18} />
-                        <p className="mt-4 text-[10px] uppercase tracking-[0.22em] text-white/40">
-                          {item.label}
-                        </p>
-                        <p className="mt-1 text-sm font-medium text-white">{item.value}</p>
-                      </div>
-                    );
-                  })}
-                </div>
+                <p className="mt-2 text-xl font-medium text-white">Estudio / Producción</p>
               </div>
             </div>
-          </article>
+          </div>
 
-          <aside className="grid gap-5 lg:col-span-5">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-              {[street, collab, hall].map((image, index) => (
-                <figure
-                  key={image.src}
-                  data-cursor="Ver"
-                  className={`bento-card relative overflow-hidden rounded-[1.5rem] border hairline bg-black ${
-                    index === 0 ? "min-h-[300px]" : "min-h-[220px]"
-                  }`}
+          {/* Bio + stats */}
+          <div className="flex flex-col gap-8 pt-2 lg:pt-10">
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
+                Artista · Productor · Gestor
+              </p>
+              <h3 className="mt-5 text-3xl font-medium text-white">
+                Una firma urbana con presencia, estudio y red.
+              </h3>
+              <p className="mt-6 text-base leading-8 text-white/62">
+                Artista chileno de Valparaíso con catálogo propio y red activa en Chile
+                y LATAM. Booking radial, gestión de videoclips, uniones artísticas y
+                dirección creativa desde el primer beat hasta el lanzamiento.
+              </p>
+              <p className="mt-5 text-base leading-8 text-white/62">
+                Genuino Family opera la capa de industria: medios, televisión, radio,
+                logística audiovisual y cruces que convierten una canción en presencia real.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { label: "Canciones", value: "30+" },
+                { label: "Países", value: "4+" },
+                { label: "Medios", value: "Radio & TV" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
                 >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    placeholder="blur"
-                    blurDataURL={blurDataUrl}
-                    sizes="(min-width: 1024px) 38vw, (min-width: 640px) 50vw, 100vw"
-                    className="glitch-media object-cover"
-                    data-parallax-media
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.74))]" />
-                  <figcaption className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 text-sm text-white">
-                    <span>{image.label}</span>
-                    <span className="rounded-full border border-white/12 bg-black/22 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/48 backdrop-blur-md">
-                      Perfil
-                    </span>
-                  </figcaption>
-                </figure>
+                  <p className="text-2xl font-semibold text-white">{stat.value}</p>
+                  <p className="mt-2 text-[0.68rem] uppercase tracking-[0.18em] text-white/42">
+                    {stat.label}
+                  </p>
+                </div>
               ))}
             </div>
-          </aside>
-        </div>
 
-        <div className="mt-10 grid gap-6 rounded-[2rem] border hairline bg-[linear-gradient(135deg,rgba(216,183,107,0.12),rgba(255,255,255,0.035))] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8" data-reveal>
-          <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
-              Dirección comercial y artística
-            </p>
-            <p className="editorial-serif mt-3 max-w-2xl text-2xl leading-8 text-white">
-              Producción, marketing artístico, entrevistas, videoclips y desarrollo
-              de talentos: hacer que el proyecto suene, se vea y tenga donde crecer.
-            </p>
+            <div className="rounded-[1.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(216,183,107,0.10),rgba(255,255,255,0.025))] p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-[#d8b76b]">
+                Dirección comercial y artística
+              </p>
+              <p className="mt-4 text-sm leading-7 text-white/68">
+                Producción, marketing artístico, entrevistas, videoclips y desarrollo
+                de talentos: hacer que el proyecto suene, se vea y tenga donde crecer.
+              </p>
+            </div>
+
+            <a
+              href="/contacto"
+              data-magnetic
+              data-cursor="Contacto"
+              data-cursor-mode="link"
+              className="premium-cta inline-flex h-13 w-fit items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
+            >
+              Activar una producción <ArrowDownRight size={16} />
+            </a>
           </div>
-          <a
-            href="/contacto"
-            data-magnetic
-            data-cursor="Contacto"
-            data-cursor-mode="link"
-            className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#090806] transition hover:-translate-y-0.5"
-          >
-            Activar una producción <ArrowDownRight size={16} />
-          </a>
         </div>
       </div>
     </section>
