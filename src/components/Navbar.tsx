@@ -1,10 +1,10 @@
 "use client";
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import GenuinoLogo from "@/components/GenuinoLogo";
 import { navItems } from "@/data/site";
 
 export default function Navbar() {
@@ -37,9 +37,13 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" data-cursor="Inicio" data-cursor-mode="link" className="flex items-center" aria-label="Ir al inicio">
-          <GenuinoLogo
-            decorative
-            className="h-14 w-28 text-white transition hover:text-[#f8e7b3]"
+          <Image
+            src="/g.png"
+            alt="Genuino Family"
+            width={112}
+            height={56}
+            className="h-14 w-auto object-contain transition hover:opacity-80"
+            priority
           />
           <span className="sr-only">Genuino</span>
         </Link>
