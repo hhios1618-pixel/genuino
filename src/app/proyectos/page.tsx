@@ -1,30 +1,38 @@
 import type { Metadata } from "next";
-import CollaborationNetwork from "@/components/CollaborationNetwork";
-import FeaturedProjects from "@/components/FeaturedProjects";
+import CaseStack from "@/components/CaseStack";
+import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
-import Gallery from "@/components/Gallery";
+import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
-import WorkedSongs from "@/components/WorkedSongs";
+import PageHeader from "@/components/PageHeader";
+import Reels from "@/components/Reels";
 
 export const metadata: Metadata = {
-  title: "Proyectos | Genuino Music",
+  title: "Proyectos",
   description:
-    "Videoclips, colaboraciones, gestión de medios y lanzamientos destacados de Fran G Genuino y Genuino Family en Chile.",
-  alternates: {
-    canonical: "/proyectos",
-  },
-  keywords: ["videoclips urbanos Chile", "producción urbana premium", "Genuino Family", "Fran G Genuino"],
+    "Producción general, colaboraciones y gestión de medios de Genuino Family: Diego Smith, Antonio Ríos, Angie Tu Cumbiera y GO.",
+  alternates: { canonical: "/proyectos" },
 };
 
 export default function ProyectosPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
-        <FeaturedProjects />
-        <WorkedSongs />
-        <CollaborationNetwork />
-        <Gallery />
+      <main id="contenido">
+        <PageHeader
+          eyebrow="Genuino Family"
+          title="Proyectos"
+          intro="Producción general, colaboraciones y gestión de medios para artistas en Chile."
+          meta={[
+            { label: "Artistas", value: "Antonio Ríos, Diego Smith, GO" },
+            { label: "Medios", value: "Radio, TV y prensa" },
+            { label: "Periodo", value: "2023 — hoy" },
+          ]}
+        />
+        <CaseStack index="01" showAllLink={false} />
+        <MediaCatalog index="02" />
+        <Reels index="03" />
+        <ClosingCTA index="04" />
       </main>
       <Footer />
     </>

@@ -1,30 +1,27 @@
-import CollaborationNetwork from "@/components/CollaborationNetwork";
-import CareerProof from "@/components/CareerProof";
+import CaseStack from "@/components/CaseStack";
+import ClosingCTA from "@/components/ClosingCTA";
+import CreditsMarquee from "@/components/CreditsMarquee";
+import Disciplines from "@/components/Disciplines";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import HomeCarousel from "@/components/HomeCarousel";
-import HomeCTA from "@/components/HomeCTA";
-import MarqueeTicker from "@/components/MarqueeTicker";
+import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
-import Services from "@/components/Services";
-import VideoTestimonials from "@/components/VideoTestimonials";
-import WorkedSongs from "@/components/WorkedSongs";
+import Statement from "@/components/Statement";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="contenido">
         <Hero />
-        <MarqueeTicker />
-        <VideoTestimonials />
-        <HomeCarousel />
-        <WorkedSongs />
-        <MarqueeTicker />
-        <CareerProof />
-        <CollaborationNetwork />
-        <Services />
-        <HomeCTA />
+        <CreditsMarquee />
+        <Statement />
+        <CaseStack />
+        <MediaCatalog />
+        <Disciplines />
+        <Timeline />
+        <ClosingCTA />
       </main>
       <Footer />
     </>

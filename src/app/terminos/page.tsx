@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Términos | Genuino Music",
+  title: "Términos",
   description:
-    "Términos de uso de Genuino Music para contenido, servicios, enlaces externos y solicitudes comerciales.",
+    "Términos de uso de Genuino Family para contenido, servicios, enlaces externos y solicitudes comerciales.",
 };
 
-export default function TerminosPage() {
+export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="pt-28">
-        <section className="section-shell py-16 md:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-            Legal
-          </p>
-          <h1 className="mt-5 max-w-3xl text-4xl font-medium text-white md:text-6xl">
-            Términos y condiciones
-          </h1>
-          <div className="mt-10 max-w-3xl space-y-6 text-base leading-8 text-white/62">
+      <main id="contenido">
+        <PageHeader eyebrow="Legal" title="Términos y condiciones" />
+        <section className="shell pb-32">
+          <div className="max-w-2xl space-y-6 border-t border-line pt-8 text-lg leading-relaxed text-bone/70">
             <p>
               El contenido de este sitio presenta el trabajo, servicios y trayectoria
-              de Genuino Music, Genuino Family y Fran G Genuino. Las marcas,
+              de Genuino Family y Fran G Genuino. Las marcas,
               canciones, videos e imágenes de terceros pertenecen a sus respectivos
               titulares.
             </p>

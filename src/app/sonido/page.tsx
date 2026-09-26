@@ -1,26 +1,33 @@
 import type { Metadata } from "next";
+import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import SoundShowcase from "@/components/SoundShowcase";
-import StudioTour from "@/components/StudioTour";
+import PageHeader from "@/components/PageHeader";
+import ReleaseGrid from "@/components/ReleaseGrid";
 
 export const metadata: Metadata = {
-  title: "Sonido | Genuino Music",
+  title: "Música",
   description:
-    "Catálogo audiovisual, canciones y colaboraciones de Fran G Genuino con foco en sonido urbano premium, identidad y presencia pública.",
-  alternates: {
-    canonical: "/sonido",
-  },
-  keywords: ["sonido urbano premium", "producción urbana premium", "mezcla urbana", "Fran G Genuino"],
+    "Catálogo de Fran G Genuino: Ella Baila Sola, Venimos de Abajo, Lejos de Ti, Champagne, Caribe y más.",
+  alternates: { canonical: "/sonido" },
 };
 
 export default function SonidoPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
-        <SoundShowcase />
-        <StudioTour />
+      <main id="contenido">
+        <PageHeader
+          eyebrow="Fran G Genuino"
+          title="Música"
+          intro="Catálogo de Fran G Genuino como artista: singles, colaboraciones y videos oficiales."
+          meta={[
+            { label: "Solista desde", value: "2007" },
+            { label: "Colaboraciones", value: "GO, Arte Elegante, Hermanos Bernal" },
+          ]}
+        />
+        <ReleaseGrid index="01" label="Videos oficiales" onlyFran />
+        <ClosingCTA index="02" />
       </main>
       <Footer />
     </>

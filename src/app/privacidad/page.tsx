@@ -1,28 +1,24 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Privacidad | Genuino Music",
+  title: "Privacidad",
   description:
-    "Política de privacidad de Genuino Music para contacto comercial, datos de proyectos y comunicaciones del estudio.",
+    "Política de privacidad de Genuino Family para contacto comercial, datos de proyectos y comunicaciones del estudio.",
 };
 
-export default function PrivacidadPage() {
+export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="pt-28">
-        <section className="section-shell py-16 md:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-            Legal
-          </p>
-          <h1 className="mt-5 max-w-3xl text-4xl font-medium text-white md:text-6xl">
-            Política de privacidad
-          </h1>
-          <div className="mt-10 max-w-3xl space-y-6 text-base leading-8 text-white/62">
+      <main id="contenido">
+        <PageHeader eyebrow="Legal" title="Política de privacidad" />
+        <section className="shell pb-32">
+          <div className="max-w-2xl space-y-6 border-t border-line pt-8 text-lg leading-relaxed text-bone/70">
             <p>
-              Genuino Music utiliza la información enviada por formularios o correo
+              Genuino Family utiliza la información enviada por formularios o correo
               únicamente para responder solicitudes comerciales, coordinar proyectos
               y mantener comunicaciones relacionadas con producción musical,
               contenido audiovisual y desarrollo artístico.

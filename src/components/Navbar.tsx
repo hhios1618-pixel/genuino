@@ -1,122 +1,181 @@
 "use client";
 
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { navItems } from "@/data/site";
+import { useEffect, useRef, useState } from "react";
+import Arrow from "@/components/ui/Arrow";
+import { contact, navItems } from "@/data/site";
+
+const ease = [0.32, 0.72, 0, 1] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [solid, setSolid] = useState(false);
+  const lastY = useRef(0);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setSolid(y > 40);
+        setHidden(y > 240 && y > lastY.current);
+        lastY.current = y;
+      });
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("keydown", onKeyDown);
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", onKeyDown);
     };
   }, []);
 
+  useEffect(() => {
+    const lenis = window.__lenis;
+    if (open) lenis?.stop();
+    else lenis?.start();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
-    <header className="fixed inset-x-0 top-3 z-50 px-4 md:top-4">
-      <nav
-        className={`mx-auto flex h-16 max-w-7xl items-center justify-between rounded-full border px-4 text-sm text-white/82 backdrop-blur-2xl transition duration-300 supports-[backdrop-filter]:bg-[#070707]/58 sm:px-5 ${
-          scrolled || open
-            ? "border-[#d8b76b]/22 bg-[#070707]/86 shadow-2xl shadow-black/42"
-            : "border-white/10 bg-[#070707]/72 shadow-2xl shadow-black/25"
-        }`}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-[var(--z-header)] transition-[transform,background-color] duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+          hidden && !open ? "-translate-y-full" : "translate-y-0"
+        } ${solid && !open ? "bg-ink/80 backdrop-blur-xl" : "bg-transparent"}`}
       >
-        <Link href="/" data-cursor="Inicio" data-cursor-mode="link" className="flex items-center" aria-label="Ir al inicio">
-          <Image
-            src="/g.png"
-            alt="Genuino Family"
-            width={112}
-            height={56}
-            className="h-14 w-auto object-contain transition hover:opacity-80"
-            priority
-          />
-          <span className="sr-only">Genuino</span>
-        </Link>
+        <nav className="shell flex h-20 items-center justify-between gap-6" aria-label="Principal">
+          <Link href="/" className="relative z-10 flex items-center gap-3" aria-label="Genuino Family, inicio">
+            <Image
+              src="/brand/genuino-mark.png"
+              alt=""
+              width={640}
+              height={470}
+              priority
+              className="h-7 w-auto"
+            />
+            <span className="display text-[1.35rem] leading-none tracking-[0.01em]">Genuino</span>
+          </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => {
-            const active = pathname === item.href;
+          <ul className="hidden items-center gap-8 lg:flex">
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`group relative flex items-center gap-2 text-sm transition-colors duration-500 ${
+                      active ? "text-bone" : "text-bone/55 hover:text-bone"
+                    }`}
+                  >
+                    <span
+                      className={`size-1.5 rounded-full bg-signal transition-transform duration-500 ${
+                        active ? "scale-100" : "scale-0"
+                      }`}
+                      aria-hidden="true"
+                    />
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                data-cursor="Ir"
-                data-cursor-mode="link"
-                aria-current={active ? "page" : undefined}
-                className={`group relative rounded-full px-4 py-2 transition duration-300 hover:bg-white/8 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]/36 ${
-                  active ? "text-[#f4d489]" : "text-white/62"
-                }`}
-              >
-                {item.label}
-                <span
-                  className={`pointer-events-none absolute inset-x-4 bottom-1 h-px origin-left bg-[#d8b76b] transition duration-300 ${
-                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </Link>
-            );
-          })}
-        </div>
-
-        <Link
-          href="/contacto"
-          data-magnetic
-          data-cursor="Contacto"
-          data-cursor-mode="link"
-          className="hidden items-center gap-2 rounded-full border border-[#d8b76b]/30 bg-[#d8b76b]/10 px-4 py-2 text-[#f8e7b3] transition duration-300 hover:-translate-y-0.5 hover:border-[#d8b76b]/70 hover:bg-[#d8b76b]/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b76b]/36 lg:inline-flex"
-        >
-          Conversemos
-          <ArrowUpRight size={14} />
-        </Link>
-
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          data-cursor="Menu"
-          className="grid size-10 place-items-center rounded-full border border-white/10 text-white transition hover:border-[#d8b76b]/40 lg:hidden"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
-      </nav>
-
-      {open ? (
-        <div id="mobile-nav" className="mx-auto mt-2 max-w-7xl rounded-3xl border border-white/10 bg-[#070707]/92 p-2 text-sm text-white/78 shadow-2xl backdrop-blur-xl lg:hidden">
-          {navItems.map((item) => (
+          <div className="relative z-10 flex items-center gap-3">
             <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              data-cursor="Ir"
-              data-cursor-mode="link"
-              aria-current={pathname === item.href ? "page" : undefined}
-              className={`block rounded-2xl px-4 py-3 transition hover:bg-white/8 hover:text-white ${
-                pathname === item.href ? "text-[#f4d489]" : ""
-              }`}
+              href="/contacto"
+              data-magnetic
+              className="hidden h-11 items-center gap-2 rounded-full bg-bone px-5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-signal hover:text-bone sm:inline-flex"
             >
-              {item.label}
+              Contacto
+              <Arrow className="size-3.5" />
             </Link>
-          ))}
-        </div>
-      ) : null}
-    </header>
+
+            <button
+              type="button"
+              onClick={() => setOpen((value) => !value)}
+              className="relative grid size-11 place-items-center rounded-full border border-bone/20 lg:hidden"
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={open}
+              aria-controls="menu-movil"
+            >
+              <span
+                className={`absolute h-px w-4 bg-bone transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                  open ? "rotate-45" : "-translate-y-[3px]"
+                }`}
+              />
+              <span
+                className={`absolute h-px w-4 bg-bone transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                  open ? "-rotate-45" : "translate-y-[3px]"
+                }`}
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            id="menu-movil"
+            className="fixed inset-0 z-[var(--z-menu)] flex flex-col bg-ink/96 backdrop-blur-2xl lg:hidden"
+            initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
+            transition={{ duration: 0.8, ease }}
+          >
+            <nav className="shell flex flex-1 flex-col justify-center pt-20" aria-label="Menú">
+              <ul>
+                {[...navItems, { label: "Contacto", href: "/contacto" }].map((item, index) => (
+                  <li key={item.href} className="overflow-hidden border-b border-line">
+                    <motion.div
+                      initial={{ y: "110%" }}
+                      animate={{ y: 0 }}
+                      exit={{ y: "110%" }}
+                      transition={{ duration: 0.8, ease, delay: 0.12 + index * 0.05 }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        aria-current={pathname === item.href ? "page" : undefined}
+                        className="flex items-baseline justify-between py-3"
+                      >
+                        <span className="display text-[clamp(3rem,15vw,5.5rem)]">{item.label}</span>
+                        <span className="label">0{index + 1}</span>
+                      </Link>
+                    </motion.div>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <motion.div
+              className="shell flex items-end justify-between gap-4 pb-8 pt-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: 0.5 } }}
+              exit={{ opacity: 0 }}
+            >
+              <a href={`mailto:${contact.email}`} className="text-sm text-bone/70">
+                {contact.email}
+              </a>
+              <a href={contact.instagram.href} target="_blank" rel="noreferrer" className="label">
+                Instagram
+              </a>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </>
   );
 }

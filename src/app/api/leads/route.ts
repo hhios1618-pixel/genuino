@@ -5,7 +5,7 @@ type LeadPayload = {
   email?: string;
   artist?: string;
   services?: string[];
-  packageName?: string;
+  message?: string;
   source?: string;
 };
 
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     email,
     artist: payload.artist,
     services: payload.services,
-    packageName: payload.packageName,
+    message: payload.message,
     source: payload.source,
     receivedAt: new Date().toISOString(),
   });

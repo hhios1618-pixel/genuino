@@ -2,9 +2,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "MusicRecordingStudio",
+      "@type": "Organization",
       "@id": "https://genuino-five.vercel.app/#studio",
-      name: "Genuino Music",
+      name: "Genuino Family",
       url: "https://genuino-five.vercel.app",
       image: "https://genuino-five.vercel.app/profile/fran-g-studio-console.jpg",
       address: {
@@ -12,14 +12,11 @@ const jsonLd = {
         addressCountry: "CL",
         addressRegion: "Valparaíso",
       },
+      logo: "https://genuino-five.vercel.app/brand/genuino-family.png",
+      foundingDate: "2023-08",
+      founder: { "@id": "https://genuino-five.vercel.app/#fran-g-genuino" },
       areaServed: ["Chile", "Latinoamérica"],
-      makesOffer: [
-        "Producción urbana premium",
-        "Marketing artístico Chile",
-        "Desarrollo de carrera musical",
-        "Mezcla y mastering",
-        "Videoclips y contenido",
-      ],
+      knowsAbout: ["Producción musical", "Videoclips", "Gestión de medios", "Booking radial", "Management de artistas"],
     },
     {
       "@type": "Person",
@@ -29,7 +26,7 @@ const jsonLd = {
       affiliation: {
         "@id": "https://genuino-five.vercel.app/#studio",
       },
-      jobTitle: "Productor musical y director artístico",
+      jobTitle: "Cantante, compositor y productor",
     },
   ],
 };

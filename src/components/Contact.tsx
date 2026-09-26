@@ -1,156 +1,147 @@
 "use client";
 
-import { ArrowRight, Check } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { contactChannels, serviceOptions } from "@/data/site";
+import Arrow from "@/components/ui/Arrow";
+import { contact, serviceOptions } from "@/data/site";
+
+type Status = "idle" | "sending" | "sent" | "error";
+
+const field =
+  "w-full border-b border-bone/20 bg-transparent py-3 text-lg text-bone outline-none transition-colors duration-500 placeholder:text-bone/25 focus:border-bone";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [selected, setSelected] = useState<string[]>([]);
+
+  function toggle(option: string) {
+    setSelected((current) =>
+      current.includes(option) ? current.filter((item) => item !== option) : [...current, option],
+    );
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const project = String(formData.get("project") ?? "");
-    const service = String(formData.get("service") ?? "");
-    const message = String(formData.get("message") ?? "");
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
 
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, service, project, notes: message, source: "contact" }),
+        body: JSON.stringify({
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          artist: String(data.get("artist") ?? ""),
+          services: selected,
+          message: String(data.get("message") ?? ""),
+          source: "contacto",
+        }),
       });
-
-      if (!response.ok) throw new Error("Lead request failed");
-      setSent(true);
-      event.currentTarget.reset();
+      if (!response.ok) throw new Error("lead_failed");
+      form.reset();
+      setSelected([]);
+      setStatus("sent");
     } catch {
-      const subject = encodeURIComponent(`Proyecto para Genuino Music: ${project}`);
-      const body = encodeURIComponent(
-        `Nombre: ${name}\nEmail: ${email}\nServicio: ${service}\nProyecto: ${project}\n\n${message}`,
-      );
-      window.location.href = `mailto:contacto@genuino.studio?subject=${subject}&body=${body}`;
-      setSent(true);
-      event.currentTarget.reset();
+      setStatus("error");
     }
   }
 
   return (
-    <section id="contacto" className="py-20 md:py-28">
-      <div className="section-shell grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
-        <div data-reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.34em] text-[#d8b76b]">
-            Contacto
-          </p>
-          <h2 data-reveal-title className="mt-5 max-w-xl text-3xl font-medium text-white md:text-4xl">
-            Hablemos si el proyecto necesita dirección, exposición y una ruta clara.
-          </h2>
-          <p className="mt-6 max-w-lg text-base leading-8 text-white/62">
-            Cuéntanos si necesitas producir una canción, crear melodías y letras,
-            desarrollar un videoclip, gestionar entrevistas en medios, ordenar accesos
-            administrativos o posicionar tu carrera. Respondemos con una propuesta
-            clara para avanzar con sonido, imagen, estrategia y operación.
-          </p>
+    <section className="pb-24 md:pb-36">
+      <div className="shell grid gap-16 lg:grid-cols-12">
+        <aside className="lg:col-span-4">
+          <dl className="grid gap-8">
+            <div>
+              <dt className="label">Correo</dt>
+              <dd className="mt-2">
+                <a href={`mailto:${contact.email}`} className="u-link text-xl">
+                  {contact.email}
+                </a>
+              </dd>
+            </div>
+            {[contact.instagram, contact.youtube].map((channel) => (
+              <div key={channel.href}>
+                <dt className="label">{channel.label}</dt>
+                <dd className="mt-2">
+                  <a href={channel.href} target="_blank" rel="noreferrer" className="u-link text-xl">
+                    {channel.handle}
+                  </a>
+                </dd>
+              </div>
+            ))}
+            <div>
+              <dt className="label">Base</dt>
+              <dd className="mt-2 text-xl">{contact.base}</dd>
+            </div>
+          </dl>
+        </aside>
 
-          <div className="mt-10 grid gap-3">
-            {contactChannels.map((channel) => {
-              const Icon = channel.icon;
-              return (
-                <div key={channel.label} className="flex items-center gap-4 rounded-2xl border hairline bg-white/[0.03] p-4">
-                  <div className="grid size-10 place-items-center rounded-full border border-[#d8b76b]/24 bg-[#d8b76b]/8 text-[#d8b76b]">
-                    <Icon size={18} />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-white/42">{channel.label}</p>
-                    <p className="mt-1 text-sm text-white/74">{channel.value}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit} className="cinematic-panel rounded-[2rem] p-5 md:p-7" data-reveal>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="grid gap-2 text-sm text-white/66">
-              Nombre
-              <input
-                required
-                name="name"
-                className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="Tu nombre"
-              />
-            </label>
-            <label className="grid gap-2 text-sm text-white/66">
-              Email
-              <input
-                required
-                type="email"
-                name="email"
-                className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="nombre@email.com"
-              />
-            </label>
-            <label className="grid gap-2 text-sm text-white/66 sm:col-span-2">
-              Proyecto
-              <input
-                required
-                name="project"
-                className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="Canción, EP, lanzamiento, videoclip, prensa..."
-              />
-            </label>
-            <label className="grid gap-2 text-sm text-white/66 sm:col-span-2">
-              Tipo de servicio
-              <select
-                required
-                name="service"
-                className="h-12 rounded-2xl border border-white/10 bg-[#050505]/72 px-4 text-white outline-none transition focus:border-[#d8b76b]/60"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Selecciona una opción
-                </option>
-                {serviceOptions.map((option) => (
-                  <option key={option} value={option}>
+        <form onSubmit={handleSubmit} className="lg:col-span-7 lg:col-start-6">
+          <fieldset className="border-t border-line pt-8">
+            <legend className="label float-left mb-6 w-full">Tipo de proyecto</legend>
+            <div className="clear-both flex flex-wrap gap-2">
+              {serviceOptions.map((option) => {
+                const active = selected.includes(option);
+                return (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => toggle(option)}
+                    aria-pressed={active}
+                    className={`h-11 rounded-full border px-4 text-sm transition-colors duration-500 ${
+                      active
+                        ? "border-bone bg-bone text-ink"
+                        : "border-bone/20 text-bone/75 hover:border-bone/60 hover:text-bone"
+                    }`}
+                  >
                     {option}
-                  </option>
-                ))}
-              </select>
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <div className="mt-12 grid gap-10 sm:grid-cols-2">
+            <label className="block">
+              <span className="label">Nombre</span>
+              <input required name="name" autoComplete="name" className={field} />
             </label>
-            <label className="grid gap-2 text-sm text-white/66 sm:col-span-2">
-              Mensaje
+            <label className="block">
+              <span className="label">Correo</span>
+              <input required type="email" name="email" autoComplete="email" className={field} />
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="label">Artista o proyecto</span>
+              <input name="artist" className={field} />
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="label">Mensaje</span>
               <textarea
                 required
                 name="message"
-                rows={6}
-                className="resize-none rounded-2xl border border-white/10 bg-[#050505]/72 p-4 text-white outline-none transition placeholder:text-white/24 focus:border-[#d8b76b]/60"
-                placeholder="Cuéntanos el contexto, referencias, tiempos y objetivo del proyecto."
+                rows={5}
+                className={`${field} resize-none`}
+                placeholder="Etapa del proyecto, referencias y fechas."
               />
             </label>
           </div>
 
-          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs leading-5 text-white/42">
-              Respuesta comercial para producciones, medios, portal y desarrollo artístico.
+          <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-xs text-sm text-bone/45" aria-live="polite">
+              {status === "sent"
+                ? "Mensaje recibido. Responderemos por correo."
+                : status === "error"
+                  ? `No se pudo enviar. Escríbenos directamente a ${contact.email}.`
+                  : "Los datos se usan solo para responder esta solicitud."}
             </p>
-            <button
-              type="submit"
-              data-magnetic
-              data-cursor="Enviar"
-              className="premium-cta inline-flex h-13 items-center justify-center gap-3 rounded-full px-7 text-sm font-semibold text-[#080706] transition hover:-translate-y-0.5"
-            >
-              Abrir conversación <ArrowRight size={16} />
+            <button type="submit" className="btn shrink-0" disabled={status === "sending"} data-magnetic>
+              {status === "sending" ? "Enviando" : "Enviar"}
+              <span className="btn-icon">
+                <Arrow className="size-4" direction="right" />
+              </span>
             </button>
           </div>
-
-          {sent ? (
-            <div className="mt-5 flex items-center gap-3 rounded-2xl border border-[#d8b76b]/28 bg-[#d8b76b]/10 p-4 text-sm text-[#f8e7b3]">
-              <Check size={17} /> Recibimos la consulta con el contexto del proyecto.
-            </div>
-          ) : null}
         </form>
       </div>
     </section>

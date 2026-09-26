@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
 import About from "@/components/About";
-import CareerProof from "@/components/CareerProof";
+import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
+import Timeline from "@/components/Timeline";
 
 export const metadata: Metadata = {
-  title: "Perfil | Fran G Genuino",
+  title: "Fran G Genuino",
   description:
-    "Historia, trayectoria y filosofía de Fran G Genuino: artista, productor y gestor de Genuino Family desde Valparaíso, Chile.",
-  alternates: {
-    canonical: "/perfil",
-  },
-  keywords: ["Fran G Genuino", "Genuino Family", "desarrollo de carrera musical", "productor urbano Chile"],
+    "Fran G Genuino: cantante, compositor y productor chileno. Solista desde 2007 y fundador de Genuino Family.",
+  alternates: { canonical: "/perfil" },
 };
 
 export default function PerfilPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main id="contenido">
+        <PageHeader eyebrow="Fundador de Genuino Family" title="Fran G Genuino" />
         <About />
-        <CareerProof />
+        <Timeline index="02" />
+        <ClosingCTA index="03" />
       </main>
       <Footer />
     </>

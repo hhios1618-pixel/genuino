@@ -1,32 +1,31 @@
 import type { Metadata } from "next";
+import ClosingCTA from "@/components/ClosingCTA";
+import Disciplines from "@/components/Disciplines";
 import Footer from "@/components/Footer";
-import InsideTheBeat from "@/components/InsideTheBeat";
 import Navbar from "@/components/Navbar";
-import Services from "@/components/Services";
-import StudioTour from "@/components/StudioTour";
-import Manifesto from "@/components/Manifesto";
-import VideoTestimonials from "@/components/VideoTestimonials";
+import PageHeader from "@/components/PageHeader";
+import Process from "@/components/Process";
 
 export const metadata: Metadata = {
-  title: "Servicios | Genuino Music",
+  title: "Servicios",
   description:
-    "Producción urbana premium, mezcla, mastering, dirección artística, videoclips, marketing artístico Chile y desarrollo de carrera musical.",
-  alternates: {
-    canonical: "/servicios",
-  },
-  keywords: ["producción urbana premium", "mezcla y mastering urbano", "marketing artístico Chile", "desarrollo de carrera musical"],
+    "Producción musical, videoclips, gestión de medios en radio, televisión y prensa, y management de artistas.",
+  alternates: { canonical: "/servicios" },
 };
 
 export default function ServiciosPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
-        <Services />
-        <VideoTestimonials />
-        <StudioTour />
-        <InsideTheBeat />
-        <Manifesto />
+      <main id="contenido">
+        <PageHeader
+          eyebrow="Música · Audiovisual · Medios · Management"
+          title="Servicios"
+          intro="Servicios para artistas, sellos y equipos de management. Contratables por separado o como proyecto integral."
+        />
+        <Disciplines index="01" detailed />
+        <Process index="02" />
+        <ClosingCTA index="03" />
       </main>
       <Footer />
     </>

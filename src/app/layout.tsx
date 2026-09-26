@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Archivo_Black, Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import ExperienceLayer from "@/components/ExperienceLayer";
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
@@ -14,40 +14,43 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const archivoBlack = Archivo_Black({
-  variable: "--font-display",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: "400",
+  axes: ["wdth"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-editorial",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
+
+const description =
+  "Genuino Family, productora fundada por Fran G Genuino. Producción musical, videoclips y gestión de medios en radio, televisión y prensa. Chile.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://genuino-five.vercel.app"),
-  title: "Genuino Music | Fran G Genuino",
-  description:
-    "Productora musical premium de Fran G Genuino: producción urbana, marketing artístico Chile, videoclips y desarrollo de carrera musical.",
+  title: {
+    default: "Genuino Family — Productora musical",
+    template: "%s — Genuino Family",
+  },
+  description,
   keywords: [
-    "Genuino",
-    "productora musical",
-    "producción urbana premium",
-    "producción musical",
-    "mezcla",
-    "mastering",
-    "dirección artística",
-    "marketing artístico",
-    "marketing artístico Chile",
-    "desarrollo de carrera musical",
-    "Fran G Genuino",
     "Genuino Family",
+    "Fran G Genuino",
+    "productora musical Chile",
+    "booking radial Chile",
+    "gestión de medios música",
+    "producción musical urbana",
+    "videoclips Chile",
+    "Antonio Ríos",
+    "Diego Smith",
   ],
-  authors: [{ name: "Genuino Music" }],
+  authors: [{ name: "Genuino Family" }],
   creator: "Fran G Genuino",
-  publisher: "Genuino Music",
+  publisher: "Genuino Family",
   category: "Music production",
   alternates: {
     canonical: "/",
@@ -57,11 +60,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Genuino Music | Fran G Genuino",
-    description:
-      "Producción urbana premium, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+    title: "Genuino Family — Productora musical",
+    description,
     url: "https://genuino-five.vercel.app",
-    siteName: "Genuino Music",
+    siteName: "Genuino Family",
     images: [
       {
         url: "/profile/fran-g-studio-console.jpg",
@@ -75,11 +77,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genuino Music | Fran G Genuino",
-    description:
-      "Producción urbana premium, desarrollo de artistas, videoclips, prensa y marketing artístico desde Genuino Family.",
+    title: "Genuino Family — Productora musical",
+    description,
     images: ["/profile/fran-g-studio-console.jpg"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0c0b0a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -90,9 +96,12 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
+        <a href="#contenido" className="skip-link">
+          Saltar al contenido
+        </a>
         <JsonLd />
         <ExperienceLayer>{children}</ExperienceLayer>
       </body>
