@@ -1,10 +1,14 @@
 import { mediaUrl } from "@/lib/supabase/media";
 
 export const blurDataUrl =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIHZpZXdCb3g9JzAgMCAxNiAxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIGZpbGw9JyMwYzBiMGEnLz48L3N2Zz4=";
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIHZpZXdCb3g9JzAgMCAxNiAxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIGZpbGw9JyMwYjBiMGInLz48L3N2Zz4=";
 
 export const ytThumb = (videoId: string) => `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 export const ytWatch = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`;
+
+/* Miniaturas con franjas negras de formato cine: se amplían para llenar el cuadro */
+const letterboxed = ["Q9wHNUH1eq8"];
+export const ytZoom = (source: string) => (letterboxed.some((id) => source.includes(id)) ? 1.34 : 1);
 
 export const contact = {
   email: "contacto@genuino.studio",

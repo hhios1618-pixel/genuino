@@ -61,11 +61,13 @@ export default function Navbar() {
               src="/brand/genuino-mark.png"
               alt=""
               width={640}
-              height={470}
+              height={518}
               priority
               className="h-7 w-auto"
             />
-            <span className="display text-[1.35rem] leading-none tracking-[0.01em]">Genuino</span>
+            <span className="display text-[0.95rem] leading-none tracking-[0.01em] sm:text-[1.05rem]">
+              Genuino <span className="text-signal">Family</span>
+            </span>
           </Link>
 
           <ul className="hidden items-center gap-8 lg:flex">
@@ -152,7 +154,7 @@ export default function Navbar() {
                         aria-current={pathname === item.href ? "page" : undefined}
                         className="flex items-baseline justify-between py-3"
                       >
-                        <span className="display text-[clamp(3rem,15vw,5.5rem)]">{item.label}</span>
+                        <span className="display text-[clamp(2rem,9vw,3.5rem)]">{item.label}</span>
                         <span className="label">0{index + 1}</span>
                       </Link>
                     </motion.div>

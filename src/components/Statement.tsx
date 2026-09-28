@@ -1,8 +1,9 @@
 import Words from "@/components/ui/Words";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { artistCredits, catalog } from "@/data/site";
 
 const statement =
-  "Genuino Family es la productora fundada en 2023 por el artista chileno Fran G Genuino. Desarrolla producción musical, videoclips y gestión de medios en radio, televisión y prensa para artistas nacionales e internacionales.";
+  "Genuino Family es una productora chilena de música, videoclips y gestión de medios. Llevamos a los artistas a la radio, la televisión y la prensa, del estudio al lanzamiento.";
 
 export default function Statement() {
   return (
@@ -20,12 +21,12 @@ export default function Statement() {
           </p>
           <div className="mt-14 grid gap-8 border-t border-line pt-8 sm:grid-cols-3" data-stagger>
             {[
-              { value: "2007", label: "Debut solista de Fran G Genuino" },
-              { value: "10", label: "Países en gira" },
-              { value: "2023", label: "Fundación de Genuino Family" },
+              { value: "2023", label: "Fundada por el artista Fran G Genuino" },
+              { value: String(artistCredits.length).padStart(2, "0"), label: "Artistas con los que trabajamos" },
+              { value: String(catalog.length).padStart(2, "0"), label: "Trabajos en radio, TV y prensa" },
             ].map((fact) => (
               <div key={fact.label}>
-                <p className="display tabular text-[clamp(3rem,6vw,5.5rem)]">{fact.value}</p>
+                <p className="display tabular text-[clamp(2.5rem,4.6vw,4.25rem)] text-gold">{fact.value}</p>
                 <p className="mt-3 text-sm text-bone/55">{fact.label}</p>
               </div>
             ))}

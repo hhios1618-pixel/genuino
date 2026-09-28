@@ -20,7 +20,7 @@ export default function PerfilPage() {
       <main id="contenido">
         <PageHeader eyebrow="Fundador de Genuino Family" title="Fran G Genuino" />
         <About />
-        <Timeline index="02" />
+        <Timeline index="02" label="Carrera" />
         <ClosingCTA index="03" />
       </main>
       <Footer />

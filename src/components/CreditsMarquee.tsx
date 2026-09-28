@@ -5,7 +5,7 @@ function Row() {
     <ul className="flex shrink-0 items-center" aria-hidden="true">
       {artistCredits.map((name) => (
         <li key={name} className="flex items-center">
-          <span className="display whitespace-nowrap px-[0.35em] text-[clamp(2.75rem,7vw,6.5rem)] text-bone/90">
+          <span className="display whitespace-nowrap px-[0.4em] text-[clamp(1.9rem,4.4vw,4.25rem)] text-bone">
             {name}
           </span>
           <span className="on-air mx-[1.5vw] !size-2.5" />

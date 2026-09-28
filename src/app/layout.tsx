@@ -66,10 +66,10 @@ export const metadata: Metadata = {
     siteName: "Genuino Family",
     images: [
       {
-        url: "/profile/fran-g-studio-console.jpg",
+        url: "/brand/og.png",
         width: 1200,
-        height: 1200,
-        alt: "Fran G Genuino en estudio",
+        height: 630,
+        alt: "Genuino Family",
       },
     ],
     type: "website",
@@ -79,12 +79,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Genuino Family — Productora musical",
     description,
-    images: ["/profile/fran-g-studio-console.jpg"],
+    images: ["/brand/og.png"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c0b0a",
+  themeColor: "#000000",
   colorScheme: "dark",
 };
 

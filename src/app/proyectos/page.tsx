@@ -29,7 +29,12 @@ export default function ProyectosPage() {
             { label: "Periodo", value: "2023 — hoy" },
           ]}
         />
-        <CaseStack index="01" showAllLink={false} />
+        <CaseStack
+          index="01"
+          showAllLink={false}
+          title="Destacados"
+          intro="Casos con producción general, uniones artísticas y campaña en medios."
+        />
         <MediaCatalog index="02" />
         <Reels index="03" />
         <ClosingCTA index="04" />

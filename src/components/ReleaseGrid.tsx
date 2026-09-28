@@ -25,7 +25,7 @@ export default function ReleaseGrid({ index, label, onlyFran = false }: ReleaseG
             <YouTubeFeature title={`${featured.title} — ${featured.artist}`} videoId={featured.videoId} sizes="100vw" priority />
           </div>
           <div className="mt-6 grid gap-3 md:grid-cols-12">
-            <h2 className="display text-[clamp(2.5rem,6vw,5.5rem)] md:col-span-7">{featured.title}</h2>
+            <h2 className="display text-[clamp(1.9rem,4.2vw,4rem)] md:col-span-7">{featured.title}</h2>
             <div className="md:col-span-5 md:pt-3 md:text-right">
               <p className="text-bone/85">{featured.artist}</p>
               <p className="label mt-2">{featured.note}</p>
@@ -44,7 +44,7 @@ export default function ReleaseGrid({ index, label, onlyFran = false }: ReleaseG
                   <h3 className="text-2xl font-medium tracking-[-0.025em] md:text-3xl">{release.title}</h3>
                   <p className="mt-1.5 text-bone/60">{release.artist}</p>
                 </div>
-                <p className="label shrink-0 pt-2 text-right">{release.note}</p>
+                <p className="label max-w-[45%] pt-2 text-right">{release.note}</p>
               </div>
             </li>
           ))}

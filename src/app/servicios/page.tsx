@@ -23,7 +23,13 @@ export default function ServiciosPage() {
           title="Servicios"
           intro="Servicios para artistas, sellos y equipos de management. Contratables por separado o como proyecto integral."
         />
-        <Disciplines index="01" detailed />
+        <Disciplines
+          index="01"
+          detailed
+          title="Áreas"
+          label="Cuatro áreas, un solo equipo"
+          intro="Alcance y entregables de cada área."
+        />
         <Process index="02" />
         <ClosingCTA index="03" />
       </main>

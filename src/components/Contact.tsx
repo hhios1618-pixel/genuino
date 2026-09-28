@@ -7,7 +7,7 @@ import { contact, serviceOptions } from "@/data/site";
 type Status = "idle" | "sending" | "sent" | "error";
 
 const field =
-  "w-full border-b border-bone/20 bg-transparent py-3 text-lg text-bone outline-none transition-colors duration-500 placeholder:text-bone/25 focus:border-bone";
+  "w-full border-b border-bone/20 bg-transparent py-3 text-lg text-bone outline-none transition-colors duration-500 placeholder:text-bone/25 focus:border-gold";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -91,7 +91,7 @@ export default function Contact() {
                     aria-pressed={active}
                     className={`h-11 rounded-full border px-4 text-sm transition-colors duration-500 ${
                       active
-                        ? "border-bone bg-bone text-ink"
+                        ? "border-gold bg-gold text-ink"
                         : "border-bone/20 text-bone/75 hover:border-bone/60 hover:text-bone"
                     }`}
                   >

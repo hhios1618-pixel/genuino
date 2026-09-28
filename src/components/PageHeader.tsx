@@ -13,7 +13,7 @@ export default function PageHeader({ eyebrow, title, intro, meta }: PageHeaderPr
       <p className="label fade-in" style={{ "--d": "0.1s" } as React.CSSProperties}>
         {eyebrow}
       </p>
-      <h1 className="hero-rise display mt-6 text-[clamp(4rem,13vw,13rem)]">
+      <h1 className="hero-rise display mt-6 text-[clamp(2rem,7.5vw,7.5rem)]">
         <Words text={title} />
       </h1>
       {intro || meta ? (

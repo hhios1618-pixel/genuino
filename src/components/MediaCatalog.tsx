@@ -8,7 +8,7 @@ import Arrow from "@/components/ui/Arrow";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
 import YtEmbed from "@/components/ui/YtEmbed";
-import { blurDataUrl, catalog, catalogFilters, type CatalogFilter, ytThumb, ytWatch } from "@/data/site";
+import { blurDataUrl, catalog, catalogFilters, type CatalogFilter, ytThumb, ytZoom, ytWatch } from "@/data/site";
 
 const ease = [0.32, 0.72, 0, 1] as const;
 
@@ -43,7 +43,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
         <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
             <SectionLabel index={index}>Radio, televisión y prensa</SectionLabel>
-            <h2 data-split className="display mt-6 text-[clamp(3.25rem,9vw,8.5rem)]">
+            <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
               <Words text="Medios" />
             </h2>
           </div>
@@ -68,7 +68,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                 aria-pressed={active}
                 className={`flex h-10 items-center gap-2 rounded-full border px-4 text-sm transition-colors duration-500 ${
                   active
-                    ? "border-bone bg-bone text-ink"
+                    ? "border-gold bg-gold text-ink"
                     : "border-bone/15 text-bone/70 hover:border-bone/50 hover:text-bone"
                 }`}
               >
@@ -100,6 +100,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                 <Image
                   key={item.videoId}
                   src={ytThumb(item.videoId)}
+                  style={{ scale: ytZoom(item.videoId) }}
                   alt=""
                   fill
                   sizes="304px"

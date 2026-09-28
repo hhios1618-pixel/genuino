@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 /*
-  Genuino Family — sistema visual
-  Negro cálido, hueso y una sola señal: el rojo del logo, usado como luz de "al aire".
+  Genuino Family — sistema visual (paleta oficial)
+  Negro puro como escenario. Blanco para leer. Grafito para superficies y líneas.
+  Rojo #d91f26: la marca, estados activos y "al aire". Amarillo #ffc100: realce tipográfico.
 */
 
 :root {
-  --ink: #0c0b0a;
-  --ink-raise: #151412;
-  --ink-sunk: #080706;
-  --bone: #eee9df;
-  --line: rgba(238, 233, 223, 0.12);
-  --signal: #e5251a;
+  --ink: #000000;
+  --ink-raise: #232323;
+  --ink-sunk: #0b0b0b;
+  --graphite: #232323;
+  --bone: #ffffff;
+  --line: #232323;
+  --signal: #d91f26;
+  --gold: #ffc100;
 
   --gutter: clamp(1rem, 4vw, 3rem);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -30,6 +33,8 @@
   --color-bone: var(--bone);
   --color-line: var(--line);
   --color-signal: var(--signal);
+  --color-gold: var(--gold);
+  --color-graphite: var(--graphite);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
@@ -69,8 +74,8 @@ body {
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--bone);
+  background: var(--gold);
+  color: var(--ink);
 }
 
 a,
@@ -82,7 +87,7 @@ select {
 }
 
 :focus-visible {
-  outline: 1px solid var(--signal);
+  outline: 1px solid var(--gold);
   outline-offset: 4px;
 }
 
@@ -117,13 +122,14 @@ video {
 
 /* ---------- Type ---------- */
 
+/* Display ancho y pesado, en la línea de la tipografía de marca */
 .display {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 70%;
-  font-variation-settings: "wdth" 70;
-  line-height: 0.86;
-  letter-spacing: -0.012em;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  line-height: 0.94;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -164,6 +170,8 @@ video {
   overflow: clip;
   overflow-clip-margin: 0.04em;
   vertical-align: top;
+  padding-top: 0.12em;
+  margin-top: -0.12em;
   padding-bottom: 0.06em;
   margin-bottom: -0.06em;
 }

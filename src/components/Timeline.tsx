@@ -6,11 +6,11 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
-import { blurDataUrl, timeline, ytThumb } from "@/data/site";
+import { blurDataUrl, timeline, ytThumb, ytZoom } from "@/data/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Timeline({ index = "05" }: { index?: string }) {
+export default function Timeline({ index = "05", label = "El fundador — Fran G Genuino" }: { index?: string; label?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLOListElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -56,13 +56,13 @@ export default function Timeline({ index = "05" }: { index?: string }) {
       <div className="flex flex-col justify-center overflow-hidden py-24 md:sticky md:top-0 md:h-[100dvh] md:py-0">
         <div className="shell mb-12 grid gap-6 md:mb-16 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <SectionLabel index={index}>Fran G Genuino</SectionLabel>
-            <h2 data-split className="display mt-6 text-[clamp(3rem,7.5vw,7rem)]">
+            <SectionLabel index={index}>{label}</SectionLabel>
+            <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
               <Words text="Trayectoria" />
             </h2>
           </div>
           <p className="max-w-sm text-bone/60 md:col-span-4 md:justify-self-end">
-            Artista, productor y fundador de Genuino Family.
+            La experiencia detrás de la productora: escenario, estudio y medios.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function Timeline({ index = "05" }: { index?: string }) {
                   aria-hidden="true"
                 />
                 <p className="flex items-baseline gap-2">
-                  <span className={`display tabular text-[clamp(4.5rem,8vw,7.5rem)] ${isFamily ? "text-signal" : ""}`}>
+                  <span className={`display tabular text-[clamp(3rem,5.5vw,5rem)] ${isFamily ? "text-signal" : ""}`}>
                     {item.mark}
                   </span>
                   {item.unit ? <span className="label !text-bone/70">{item.unit}</span> : null}
@@ -97,6 +97,7 @@ export default function Timeline({ index = "05" }: { index?: string }) {
                   <div className="relative mt-6 aspect-video w-full max-w-[20rem] overflow-hidden rounded-xl bg-ink-sunk">
                     <Image
                       src={ytThumb(item.videoId)}
+                      style={{ scale: ytZoom(item.videoId) }}
                       alt=""
                       fill
                       sizes="320px"

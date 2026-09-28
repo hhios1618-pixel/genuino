@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { blurDataUrl } from "@/data/site";
+import { blurDataUrl, ytZoom } from "@/data/site";
 
 type YtImageProps = {
   videoId: string;
@@ -17,6 +17,7 @@ const qualities = ["maxresdefault", "sddefault", "hqdefault"] as const;
 /* Miniatura de YouTube con caída a menor calidad si la máxima no existe */
 export default function YtImage({ videoId, alt, sizes, className = "", priority = false }: YtImageProps) {
   const [quality, setQuality] = useState(0);
+  const zoom = ytZoom(videoId);
 
   return (
     <Image
@@ -28,6 +29,7 @@ export default function YtImage({ videoId, alt, sizes, className = "", priority 
       placeholder="blur"
       blurDataURL={blurDataUrl}
       onError={() => setQuality((value) => Math.min(value + 1, qualities.length - 1))}
+      style={zoom === 1 ? undefined : { scale: zoom }}
       className={`object-cover ${className}`}
     />
   );

@@ -16,9 +16,16 @@ gsap.registerPlugin(ScrollTrigger);
 type CaseStackProps = {
   index?: string;
   showAllLink?: boolean;
+  title?: string;
+  intro?: string;
 };
 
-export default function CaseStack({ index = "02", showAllLink = true }: CaseStackProps) {
+export default function CaseStack({
+  index = "02",
+  showAllLink = true,
+  title = "Proyectos",
+  intro = "Producción general, colaboraciones y gestión de medios.",
+}: CaseStackProps) {
   const listRef = useRef<HTMLOListElement>(null);
   const [playing, setPlaying] = useState<string | null>(null);
 
@@ -55,13 +62,13 @@ export default function CaseStack({ index = "02", showAllLink = true }: CaseStac
         <div className="mb-14 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
             <SectionLabel index={index}>Selección 2025 — 2026</SectionLabel>
-            <h2 data-split className="display mt-6 text-[clamp(3.25rem,9vw,8.5rem)]">
-              <Words text="Proyectos" />
+            <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
+              <Words text={title} />
             </h2>
           </div>
           <div className="md:col-span-4 md:justify-self-end">
             <p className="max-w-sm text-bone/60" data-fade>
-              Producción general, colaboraciones y gestión de medios.
+              {intro}
             </p>
           </div>
         </div>
@@ -98,7 +105,7 @@ export default function CaseStack({ index = "02", showAllLink = true }: CaseStac
                             sizes="(min-width: 1440px) 1440px, 100vw"
                             className="media-dim transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                           />
-                          <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,7,6,0.55)_0%,transparent_30%,transparent_45%,rgba(8,7,6,0.92)_100%)]" />
+                          <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.55)_0%,transparent_30%,transparent_45%,rgba(0,0,0,0.92)_100%)]" />
 
                           <span className="absolute inset-x-5 top-5 flex items-start justify-between gap-4 md:inset-x-8 md:top-7">
                             <span className="label !text-bone/80">
@@ -110,7 +117,7 @@ export default function CaseStack({ index = "02", showAllLink = true }: CaseStac
                           <span className="absolute inset-x-5 bottom-5 grid gap-6 md:inset-x-8 md:bottom-8 lg:grid-cols-12 lg:items-end">
                             <span className="lg:col-span-7">
                               <span className="label block !text-signal">{item.role}</span>
-                              <span className="display mt-3 block text-[clamp(2.75rem,7.5vw,7.5rem)]">
+                              <span className="display mt-3 block text-[clamp(1.9rem,4.6vw,4.5rem)]">
                                 {item.title}
                                 {item.subtitle ? (
                                   <span className="ml-3 align-top font-mono text-[0.625rem] font-normal tracking-[0.08em] text-bone/60 md:text-xs">

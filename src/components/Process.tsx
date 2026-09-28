@@ -7,7 +7,7 @@ export default function Process({ index }: { index: string }) {
     <section className="py-24 md:py-36">
       <div className="shell">
         <SectionLabel index={index}>Metodología</SectionLabel>
-        <h2 data-split className="display mt-6 text-[clamp(3.25rem,9vw,8.5rem)]">
+        <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
           <Words text="Proceso" />
         </h2>
         <ol className="mt-16 grid border-t border-line md:grid-cols-4" data-stagger>

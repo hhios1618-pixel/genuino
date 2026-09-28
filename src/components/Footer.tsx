@@ -14,8 +14,8 @@ export default function Footer() {
             <Image
               src="/brand/genuino-family.png"
               alt="Genuino Family"
-              width={640}
-              height={796}
+              width={720}
+              height={905}
               className="h-36 w-auto md:h-44"
             />
           </Link>
@@ -87,10 +87,10 @@ export default function Footer() {
       </div>
 
       <p
-        className="display pointer-events-none -mb-[0.2em] select-none text-center text-[23vw] leading-[0.8] text-bone/[0.05]"
+        className="display pointer-events-none select-none whitespace-nowrap pb-[3vw] pt-[5vw] text-center text-[8.6vw] leading-none text-graphite"
         aria-hidden="true"
       >
-        Genuino
+        Genuino Family
       </p>
     </footer>
   );

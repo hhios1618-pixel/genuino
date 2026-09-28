@@ -10,7 +10,7 @@ export default function ClosingCTA({ index = "06" }: { index?: string }) {
       <div className="shell grid gap-14 md:grid-cols-12">
         <div className="md:col-span-5">
           <SectionLabel index={index}>Proyectos, prensa y booking</SectionLabel>
-          <h2 data-split className="display mt-6 text-[clamp(3.25rem,9vw,8.5rem)]">
+          <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
             <Words text="Contacto" />
           </h2>
         </div>
