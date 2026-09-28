@@ -437,7 +437,7 @@ video {
   transition: opacity 250ms ease;
 }
 
-html[data-cursor="visible"] .cursor {
+html[data-cursor-visible="true"] .cursor {
   opacity: 1;
 }
 

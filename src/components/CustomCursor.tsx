@@ -28,7 +28,7 @@ export default function CustomCursor() {
     let magnetic: HTMLElement | null = null;
 
     const onMove = (event: PointerEvent) => {
-      root.dataset.cursor = "visible";
+      root.dataset.cursorVisible = "true";
       moveX(event.clientX);
       moveY(event.clientY);
 
@@ -62,7 +62,7 @@ export default function CustomCursor() {
     };
 
     const onLeave = () => {
-      root.dataset.cursor = "hidden";
+      root.dataset.cursorVisible = "false";
     };
 
     window.addEventListener("pointermove", onMove, { passive: true });
@@ -72,7 +72,7 @@ export default function CustomCursor() {
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);
       root.classList.remove("has-cursor");
-      delete root.dataset.cursor;
+      delete root.dataset.cursorVisible;
       delete root.dataset.cursorState;
     };
   }, []);
