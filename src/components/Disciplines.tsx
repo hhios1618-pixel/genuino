@@ -109,6 +109,19 @@ export default function Disciplines({
                   active === position ? "lg:opacity-100" : "lg:opacity-35"
                 }`}
               >
+                <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-ink-sunk md:aspect-[21/9] lg:hidden">
+                  <Image
+                    src={discipline.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 0px, 100vw"
+                    placeholder="blur"
+                    blurDataURL={blurDataUrl}
+                    style={{ objectPosition: discipline.imagePosition, scale: ytZoom(discipline.image) }}
+                    className="object-cover brightness-90"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-ink-sunk/60 via-transparent to-transparent" />
+                </div>
                 <div className="flex items-baseline justify-between gap-6">
                   <h3 className="display text-[clamp(1.75rem,4.4vw,4rem)] text-gold">{discipline.name}</h3>
                   <span className="label tabular">{discipline.index}</span>

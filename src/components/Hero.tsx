@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Arrow from "@/components/ui/Arrow";
 import Words from "@/components/ui/Words";
 import YtImage from "@/components/ui/YtImage";
@@ -11,7 +11,19 @@ const SLIDE_MS = 6500;
 
 export default function Hero() {
   const [active, setActive] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
   const current = heroReel[active];
+
+  /* Deslizar con el dedo cambia de proyecto */
+  const onTouchEnd = (event: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const dx = event.changedTouches[0].clientX - start.x;
+    const dy = event.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    setActive((value) => (value + (dx < 0 ? 1 : heroReel.length - 1)) % heroReel.length);
+  };
 
   useEffect(() => {
     const timer = window.setTimeout(() => setActive((value) => (value + 1) % heroReel.length), SLIDE_MS);
@@ -19,7 +31,13 @@ export default function Hero() {
   }, [active]);
 
   return (
-    <section className="relative h-[100dvh] min-h-[40rem] overflow-clip bg-ink-sunk">
+    <section
+      className="relative h-[100svh] min-h-[36rem] overflow-clip bg-ink-sunk"
+      onTouchStart={(event) => {
+        touchStart.current = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+      }}
+      onTouchEnd={onTouchEnd}
+    >
       <div className="absolute inset-0" aria-hidden="true">
         {heroReel.map((slide, position) => (
           <div
@@ -84,7 +102,7 @@ export default function Hero() {
                 </span>
               </p>
             </div>
-            <div className="mt-5 flex gap-2" role="tablist" aria-label="Proyectos destacados">
+            <div className="mt-2 flex gap-2" role="tablist" aria-label="Proyectos destacados">
               {heroReel.map((slide, position) => (
                 <button
                   key={slide.videoId}
@@ -93,7 +111,7 @@ export default function Hero() {
                   aria-selected={active === position}
                   aria-label={`${slide.title}, ${slide.artist}`}
                   onClick={() => setActive(position)}
-                  className="group flex w-14 flex-col gap-2 pt-2 text-left md:w-16"
+                  className="group flex min-h-11 w-14 flex-col justify-center gap-2 text-left md:w-16"
                 >
                   <span className="label tabular !text-[0.625rem] group-aria-selected:!text-bone">
                     {String(position + 1).padStart(2, "0")}

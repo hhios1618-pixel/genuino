@@ -1,11 +1,11 @@
 type ArrowProps = {
   className?: string;
-  direction?: "up-right" | "right" | "down";
+  direction?: "up-right" | "right" | "down" | "left";
 };
 
 /* Flecha de trazo fino, propia del sitio */
 export default function Arrow({ className = "size-4", direction = "up-right" }: ArrowProps) {
-  const rotation = direction === "right" ? 45 : direction === "down" ? 135 : 0;
+  const rotation = { "up-right": 0, right: 45, down: 135, left: -135 }[direction];
 
   return (
     <svg

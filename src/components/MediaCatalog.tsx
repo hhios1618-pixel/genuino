@@ -11,11 +11,14 @@ import YtEmbed from "@/components/ui/YtEmbed";
 import { blurDataUrl, catalog, catalogFilters, type CatalogFilter, ytThumb, ytZoom, ytWatch } from "@/data/site";
 
 const ease = [0.32, 0.72, 0, 1] as const;
+/* En móvil se muestran estas filas antes de "Ver todos" */
+const MOBILE_LIMIT = 6;
 
 export default function MediaCatalog({ index = "03" }: { index?: string }) {
   const [filter, setFilter] = useState<CatalogFilter>("Todo");
   const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +55,11 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
           </p>
         </div>
 
-        <div className="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filtrar por tipo de trabajo">
+        <div
+          className="-mx-[var(--gutter)] mb-6 flex gap-2 overflow-x-auto px-[var(--gutter)] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
+          role="group"
+          aria-label="Filtrar por tipo de trabajo"
+        >
           {catalogFilters.map((option) => {
             const count =
               option === "Todo" ? catalog.length : catalog.filter((item) => item.tags.includes(option)).length;
@@ -64,9 +71,10 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                 onClick={() => {
                   setFilter(option);
                   setOpen(null);
+                  setExpanded(false);
                 }}
                 aria-pressed={active}
-                className={`flex h-10 items-center gap-2 rounded-full border px-4 text-sm transition-colors duration-500 ${
+                className={`flex h-10 shrink-0 items-center gap-2 rounded-full border px-4 text-sm transition-colors duration-500 ${
                   active
                     ? "border-gold bg-gold text-ink"
                     : "border-bone/15 text-bone/70 hover:border-bone/50 hover:text-bone"
@@ -126,7 +134,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease }}
-                    className="border-b border-line"
+                    className={`border-b border-line ${position >= MOBILE_LIMIT && !expanded ? "hidden md:block" : ""}`}
                   >
                     <button
                       type="button"
@@ -194,6 +202,17 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
             </AnimatePresence>
           </ul>
         </div>
+
+        {items.length > MOBILE_LIMIT && !expanded ? (
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            className="btn-line mt-8 w-full justify-center md:hidden"
+          >
+            Ver los {items.length} trabajos
+            <Arrow className="size-4" direction="down" />
+          </button>
+        ) : null}
       </div>
     </section>
   );

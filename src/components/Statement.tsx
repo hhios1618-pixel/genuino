@@ -19,15 +19,15 @@ export default function Statement() {
           >
             <Words text={statement} />
           </p>
-          <div className="mt-14 grid gap-8 border-t border-line pt-8 sm:grid-cols-3" data-stagger>
+          <div className="mt-12 grid grid-cols-3 gap-4 border-t border-line pt-7 sm:mt-14 sm:gap-8 sm:pt-8" data-stagger>
             {[
               { value: "2023", label: "Fundada por el artista Fran G Genuino" },
               { value: String(artistCredits.length).padStart(2, "0"), label: "Artistas con los que trabajamos" },
               { value: String(catalog.length).padStart(2, "0"), label: "Trabajos en radio, TV y prensa" },
             ].map((fact) => (
               <div key={fact.label}>
-                <p className="display tabular text-[clamp(2.5rem,4.6vw,4.25rem)] text-gold">{fact.value}</p>
-                <p className="mt-3 text-sm text-bone/55">{fact.label}</p>
+                <p className="display tabular text-[clamp(1.6rem,4.6vw,4.25rem)] text-gold">{fact.value}</p>
+                <p className="mt-2 text-pretty text-xs leading-snug text-bone/55 sm:mt-3 sm:text-sm">{fact.label}</p>
               </div>
             ))}
           </div>

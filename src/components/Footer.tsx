@@ -8,21 +8,21 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-line pt-20 md:pt-28">
-      <div className="shell grid gap-14 md:grid-cols-12">
-        <div className="md:col-span-5">
+      <div className="shell grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-12 md:gap-14">
+        <div className="col-span-2 md:col-span-5">
           <Link href="/" aria-label="Genuino Family, inicio" className="inline-block">
             <Image
               src="/brand/genuino-family.png"
               alt="Genuino Family"
               width={720}
               height={905}
-              className="h-36 w-auto md:h-44"
+              className="h-28 w-auto sm:h-36 md:h-44"
             />
           </Link>
-          <p className="mt-8 max-w-xs text-bone/60">Producción musical, audiovisual y gestión de medios.</p>
+          <p className="mt-6 max-w-xs text-bone/60 md:mt-8">Producción musical, audiovisual y gestión de medios.</p>
         </div>
 
-        <nav className="md:col-span-2" aria-label="Pie de página">
+        <nav className="col-span-1 md:col-span-2" aria-label="Pie de página">
           <p className="label mb-5">Sitio</p>
           <ul className="grid gap-2.5">
             {[...navItems, { label: "Contacto", href: "/contacto" }].map((item) => (
@@ -35,7 +35,7 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <div className="md:col-span-3">
+        <div className="order-last col-span-2 md:order-none md:col-span-3">
           <p className="label mb-5">Escríbenos</p>
           <ul className="grid gap-2.5">
             <li>
@@ -58,12 +58,14 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="col-span-1 md:col-span-2">
           <p className="label mb-5">Base</p>
           <p className="text-bone/75">{contact.base}</p>
-          <p className="mt-2 flex items-center gap-2 text-bone/45">
-            <span className="on-air !size-1.5" />
-            <LocalTime /> en Chile
+          <p className="mt-2 flex items-center gap-2 text-sm text-bone/45 md:text-base">
+            <span className="on-air !size-1.5 shrink-0" />
+            <span>
+              <LocalTime /> en Chile
+            </span>
           </p>
         </div>
       </div>

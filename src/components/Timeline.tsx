@@ -68,19 +68,19 @@ export default function Timeline({ index = "05", label = "El fundador — Fran G
 
         <ol
           ref={trackRef}
-          className="flex w-full flex-col gap-12 px-[var(--gutter)] md:w-max md:flex-row md:gap-0 md:pr-[20vw]"
+          className="flex w-full flex-col px-[var(--gutter)] md:w-max md:flex-row md:pr-[20vw]"
         >
           {timeline.map((item, position) => {
             const isFamily = item.title === "Genuino Family";
             return (
               <li
                 key={item.title}
-                className={`relative md:w-[clamp(18rem,26vw,24rem)] md:shrink-0 md:border-l md:border-line md:px-8 ${
+                className={`relative border-l border-line pb-12 pl-6 last:pb-0 md:w-[clamp(18rem,26vw,24rem)] md:shrink-0 md:px-8 md:pb-0 ${
                   position % 2 === 1 ? "md:pt-16" : ""
                 }`}
               >
                 <span
-                  className={`absolute -left-[5px] top-0 hidden size-2.5 rounded-full md:block ${
+                  className={`absolute -left-[5px] top-2.5 size-2.5 rounded-full md:top-0 ${
                     isFamily ? "on-air" : "bg-bone/40"
                   }`}
                   aria-hidden="true"
@@ -114,7 +114,7 @@ export default function Timeline({ index = "05", label = "El fundador — Fran G
 
         <div className="shell mt-12 hidden md:block">
           <div className="h-px w-full bg-line">
-            <div ref={progressRef} className="h-px origin-left scale-x-0 bg-bone" />
+            <div ref={progressRef} className="h-px origin-left scale-x-0 bg-gold" />
           </div>
         </div>
       </div>
