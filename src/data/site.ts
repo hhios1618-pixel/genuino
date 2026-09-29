@@ -25,6 +25,12 @@ export const navItems = [
   { label: "Fran G", href: "/perfil" },
 ];
 
+/* Firma del estudio que construyó el sitio; los UTM le permiten medir el tráfico que llega desde aquí */
+export const siteCredit = {
+  studio: "Altius Ignite",
+  href: "https://www.altiusignite.com/?utm_source=genuino.studio&utm_medium=referral&utm_campaign=site-credit",
+};
+
 export const legalLinks = [
   { label: "Privacidad", href: "/privacidad" },
   { label: "Términos", href: "/terminos" },

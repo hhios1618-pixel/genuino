@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import Arrow from "@/components/ui/Arrow";
 import LocalTime from "@/components/ui/LocalTime";
-import { contact, legalLinks, navItems } from "@/data/site";
+import { contact, legalLinks, navItems, siteCredit } from "@/data/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -70,8 +71,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="shell mt-20 flex flex-col gap-4 border-t border-line py-6 text-sm text-bone/40 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {year} Genuino Family. Todos los derechos reservados.</p>
+      <div className="shell mt-20 flex flex-col gap-4 border-t border-line py-6 text-sm text-bone/40 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
+        <div className="grid gap-1.5">
+          <p>© {year} Genuino Family. Todos los derechos reservados.</p>
+          <p>
+            Sitio desarrollado por{" "}
+            <a
+              href={siteCredit.href}
+              target="_blank"
+              rel="noopener"
+              className="group inline-flex items-center gap-1.5 -my-3 py-3 text-bone/70 transition-colors hover:text-bone sm:my-0 sm:py-0"
+            >
+              <span className="u-link">{siteCredit.studio}</span>
+              <Arrow className="size-3 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </p>
+        </div>
         <ul className="flex flex-wrap gap-6">
           {legalLinks.map((link) => (
             <li key={link.href}>
