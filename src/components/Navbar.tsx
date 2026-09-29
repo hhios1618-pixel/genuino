@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Arrow from "@/components/ui/Arrow";
 import { contact, navItems } from "@/data/site";
 
@@ -12,9 +12,7 @@ const ease = [0.32, 0.72, 0, 1] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [solid, setSolid] = useState(false);
-  const lastY = useRef(0);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,8 +22,6 @@ export default function Navbar() {
       frame = requestAnimationFrame(() => {
         const y = window.scrollY;
         setSolid(y > 40);
-        setHidden(y > 240 && y > lastY.current);
-        lastY.current = y;
       });
     };
     onScroll();
@@ -51,9 +47,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[var(--z-header)] transition-[transform,background-color] duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-          hidden && !open ? "-translate-y-full" : "translate-y-0"
-        } ${solid && !open ? "bg-ink/80 backdrop-blur-xl" : "bg-transparent"}`}
+        className={`fixed inset-x-0 top-0 z-[var(--z-header)] transition-[background-color] duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+          solid && !open ? "bg-ink/80 backdrop-blur-xl" : "bg-transparent"
+        }`}
       >
         <nav className="shell flex h-20 items-center justify-between gap-6" aria-label="Principal">
           <Link href="/" className="relative z-10 flex items-center gap-3" aria-label="Genuino Family, inicio">
