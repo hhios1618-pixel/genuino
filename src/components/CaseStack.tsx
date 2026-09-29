@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import Arrow from "@/components/ui/Arrow";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
@@ -92,11 +92,11 @@ function Appearances({
               className={`flex h-full min-h-11 w-full flex-col justify-center gap-1 rounded-xl px-3 py-2.5 text-left ring-1 transition-colors duration-500 ${
                 selected
                   ? "bg-bone/[0.08] ring-signal"
-                  : "ring-bone/10 hover:bg-bone/[0.05] hover:ring-bone/30"
+                  : "bg-bone/[0.03] ring-bone/15 hover:bg-bone/[0.06] hover:ring-bone/35"
               }`}
             >
               <span className="flex items-center justify-between gap-2">
-                <span className={`label flex min-w-0 items-center gap-1.5 ${selected ? "!text-signal" : ""}`}>
+                <span className={`label flex min-w-0 items-center gap-1.5 ${selected ? "!text-signal" : "!text-bone/65"}`}>
                   <svg viewBox="0 0 10 12" className="size-2 shrink-0" fill="currentColor" aria-hidden="true">
                     <path d="M0 0v12l10-6z" />
                   </svg>
@@ -104,7 +104,7 @@ function Appearances({
                 </span>
                 <span className="label tabular shrink-0 whitespace-nowrap">{appearance.minutes} min</span>
               </span>
-              <span className="line-clamp-1 text-sm text-bone/85">{appearance.program}</span>
+              <span className="line-clamp-1 text-sm text-bone/90">{appearance.program}</span>
             </button>
           </li>
         );
@@ -214,14 +214,19 @@ export default function CaseStack({
                 data-case
                 aria-label={`${pad(position + 1)} de ${pad(cases.length)}: ${item.title}`}
                 className="w-[86%] shrink-0 snap-start sm:w-[64%] md:w-[52%] lg:sticky lg:mb-[8vh] lg:w-auto lg:last:mb-0"
-                style={{ top: `calc(5.5rem + ${position * 1.1}rem)` }}
+                style={{ "--case-top": `calc(5.5rem + ${position * 1.1}rem)`, top: "var(--case-top)" } as CSSProperties}
               >
                 <article
                   data-case-card
                   className="flex h-full origin-top flex-col rounded-[1.5rem] bg-bone/[0.035] p-1.5 ring-1 ring-bone/10 will-change-transform md:rounded-[2.25rem] md:p-2"
                 >
                   <div className="relative overflow-hidden rounded-[calc(1.5rem-0.375rem)] bg-ink-sunk md:rounded-[calc(2.25rem-0.5rem)]">
-                    <div className="relative aspect-[16/10] lg:aspect-[16/8]">
+                    {/* Con apariciones, el video cede alto para que las fichas quepan siempre en pantalla */}
+                    <div
+                      className={`relative aspect-[16/10] w-full lg:aspect-[16/8] ${
+                        item.appearances ? "lg:max-h-[calc(100svh-var(--case-top)-7rem)] lg:min-h-[20rem]" : ""
+                      }`}
+                    >
                       {activeVideo ? (
                         <YtEmbed
                           key={activeVideo}
