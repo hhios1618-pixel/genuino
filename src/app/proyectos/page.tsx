@@ -10,7 +10,7 @@ import Reels from "@/components/Reels";
 export const metadata: Metadata = {
   title: "Proyectos",
   description:
-    "Producción general, colaboraciones y gestión de medios de Genuino Family: Diego Smith, Antonio Ríos, Angie Tu Cumbiera y GO.",
+    "Producción general, colaboraciones y gestión de medios de Genuino Family: Antonio Ríos, Diego Smith y GO.",
   alternates: { canonical: "/proyectos" },
 };
 
@@ -25,7 +25,7 @@ export default function ProyectosPage() {
           intro="Producción general, colaboraciones y gestión de medios para artistas en Chile."
           meta={[
             { label: "Artistas", value: "Antonio Ríos, Diego Smith, GO" },
-            { label: "Medios", value: "Radio, TV y prensa" },
+            { label: "Medios", value: "TVN, Chilevisión, Vía X y radio" },
             { label: "Periodo", value: "2023 — hoy" },
           ]}
         />
@@ -33,7 +33,7 @@ export default function ProyectosPage() {
           index="01"
           showAllLink={false}
           title="Destacados"
-          intro="Casos con producción general, uniones artísticas y campaña en medios."
+          intro="Casos con producción general, dirección de singles y campañas en televisión, radio y prensa."
         />
         <MediaCatalog index="02" />
         <Reels index="03" />

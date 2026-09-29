@@ -55,7 +55,7 @@ export default function About() {
             <p>
               Como productor general y ejecutivo de Genuino Family trabaja en logística, booking,
               marketing y promoción en medios para artistas chilenos e internacionales, entre ellos
-              Antonio Ríos, Diego Smith, Angie Tu Cumbiera y GO.
+              Antonio Ríos, Diego Smith y GO.
             </p>
           </div>
 

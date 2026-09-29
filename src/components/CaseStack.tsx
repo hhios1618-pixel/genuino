@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Arrow from "@/components/ui/Arrow";
@@ -9,7 +10,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
 import YtEmbed from "@/components/ui/YtEmbed";
 import YtImage from "@/components/ui/YtImage";
-import { cases } from "@/data/site";
+import { blurDataUrl, cases } from "@/data/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,10 @@ type CaseStackProps = {
 };
 
 const pad = (value: number) => String(value).padStart(2, "0");
+
+const caseSizes = "(min-width: 1440px) 1440px, (min-width: 1024px) 100vw, (min-width: 768px) 52vw, 86vw";
+const caseMedia =
+  "media-dim transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]";
 
 /*
   Escritorio: tarjetas apiladas que se encogen al pasar la siguiente.
@@ -136,12 +141,19 @@ export default function CaseStack({
                           className="group absolute inset-0 text-left"
                           aria-label={`Reproducir ${item.title}, de ${item.artist}`}
                         >
-                          <YtImage
-                            videoId={item.videoId}
-                            alt=""
-                            sizes="(min-width: 1440px) 1440px, (min-width: 1024px) 100vw, (min-width: 768px) 52vw, 86vw"
-                            className="media-dim transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
-                          />
+                          {item.poster ? (
+                            <Image
+                              src={item.poster}
+                              alt=""
+                              fill
+                              sizes={caseSizes}
+                              placeholder="blur"
+                              blurDataURL={blurDataUrl}
+                              className={`object-cover ${caseMedia}`}
+                            />
+                          ) : (
+                            <YtImage videoId={item.videoId} alt="" sizes={caseSizes} className={caseMedia} />
+                          )}
                           <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.55)_0%,transparent_32%)]" />
                           <span className="absolute inset-0 hidden bg-[linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.92)_100%)] lg:block" />
 

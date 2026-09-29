@@ -41,7 +41,6 @@ export const media = {
 export const artistCredits = [
   "Antonio Ríos",
   "Diego Smith",
-  "Angie Tu Cumbiera",
   "GO",
   "Arte Elegante",
   "Hermanos Bernal",
@@ -50,19 +49,31 @@ export const artistCredits = [
   "Afy",
 ];
 
-export const outlets = ["Vía X", "TNT Sports Chile", "BioBioChile"];
+export const outlets = ["TVN", "Chilevisión", "Vía X", "Zona Latina", "TNT Sports Chile", "BioBioChile"];
 
 /* Proyectos que rotan en la portada */
 export const heroReel = [
   { title: "Ella Baila Sola", artist: "GO feat. Fran G Genuino", role: "Radio y Vía X", videoId: "Q9wHNUH1eq8" },
   { title: "Suéltate Ma", artist: "Diego Smith", role: "Producción general", videoId: "eyr_XP440kE" },
   { title: "Venimos de Abajo", artist: "Arte Elegante × Genuino", role: "Single", videoId: "zH5C4T0C-F0" },
-  { title: "Nunca Me Faltes (Remix)", artist: "Angie Tu Cumbiera × Antonio Ríos", role: "Colaboración y videoclip", videoId: "Ll-l9N5NmlM" },
+  { title: "Nunca Me Faltes (Remix)", artist: "Antonio Ríos con Angie Tu Cumbiera", role: "Dirección general", videoId: "Ll-l9N5NmlM" },
 ];
 
 /* ---------- Casos principales ---------- */
 
 export const cases = [
+  {
+    title: "Antonio Ríos",
+    artist: "TVN · Chilevisión · Vía X · Zona Latina · BioBioChile",
+    year: "2026",
+    role: "Gestión de medios",
+    scope: ["Televisión abierta", "Cable", "Prensa digital"],
+    summary:
+      "Plan de medios del maestro de la cumbia en Chile: apariciones en El Medio Día, Club de la Comedia, Todo Va a Estar Bien y Sabores, y entrevista con BioBioChile.",
+    videoId: "jGvm9IxyigA",
+    /* Recorte de la miniatura de Sabores sin el texto impreso del canal */
+    poster: "/cases/antonio-rios-zona-latina.jpg",
+  },
   {
     title: "Suéltate Ma",
     artist: "Diego Smith",
@@ -76,12 +87,12 @@ export const cases = [
   {
     title: "Nunca Me Faltes",
     subtitle: "Remix",
-    artist: "Angie Tu Cumbiera × Antonio Ríos",
+    artist: "Antonio Ríos con Angie Tu Cumbiera",
     year: "2025",
-    role: "Unión artística",
-    scope: ["Unión de artistas", "Logística de video", "Medios"],
+    role: "Dirección general",
+    scope: ["Dirección del single", "Producción", "Videoclip"],
     summary:
-      "Gestión de la colaboración entre Angie Tu Cumbiera y Antonio Ríos, y logística de producción del videoclip.",
+      "Single de Antonio Ríos con Angie Tu Cumbiera, dirigido por Fran G Genuino de principio a fin: concepto, producción, videoclip y salida en medios.",
     videoId: "Ll-l9N5NmlM",
   },
   {
@@ -108,6 +119,41 @@ export const catalog: {
   tags: CatalogFilter[];
   videoId: string;
 }[] = [
+  {
+    title: "El Medio Día",
+    artist: "Antonio Ríos en TVN",
+    work: "Booking televisión",
+    tags: ["TV"],
+    videoId: "LHANSquhxqU",
+  },
+  {
+    title: "Club de la Comedia",
+    artist: "Antonio Ríos en Chilevisión",
+    work: "Booking televisión",
+    tags: ["TV"],
+    videoId: "7NX2r1ivKmw",
+  },
+  {
+    title: "Todo Va a Estar Bien",
+    artist: "Antonio Ríos en Vía X",
+    work: "Booking televisión",
+    tags: ["TV"],
+    videoId: "qaFtLN4hHj4",
+  },
+  {
+    title: "Todo Va a Estar Bien, en vivo",
+    artist: "Antonio Ríos en Vía X",
+    work: "Booking televisión",
+    tags: ["TV"],
+    videoId: "5Rxye57JIGI",
+  },
+  {
+    title: "Sabores",
+    artist: "Antonio Ríos en Zona Latina",
+    work: "Booking televisión",
+    tags: ["TV"],
+    videoId: "jGvm9IxyigA",
+  },
   {
     title: "Pelota Parada",
     artist: "Antonio Ríos en TNT Sports Chile",
@@ -138,8 +184,8 @@ export const catalog: {
   },
   {
     title: "Nunca Me Faltes (Remix)",
-    artist: "Angie Tu Cumbiera × Antonio Ríos",
-    work: "Unión artística y video",
+    artist: "Antonio Ríos con Angie Tu Cumbiera",
+    work: "Dirección general",
     tags: ["Producción"],
     videoId: "Ll-l9N5NmlM",
   },
@@ -382,7 +428,7 @@ export const timeline = [
   {
     mark: "Hoy",
     title: "Antonio Ríos, Diego Smith, GO",
-    body: "Producción general, colaboraciones y gestión de medios.",
+    body: "Producción general, dirección de singles y gestión de medios en TVN, Chilevisión y Vía X.",
     videoId: "Ll-l9N5NmlM",
   },
 ];
@@ -455,8 +501,8 @@ export const releases = [
   },
   {
     title: "Nunca Me Faltes (Remix)",
-    artist: "Angie Tu Cumbiera × Antonio Ríos",
-    note: "Unión artística y logística de video.",
+    artist: "Antonio Ríos con Angie Tu Cumbiera",
+    note: "Dirección general de Fran G Genuino.",
     videoId: "Ll-l9N5NmlM",
     byFran: false,
   },
