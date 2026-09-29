@@ -69,10 +69,19 @@ export const cases = [
     role: "Gestión de medios",
     scope: ["Televisión abierta", "Cable", "Prensa digital"],
     summary:
-      "Plan de medios del maestro de la cumbia en Chile: apariciones en El Medio Día, Club de la Comedia, Todo Va a Estar Bien y Sabores, y entrevista con BioBioChile.",
-    videoId: "jGvm9IxyigA",
+      "Plan de medios del maestro de la cumbia en Chile: seis apariciones en 2026 entre televisión abierta, cable y prensa digital.",
+    videoId: "7NX2r1ivKmw",
     /* Recorte de la miniatura de Sabores sin el texto impreso del canal */
     poster: "/cases/antonio-rios-zona-latina.jpg",
+    /* Cada aparición se reproduce dentro de la tarjeta; la primera es la que parte por defecto */
+    appearances: [
+      { outlet: "Chilevisión", program: "Club de la Comedia", minutes: 14, videoId: "7NX2r1ivKmw" },
+      { outlet: "TVN", program: "El Medio Día", minutes: 80, videoId: "LHANSquhxqU" },
+      { outlet: "Vía X", program: "Todo Va a Estar Bien", minutes: 25, videoId: "qaFtLN4hHj4" },
+      { outlet: "Zona Latina", program: "Sabores", minutes: 57, videoId: "jGvm9IxyigA" },
+      { outlet: "BioBioChile", program: "Entrevista en estudio", minutes: 25, videoId: "TMhuls1tWnU" },
+      { outlet: "Vía X", program: "Especial en vivo", minutes: 84, videoId: "5Rxye57JIGI" },
+    ],
   },
   {
     title: "Suéltate Ma",
