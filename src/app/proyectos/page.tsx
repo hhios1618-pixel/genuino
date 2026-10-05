@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CaseStack from "@/components/CaseStack";
 import ClosingCTA from "@/components/ClosingCTA";
+import FieldPhotos from "@/components/FieldPhotos";
 import Footer from "@/components/Footer";
 import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
@@ -37,7 +38,8 @@ export default function ProyectosPage() {
         />
         <MediaCatalog index="02" />
         <Reels index="03" />
-        <ClosingCTA index="04" />
+        <FieldPhotos index="04" />
+        <ClosingCTA index="05" />
       </main>
       <Footer />
     </>

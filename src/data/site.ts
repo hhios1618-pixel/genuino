@@ -77,8 +77,8 @@ export const cases = [
     summary:
       "Plan de medios del maestro de la cumbia en Chile: seis apariciones en 2026 entre televisión abierta, cable y prensa digital.",
     videoId: "7NX2r1ivKmw",
-    /* Recorte de la miniatura de Sabores sin el texto impreso del canal */
-    poster: "/cases/antonio-rios-zona-latina.jpg",
+    /* Foto de set en televisión enviada por el cliente */
+    poster: "/cases/antonio-rios-set-tv.jpg",
     /* Cada aparición se reproduce dentro de la tarjeta; la primera es la que parte por defecto */
     appearances: [
       { outlet: "Chilevisión", program: "Club de la Comedia", minutes: 14, videoId: "7NX2r1ivKmw" },
@@ -271,8 +271,8 @@ export const disciplines = [
     line: "Composición, producción, grabación, mezcla y máster.",
     body:
       "Desarrollo completo de la obra: letra y línea melódica, producción, dirección vocal y entrega de másteres para plataformas digitales y radio.",
-    image: "/profile/fran-g-studio-console.jpg",
-    imagePosition: "50% 40%",
+    image: "/servicios/musica-estudio.jpg",
+    imagePosition: "50% 22%",
     items: [
       {
         title: "Composición",
@@ -298,8 +298,8 @@ export const disciplines = [
     line: "Videoclips, contenido y dirección de arte.",
     body:
       "Producción audiovisual para lanzamientos: guion, rodaje, postproducción y piezas para plataformas digitales.",
-    image: ytThumb("Q9wHNUH1eq8"),
-    imagePosition: "55% 50%",
+    image: "/servicios/imagen-rodaje.jpg",
+    imagePosition: "50% 60%",
     items: [
       {
         title: "Videoclips",
@@ -321,8 +321,8 @@ export const disciplines = [
     line: "Radio, televisión y prensa.",
     body:
       "Gestión de medios en Chile: difusión radial, apariciones en televisión, entrevistas y prensa.",
-    image: ytThumb("lgo_FxrWILk"),
-    imagePosition: "82% 50%",
+    image: "/servicios/medios-set-tv.jpg",
+    imagePosition: "50% 38%",
     items: [
       {
         title: "Booking radial",
@@ -344,8 +344,8 @@ export const disciplines = [
     line: "Desarrollo artístico, colaboraciones y logística.",
     body:
       "Acompañamiento de carrera para artistas en desarrollo y consolidados: repertorio, colaboraciones, negociación y logística.",
-    image: ytThumb("Ll-l9N5NmlM"),
-    imagePosition: "78% 50%",
+    image: "/servicios/management-mercado-central.jpg",
+    imagePosition: "50% 40%",
     items: [
       {
         title: "Desarrollo de artistas",
@@ -529,7 +529,7 @@ export const reels = [
     title: "Cocoa Record Studio",
     caption: "Antonio Ríos, Oreken el Track y Fran G Genuino.",
     src: mediaUrl("videos/cocoa-record-studio.mp4", media.backstage),
-    poster: ytThumb("Ll-l9N5NmlM"),
+    poster: "/registro/cocoa-record-studio.jpg",
   },
   {
     title: "Rodaje Suéltate Ma",
@@ -554,6 +554,46 @@ export const reels = [
     caption: "Fran G Genuino.",
     src: mediaUrl("videos/nuevo-paso.mp4", media.backstage),
     poster: ytThumb("aJG0zRex7EU"),
+  },
+];
+
+/* Fotografía de terreno: set de televisión, estudio y rodajes */
+export const fieldPhotos = [
+  {
+    src: "/servicios/medios-set-tv.jpg",
+    title: "Set de televisión",
+    caption: "Antonio Ríos antes de salir al aire.",
+    position: "50% 40%",
+  },
+  {
+    src: "/registro/antonio-rios-estudio.jpg",
+    title: "Estudio",
+    caption: "Antonio Ríos entre tomas.",
+    position: "50% 30%",
+  },
+  {
+    src: "/registro/antonio-rios-mercado-central.jpg",
+    title: "Mercado Central",
+    caption: "Antonio Ríos en terreno, Santiago.",
+    position: "50% 35%",
+  },
+  {
+    src: "/registro/set-videoclip.jpg",
+    title: "Set de videoclip",
+    caption: "Elenco en set, antes de rodar.",
+    position: "50% 40%",
+  },
+  {
+    src: "/registro/foto-fija-rodaje.jpg",
+    title: "Foto fija",
+    caption: "Revisión de cámara durante el rodaje.",
+    position: "50% 35%",
+  },
+  {
+    src: "/registro/backstage-show.jpg",
+    title: "Backstage",
+    caption: "Minutos antes de subir al escenario.",
+    position: "50% 30%",
   },
 ];
 
