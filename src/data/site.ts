@@ -59,7 +59,7 @@ export const outlets = ["TVN", "Chilevisión", "Vía X", "Zona Latina", "TNT Spo
 
 /* Proyectos que rotan en la portada */
 export const heroReel = [
-  { title: "Around the Sky", artist: "Diego Smith × Genuino", role: "Video oficial", videoId: "2SsfMbwrMtg" },
+  { title: "Around the Sky", artist: "Diego Smith", role: "Producción general", videoId: "2SsfMbwrMtg" },
   { title: "Ella Baila Sola", artist: "GO feat. Fran G Genuino", role: "Radio y Vía X", videoId: "Q9wHNUH1eq8" },
   { title: "Suéltate Ma", artist: "Diego Smith", role: "Producción general", videoId: "eyr_XP440kE" },
   { title: "Venimos de Abajo", artist: "Arte Elegante × Genuino", role: "Single", videoId: "zH5C4T0C-F0" },
@@ -89,6 +89,16 @@ export const cases = [
       { outlet: "BioBioChile", program: "Entrevista en estudio", minutes: 25, videoId: "TMhuls1tWnU" },
       { outlet: "Vía X", program: "Especial en vivo", minutes: 84, videoId: "5Rxye57JIGI" },
     ],
+  },
+  {
+    title: "Around the Sky",
+    artist: "Diego Smith",
+    year: "2026",
+    role: "Producción general",
+    scope: ["Producción general y técnica", "Producción ejecutiva", "Videoclip oficial"],
+    summary:
+      "Producción general, técnica y ejecutiva del videoclip oficial de Diego Smith, junto a Touchsky Films en la dirección y Shash Crew en la producción ejecutiva.",
+    videoId: "2SsfMbwrMtg",
   },
   {
     title: "Suéltate Ma",
@@ -193,8 +203,8 @@ export const catalog: {
   },
   {
     title: "Around the Sky",
-    artist: "Diego Smith × Genuino",
-    work: "Video oficial",
+    artist: "Diego Smith",
+    work: "Producción general",
     tags: ["Producción"],
     videoId: "2SsfMbwrMtg",
   },
@@ -460,13 +470,6 @@ export const timeline = [
 
 export const releases = [
   {
-    title: "Around the Sky",
-    artist: "Diego Smith × Genuino",
-    note: "Video oficial.",
-    videoId: "2SsfMbwrMtg",
-    byFran: true,
-  },
-  {
     title: "Ella Baila Sola",
     artist: "GO feat. Fran G Genuino",
     note: "La Doble G. Radio y Vía X.",
@@ -521,6 +524,13 @@ export const releases = [
     note: "Video oficial, 2015.",
     videoId: "0cJH7mw8dKM",
     byFran: true,
+  },
+  {
+    title: "Around the Sky",
+    artist: "Diego Smith",
+    note: "Producción general de Genuino Family.",
+    videoId: "2SsfMbwrMtg",
+    byFran: false,
   },
   {
     title: "Suéltate Ma",
