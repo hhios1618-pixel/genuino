@@ -4,13 +4,14 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import ReleaseGrid from "@/components/ReleaseGrid";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Música",
   description:
     "Catálogo de Fran G Genuino: Ella Baila Sola, Venimos de Abajo, Lejos de Ti, Champagne, Caribe y más.",
-  alternates: { canonical: "/sonido" },
-};
+  path: "/sonido",
+});
 
 export default function SonidoPage() {
   return (

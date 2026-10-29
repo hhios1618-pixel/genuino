@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacidad",
   description:
     "Política de privacidad de Genuino Family para contacto comercial, datos de proyectos y comunicaciones del estudio.",
-};
+  path: "/privacidad",
+});
 
 export default function Page() {
   return (
@@ -33,6 +35,11 @@ export default function Page() {
               Si se habilitan accesos privados para clientes, administración o área
               legal, esos datos deberán tratarse como información de proyecto y
               mantenerse restringidos a las personas autorizadas.
+            </p>
+            <p>
+              Usamos Google Analytics para medir de forma agregada cuántas personas
+              visitan el sitio y qué páginas recorren. No lo usamos para
+              identificarte ni para publicidad.
             </p>
             <p>
               Este sitio puede enlazar a plataformas externas como YouTube,

@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Archivo, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import ExperienceLayer from "@/components/ExperienceLayer";
 import JsonLd from "@/components/JsonLd";
+import { siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,7 +33,7 @@ const description =
   "Genuino Family, productora fundada por Fran G Genuino. Producción musical, videoclips y gestión de medios en radio, televisión y prensa. Chile.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://genuino-five.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Genuino Family — Productora musical",
     template: "%s — Genuino Family",
@@ -59,11 +61,15 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Search Console: el token se carga en Vercel; con verificación por DNS puede quedar vacío
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
   openGraph: {
     title: "Genuino Family — Productora musical",
     description,
-    url: "https://genuino-five.vercel.app",
-    siteName: "Genuino Family",
+    url: "/",
+    siteName,
     images: [
       {
         url: "/brand/og.png",
@@ -82,6 +88,9 @@ export const metadata: Metadata = {
     images: ["/brand/og.png"],
   },
 };
+
+// Google Analytics 4: solo se carga si el ID existe en el entorno (Vercel → Environment Variables)
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const viewport: Viewport = {
   themeColor: "#000000",
@@ -105,6 +114,7 @@ export default function RootLayout({
         <JsonLd />
         <ExperienceLayer>{children}</ExperienceLayer>
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

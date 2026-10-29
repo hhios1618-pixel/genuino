@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Términos",
   description:
     "Términos de uso de Genuino Family para contenido, servicios, enlaces externos y solicitudes comerciales.",
-};
+  path: "/terminos",
+});
 
 export default function Page() {
   return (

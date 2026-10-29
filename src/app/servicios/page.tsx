@@ -5,13 +5,14 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import Process from "@/components/Process";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Servicios",
   description:
     "Producción musical, videoclips, gestión de medios en radio, televisión y prensa, y management de artistas.",
-  alternates: { canonical: "/servicios" },
-};
+  path: "/servicios",
+});
 
 export default function ServiciosPage() {
   return (

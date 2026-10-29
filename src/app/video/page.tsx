@@ -5,12 +5,14 @@ import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import ReleaseGrid from "@/components/ReleaseGrid";
 import Reels from "@/components/Reels";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Video",
-  description: "Videoclips, producciones y registro de rodaje de Genuino Family y Fran G Genuino.",
-  alternates: { canonical: "/video" },
-};
+  description:
+    "Videoclips, producciones y registro de rodaje de Genuino Family y Fran G Genuino.",
+  path: "/video",
+});
 
 export default function VideoPage() {
   return (

@@ -5,13 +5,14 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import Timeline from "@/components/Timeline";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Fran G Genuino",
   description:
     "Fran G Genuino: cantante, compositor y productor chileno. Solista desde 2007 y fundador de Genuino Family.",
-  alternates: { canonical: "/perfil" },
-};
+  path: "/perfil",
+});
 
 export default function PerfilPage() {
   return (

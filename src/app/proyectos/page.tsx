@@ -7,13 +7,14 @@ import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import Reels from "@/components/Reels";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Proyectos",
   description:
     "Producción general, colaboraciones y gestión de medios de Genuino Family: Antonio Ríos, Diego Smith y GO.",
-  alternates: { canonical: "/proyectos" },
-};
+  path: "/proyectos",
+});
 
 export default function ProyectosPage() {
   return (

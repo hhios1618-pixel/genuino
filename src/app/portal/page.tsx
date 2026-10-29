@@ -3,13 +3,15 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { contact } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Acceso clientes",
-  description: "Área privada de Genuino Family para clientes, administración y equipo legal.",
-  alternates: { canonical: "/portal" },
-  robots: { index: false, follow: false },
-};
+  description:
+    "Área privada de Genuino Family para clientes, administración y equipo legal.",
+  path: "/portal",
+  index: false,
+});
 
 export default function PortalPage() {
   return (
