@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { SoundButton } from "@/components/SoundToggle";
 import Arrow from "@/components/ui/Arrow";
 import { contact, navItems } from "@/data/site";
 
@@ -92,6 +93,7 @@ export default function Navbar() {
           </ul>
 
           <div className="relative z-10 flex items-center gap-3">
+            <SoundButton />
             <Link
               href="/contacto"
               data-magnetic
