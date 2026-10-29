@@ -59,6 +59,7 @@ export const outlets = ["TVN", "Chilevisión", "Vía X", "Zona Latina", "TNT Spo
 
 /* Proyectos que rotan en la portada */
 export const heroReel = [
+  { title: "Around the Sky", artist: "Diego Smith × Genuino", role: "Video oficial", videoId: "2SsfMbwrMtg" },
   { title: "Ella Baila Sola", artist: "GO feat. Fran G Genuino", role: "Radio y Vía X", videoId: "Q9wHNUH1eq8" },
   { title: "Suéltate Ma", artist: "Diego Smith", role: "Producción general", videoId: "eyr_XP440kE" },
   { title: "Venimos de Abajo", artist: "Arte Elegante × Genuino", role: "Single", videoId: "zH5C4T0C-F0" },
@@ -189,6 +190,13 @@ export const catalog: {
     work: "Radio y Vía X",
     tags: ["Radio", "TV"],
     videoId: "Q9wHNUH1eq8",
+  },
+  {
+    title: "Around the Sky",
+    artist: "Diego Smith × Genuino",
+    work: "Video oficial",
+    tags: ["Producción"],
+    videoId: "2SsfMbwrMtg",
   },
   {
     title: "Suéltate Ma",
@@ -451,6 +459,13 @@ export const timeline = [
 /* ---------- Música y video ---------- */
 
 export const releases = [
+  {
+    title: "Around the Sky",
+    artist: "Diego Smith × Genuino",
+    note: "Video oficial.",
+    videoId: "2SsfMbwrMtg",
+    byFran: true,
+  },
   {
     title: "Ella Baila Sola",
     artist: "GO feat. Fran G Genuino",
