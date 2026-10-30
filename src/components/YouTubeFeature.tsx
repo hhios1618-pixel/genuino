@@ -3,6 +3,7 @@
 import { useState } from "react";
 import YtEmbed from "@/components/ui/YtEmbed";
 import YtImage from "@/components/ui/YtImage";
+import { useLang } from "@/i18n/LangProvider";
 
 type YouTubeFeatureProps = {
   title: string;
@@ -19,6 +20,7 @@ export default function YouTubeFeature({
   priority = false,
 }: YouTubeFeatureProps) {
   const [playing, setPlaying] = useState(false);
+  const { t } = useLang();
 
   if (playing) return <YtEmbed videoId={videoId} title={title} />;
 
@@ -28,7 +30,7 @@ export default function YouTubeFeature({
       onClick={() => setPlaying(true)}
       data-cursor="Play"
       className="group absolute inset-0 block overflow-hidden text-left"
-      aria-label={`Reproducir ${title}`}
+      aria-label={t({ es: `Reproducir ${title}`, en: `Play ${title}` })}
     >
       <YtImage
         videoId={videoId}
@@ -42,7 +44,7 @@ export default function YouTubeFeature({
         <svg viewBox="0 0 10 12" className="size-2.5" fill="currentColor" aria-hidden="true">
           <path d="M0 0v12l10-6z" />
         </svg>
-        Reproducir
+        {t({ es: "Reproducir", en: "Play" })}
       </span>
     </button>
   );

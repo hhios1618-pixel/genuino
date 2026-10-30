@@ -6,6 +6,7 @@ import Arrow from "@/components/ui/Arrow";
 import Words from "@/components/ui/Words";
 import YtImage from "@/components/ui/YtImage";
 import { heroReel } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 const SLIDE_MS = 6500;
 
@@ -13,6 +14,7 @@ export default function Hero() {
   const [active, setActive] = useState(0);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const current = heroReel[active];
+  const { t, href } = useLang();
 
   /* Deslizar con el dedo cambia de proyecto */
   const onTouchEnd = (event: React.TouchEvent) => {
@@ -69,7 +71,7 @@ export default function Hero() {
         <div className="grid items-end gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h1 className="hero-rise display text-[clamp(2.25rem,4.6vw,5rem)] leading-[0.9]">
-              <span className="sr-only">Genuino Family, productora musical</span>
+              <span className="sr-only">{t({ es: "Genuino Family, productora musical", en: "Genuino Family, music production company" })}</span>
               <span aria-hidden="true">
                 <Words text="Genuino" /> <Words text="Family" offset={1} className="text-signal" />
               </span>
@@ -79,10 +81,13 @@ export default function Hero() {
               style={{ "--d": "0.9s" } as React.CSSProperties}
             >
               <p className="max-w-md text-pretty text-[0.95rem] text-bone/80 md:text-base">
-                Producción musical, audiovisual y gestión de medios. Chile.
+                {t({
+                  es: "Producción musical, audiovisual y gestión de medios. Chile.",
+                  en: "Music production, video and media relations. Based in Chile.",
+                })}
               </p>
-              <Link href="/proyectos" className="u-link flex w-fit shrink-0 items-center gap-2 text-sm text-bone">
-                Proyectos
+              <Link href={href("/proyectos")} className="u-link flex w-fit shrink-0 items-center gap-2 text-sm text-bone">
+                {t({ es: "Proyectos", en: "Projects" })}
                 <Arrow className="size-3.5" direction="right" />
               </Link>
             </div>
@@ -98,11 +103,11 @@ export default function Hero() {
                   {current.artist}
                 </span>
                 <span className="label mt-1.5 block !text-bone/70">
-                  {current.title} — {current.role}
+                  {current.title} — {t(current.role)}
                 </span>
               </p>
             </div>
-            <div className="mt-2 flex gap-2" role="tablist" aria-label="Proyectos destacados">
+            <div className="mt-2 flex gap-2" role="tablist" aria-label={t({ es: "Proyectos destacados", en: "Featured projects" })}>
               {heroReel.map((slide, position) => (
                 <button
                   key={slide.videoId}

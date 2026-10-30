@@ -11,20 +11,22 @@ import Words from "@/components/ui/Words";
 import YtEmbed from "@/components/ui/YtEmbed";
 import YtImage from "@/components/ui/YtImage";
 import { blurDataUrl, cases } from "@/data/site";
+import type { Text } from "@/i18n";
+import { useLang } from "@/i18n/LangProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type CaseStackProps = {
   index?: string;
   showAllLink?: boolean;
-  title?: string;
-  intro?: string;
+  title?: Text;
+  intro?: Text;
 };
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
 const caseSizes = "(min-width: 1440px) 1440px, (min-width: 1024px) 100vw, (min-width: 768px) 52vw, 86vw";
-type Appearance = { outlet: string; program: string; minutes: number; videoId: string };
+type Appearance = { outlet: string; program: Text; minutes: number; videoId: string };
 
 /* Apariciones de un caso de medios: cada una se reproduce en la tarjeta.
    Escritorio: fila de fichas bajo el video. Móvil: lista de una columna. */
@@ -41,9 +43,16 @@ function Appearances({
   list?: boolean;
   className?: string;
 }) {
+  const { t } = useLang();
+  const playLabel = (appearance: Appearance) =>
+    t({
+      es: `Reproducir ${t(appearance.program)}, ${appearance.outlet}, ${appearance.minutes} minutos`,
+      en: `Play ${t(appearance.program)}, ${appearance.outlet}, ${appearance.minutes} minutes`,
+    });
+
   if (list) {
     return (
-      <ul aria-label="Apariciones" className={`border-t border-line ${className}`}>
+      <ul aria-label={t({ es: "Apariciones", en: "Appearances" })} className={`border-t border-line ${className}`}>
         {items.map((appearance) => {
           const selected = active === appearance.videoId;
           return (
@@ -52,7 +61,7 @@ function Appearances({
                 type="button"
                 onClick={() => onSelect(appearance.videoId)}
                 aria-pressed={selected}
-                aria-label={`Reproducir ${appearance.program}, ${appearance.outlet}, ${appearance.minutes} minutos`}
+                aria-label={playLabel(appearance)}
                 className="flex min-h-11 w-full items-center gap-3 py-2 text-left"
               >
                 <svg
@@ -66,7 +75,7 @@ function Appearances({
                 <span className="flex min-w-0 flex-1 flex-col gap-0.5">
                   <span className={`label ${selected ? "!text-signal" : ""}`}>{appearance.outlet}</span>
                   <span className={`truncate text-sm ${selected ? "text-bone" : "text-bone/80"}`}>
-                    {appearance.program}
+                    {t(appearance.program)}
                   </span>
                 </span>
                 <span className="label tabular shrink-0">{appearance.minutes} min</span>
@@ -79,7 +88,7 @@ function Appearances({
   }
 
   return (
-    <ul aria-label="Apariciones" className={`grid gap-1.5 ${className}`}>
+    <ul aria-label={t({ es: "Apariciones", en: "Appearances" })} className={`grid gap-1.5 ${className}`}>
       {items.map((appearance) => {
         const selected = active === appearance.videoId;
         return (
@@ -88,7 +97,7 @@ function Appearances({
               type="button"
               onClick={() => onSelect(appearance.videoId)}
               aria-pressed={selected}
-              aria-label={`Reproducir ${appearance.program}, ${appearance.outlet}, ${appearance.minutes} minutos`}
+              aria-label={playLabel(appearance)}
               className={`flex h-full min-h-11 w-full flex-col justify-center gap-1 rounded-xl px-3 py-2.5 text-left ring-1 transition-colors duration-500 ${
                 selected
                   ? "bg-bone/[0.08] ring-signal"
@@ -104,7 +113,7 @@ function Appearances({
                 </span>
                 <span className="label tabular shrink-0 whitespace-nowrap">{appearance.minutes} min</span>
               </span>
-              <span className="line-clamp-1 text-sm text-bone/90">{appearance.program}</span>
+              <span className="line-clamp-1 text-sm text-bone/90">{t(appearance.program)}</span>
             </button>
           </li>
         );
@@ -123,9 +132,13 @@ const caseMedia =
 export default function CaseStack({
   index = "02",
   showAllLink = true,
-  title = "Proyectos",
-  intro = "Producción general, colaboraciones y gestión de medios.",
+  title = { es: "Proyectos", en: "Projects" },
+  intro = {
+    es: "Producción general, colaboraciones y gestión de medios.",
+    en: "Lead production, collaborations and media relations.",
+  },
 }: CaseStackProps) {
+  const { t, href } = useLang();
   const listRef = useRef<HTMLOListElement>(null);
   const [playing, setPlaying] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
@@ -186,14 +199,14 @@ export default function CaseStack({
       <div className="shell">
         <div className="mb-10 grid gap-6 md:mb-20 md:grid-cols-12 md:items-end md:gap-8">
           <div className="md:col-span-8">
-            <SectionLabel index={index}>Selección 2025 — 2026</SectionLabel>
+            <SectionLabel index={index}>{t({ es: "Selección 2025 — 2026", en: "Selected work 2025 — 2026" })}</SectionLabel>
             <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
-              <Words text={title} />
+              <Words text={t(title)} />
             </h2>
           </div>
           <div className="md:col-span-4 md:justify-self-end">
             <p className="max-w-sm text-bone/60" data-fade>
-              {intro}
+              {t(intro)}
             </p>
           </div>
         </div>
@@ -201,7 +214,7 @@ export default function CaseStack({
         <ol
           ref={listRef}
           onScroll={onCarouselScroll}
-          aria-label="Proyectos destacados"
+          aria-label={t({ es: "Proyectos destacados", en: "Featured projects" })}
           className="relative -mx-[var(--gutter)] flex snap-x snap-mandatory scroll-px-[var(--gutter)] gap-3 overflow-x-auto px-[var(--gutter)] pb-1 [scrollbar-width:none] sm:gap-4 lg:mx-0 lg:block lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden"
         >
           {cases.map((item, position) => {
@@ -212,7 +225,7 @@ export default function CaseStack({
               <li
                 key={item.videoId}
                 data-case
-                aria-label={`${pad(position + 1)} de ${pad(cases.length)}: ${item.title}`}
+                aria-label={`${pad(position + 1)} ${t({ es: "de", en: "of" })} ${pad(cases.length)}: ${item.title}`}
                 className="w-[86%] shrink-0 snap-start sm:w-[64%] md:w-[52%] lg:sticky lg:mb-[8vh] lg:w-auto lg:last:mb-0"
                 style={{ "--case-top": `calc(5.5rem + ${position * 1.1}rem)`, top: "var(--case-top)" } as CSSProperties}
               >
@@ -233,8 +246,8 @@ export default function CaseStack({
                           videoId={activeVideo}
                           title={
                             activeLabel
-                              ? `${item.title} en ${activeLabel.program}, ${activeLabel.outlet}`
-                              : `${item.title} — ${item.artist}`
+                              ? `${item.title} ${t({ es: "en", en: "on" })} ${t(activeLabel.program)}, ${activeLabel.outlet}`
+                              : `${item.title} — ${t(item.artist)}`
                           }
                         />
                       ) : (
@@ -243,7 +256,7 @@ export default function CaseStack({
                           onClick={() => setPlaying(item.videoId)}
                           data-cursor="Play"
                           className="group absolute inset-0 text-left"
-                          aria-label={`Reproducir ${item.title}, de ${item.artist}`}
+                          aria-label={t({ es: `Reproducir ${item.title}, de ${t(item.artist)}`, en: `Play ${item.title} by ${t(item.artist)}` })}
                         >
                           {item.poster ? (
                             <Image
@@ -272,12 +285,12 @@ export default function CaseStack({
                             <svg viewBox="0 0 10 12" className="size-2.5" fill="currentColor" aria-hidden="true">
                               <path d="M0 0v12l10-6z" />
                             </svg>
-                            Reproducir
+                            {t({ es: "Reproducir", en: "Play" })}
                           </span>
 
                           <span className="absolute inset-x-8 bottom-8 hidden gap-6 lg:grid lg:grid-cols-12 lg:items-end">
                             <span className="lg:col-span-7">
-                              <span className="label block !text-signal">{item.role}</span>
+                              <span className="label block !text-signal">{t(item.role)}</span>
                               <span className="display mt-3 block text-[clamp(1.9rem,4.6vw,4.5rem)]">
                                 {item.title}
                                 {item.subtitle ? (
@@ -286,19 +299,19 @@ export default function CaseStack({
                                   </span>
                                 ) : null}
                               </span>
-                              <span className="mt-3 block text-lg text-bone/75">{item.artist}</span>
+                              <span className="mt-3 block text-lg text-bone/75">{t(item.artist)}</span>
                             </span>
                             <span className="lg:col-span-5">
                               <span className="block max-w-md text-pretty text-[0.95rem] leading-relaxed text-bone/70">
-                                {item.summary}
+                                {t(item.summary)}
                               </span>
                               <span className="mt-5 flex flex-wrap gap-2">
                                 {item.scope.map((scope) => (
                                   <span
-                                    key={scope}
+                                    key={scope.es}
                                     className="rounded-full border border-bone/20 px-3 py-1.5 text-xs text-bone/80"
                                   >
-                                    {scope}
+                                    {t(scope)}
                                   </span>
                                 ))}
                               </span>
@@ -319,7 +332,7 @@ export default function CaseStack({
                   ) : null}
 
                   <div className="flex flex-1 flex-col px-3 pb-3 pt-5 sm:px-4 lg:hidden">
-                    <p className="label !text-signal">{item.role}</p>
+                    <p className="label !text-signal">{t(item.role)}</p>
                     <h3 className="display mt-2.5 text-[clamp(1.5rem,6vw,2.25rem)]">
                       {item.title}
                       {item.subtitle ? (
@@ -328,8 +341,8 @@ export default function CaseStack({
                         </span>
                       ) : null}
                     </h3>
-                    <p className="mt-2 text-bone/80">{item.artist}</p>
-                    <p className="mt-4 text-pretty text-sm leading-relaxed text-bone/60">{item.summary}</p>
+                    <p className="mt-2 text-bone/80">{t(item.artist)}</p>
+                    <p className="mt-4 text-pretty text-sm leading-relaxed text-bone/60">{t(item.summary)}</p>
                     {item.appearances ? (
                       <Appearances
                         items={item.appearances}
@@ -341,8 +354,8 @@ export default function CaseStack({
                     ) : (
                       <ul className="mt-auto flex flex-wrap gap-1.5 pt-5">
                         {item.scope.map((scope) => (
-                          <li key={scope} className="rounded-full border border-bone/15 px-2.5 py-1 text-xs text-bone/75">
-                            {scope}
+                          <li key={scope.es} className="rounded-full border border-bone/15 px-2.5 py-1 text-xs text-bone/75">
+                            {t(scope)}
                           </li>
                         ))}
                       </ul>
@@ -369,7 +382,7 @@ export default function CaseStack({
               type="button"
               onClick={() => goTo(current - 1)}
               disabled={current === 0}
-              aria-label="Proyecto anterior"
+              aria-label={t({ es: "Proyecto anterior", en: "Previous project" })}
               className="grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone disabled:opacity-30"
             >
               <Arrow className="size-3.5" direction="left" />
@@ -378,7 +391,7 @@ export default function CaseStack({
               type="button"
               onClick={() => goTo(current + 1)}
               disabled={current === cases.length - 1}
-              aria-label="Proyecto siguiente"
+              aria-label={t({ es: "Proyecto siguiente", en: "Next project" })}
               className="grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone disabled:opacity-30"
             >
               <Arrow className="size-3.5" direction="right" />
@@ -388,8 +401,8 @@ export default function CaseStack({
 
         {showAllLink ? (
           <div className="mt-12 flex justify-center md:mt-16" data-fade>
-            <Link href="/proyectos" className="btn-line group">
-              Ver todos los proyectos
+            <Link href={href("/proyectos")} className="btn-line group">
+              {t({ es: "Ver todos los proyectos", en: "See all projects" })}
               <Arrow className="size-4 transition-transform duration-500 group-hover:translate-x-0.5" direction="right" />
             </Link>
           </div>

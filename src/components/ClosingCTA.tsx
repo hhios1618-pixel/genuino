@@ -1,16 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Arrow from "@/components/ui/Arrow";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
 import { contact } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 export default function ClosingCTA({ index = "06" }: { index?: string }) {
+  const { t, href } = useLang();
+
   return (
     <section className="border-t border-line py-24 md:py-40">
       <div className="shell">
-        <SectionLabel index={index}>Proyectos, prensa y booking</SectionLabel>
+        <SectionLabel index={index}>{t({ es: "Proyectos, prensa y booking", en: "Projects, press & booking" })}</SectionLabel>
         <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
-          <Words text="Contacto" />
+          <Words text={t({ es: "Contacto", en: "Contact" })} />
         </h2>
 
         <div
@@ -25,10 +30,13 @@ export default function ClosingCTA({ index = "06" }: { index?: string }) {
           </a>
           <div className="flex flex-col gap-6 md:col-span-5 md:items-end md:text-right">
             <p className="max-w-sm text-bone/60">
-              Cada proyecto se evalúa y cotiza según alcance, calendario y equipo.
+              {t({
+                es: "Cada proyecto se evalúa y cotiza según alcance, calendario y equipo.",
+                en: "Every project is scoped and quoted on its own, based on reach, timeline and crew.",
+              })}
             </p>
-            <Link href="/contacto" className="btn w-fit shrink-0" data-magnetic>
-              Formulario de contacto
+            <Link href={href("/contacto")} className="btn w-fit shrink-0" data-magnetic>
+              {t({ es: "Formulario de contacto", en: "Contact form" })}
               <span className="btn-icon">
                 <Arrow className="size-4" direction="right" />
               </span>

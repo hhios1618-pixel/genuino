@@ -1,4 +1,7 @@
+"use client";
+
 import { artistCredits, outlets } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 function Row() {
   return (
@@ -16,13 +19,17 @@ function Row() {
 }
 
 export default function CreditsMarquee() {
+  const { t } = useLang();
+
   return (
     <section className="border-y border-line py-8 md:py-10" aria-labelledby="creditos">
       <div className="shell mb-6 flex flex-wrap items-baseline justify-between gap-4">
         <h2 id="creditos" className="label">
-          Artistas
+          {t({ es: "Artistas", en: "Artists" })}
         </h2>
-        <p className="label">Medios — {outlets.join(" · ")}</p>
+        <p className="label">
+          {t({ es: "Medios", en: "Media" })} — {outlets.join(" · ")}
+        </p>
       </div>
       <p className="sr-only">{artistCredits.join(", ")}</p>
       <div className="marquee-wrap overflow-hidden">

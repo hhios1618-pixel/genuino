@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { blurDataUrl, reels } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 function Reel({ reel }: { reel: (typeof reels)[number] }) {
   const [failed, setFailed] = useState(false);
+  const { t } = useLang();
 
   return (
     <figure className="w-[62vw] shrink-0 snap-start sm:w-[16rem] lg:w-auto">
@@ -32,24 +34,26 @@ function Reel({ reel }: { reel: (typeof reels)[number] }) {
             playsInline
             preload="metadata"
             onError={() => setFailed(true)}
-            aria-label={`${reel.title}. ${reel.caption}`}
+            aria-label={`${t(reel.title)}. ${t(reel.caption)}`}
           />
         )}
       </div>
       <figcaption className="mt-4">
-        <p className="font-medium">{reel.title}</p>
-        <p className="mt-1 text-sm text-bone/55">{reel.caption}</p>
+        <p className="font-medium">{t(reel.title)}</p>
+        <p className="mt-1 text-sm text-bone/55">{t(reel.caption)}</p>
       </figcaption>
     </figure>
   );
 }
 
 export default function Reels({ index }: { index: string }) {
+  const { t } = useLang();
+
   return (
     <section className="pb-24 md:pb-36">
       <div className="shell mb-8 flex items-baseline justify-between gap-6 border-t border-line pt-6">
-        <SectionLabel index={index}>Estudio y rodaje</SectionLabel>
-        <p className="label">Registro vertical</p>
+        <SectionLabel index={index}>{t({ es: "Estudio y rodaje", en: "Studio & on set" })}</SectionLabel>
+        <p className="label">{t({ es: "Registro vertical", en: "Vertical footage" })}</p>
       </div>
       <div className="shell">
         <div
@@ -57,7 +61,7 @@ export default function Reels({ index }: { index: string }) {
           data-stagger
         >
           {reels.map((reel) => (
-            <Reel key={reel.title} reel={reel} />
+            <Reel key={reel.src + reel.poster} reel={reel} />
           ))}
         </div>
       </div>

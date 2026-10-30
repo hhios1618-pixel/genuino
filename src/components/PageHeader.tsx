@@ -1,20 +1,26 @@
+"use client";
+
 import Words from "@/components/ui/Words";
+import type { Text } from "@/i18n";
+import { useLang } from "@/i18n/LangProvider";
 
 type PageHeaderProps = {
-  eyebrow: string;
-  title: string;
-  intro?: string;
-  meta?: { label: string; value: string }[];
+  eyebrow: Text;
+  title: Text;
+  intro?: Text;
+  meta?: { label: Text; value: Text }[];
 };
 
 export default function PageHeader({ eyebrow, title, intro, meta }: PageHeaderProps) {
+  const { t } = useLang();
+
   return (
     <header className="shell pb-16 pt-36 md:pb-24 md:pt-48">
       <p className="label fade-in" style={{ "--d": "0.1s" } as React.CSSProperties}>
-        {eyebrow}
+        {t(eyebrow)}
       </p>
       <h1 className="hero-rise display mt-6 text-[clamp(2rem,7.5vw,7.5rem)]">
-        <Words text={title} />
+        <Words text={t(title)} />
       </h1>
       {intro || meta ? (
         <div
@@ -22,14 +28,14 @@ export default function PageHeader({ eyebrow, title, intro, meta }: PageHeaderPr
           style={{ "--d": "0.7s" } as React.CSSProperties}
         >
           {intro ? (
-            <p className="max-w-xl text-pretty text-lg leading-relaxed text-bone/70 md:col-span-6">{intro}</p>
+            <p className="max-w-xl text-pretty text-lg leading-relaxed text-bone/70 md:col-span-6">{t(intro)}</p>
           ) : null}
           {meta ? (
             <dl className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:col-span-6 md:col-start-7">
               {meta.map((item) => (
-                <div key={item.label}>
-                  <dt className="label">{item.label}</dt>
-                  <dd className="mt-2 text-bone/85">{item.value}</dd>
+                <div key={t(item.label)}>
+                  <dt className="label">{t(item.label)}</dt>
+                  <dd className="mt-2 text-bone/85">{t(item.value)}</dd>
                 </div>
               ))}
             </dl>

@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import Arrow from "@/components/ui/Arrow";
 import { contact, serviceOptions } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -12,6 +13,7 @@ const field =
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [selected, setSelected] = useState<string[]>([]);
+  const { lang, t } = useLang();
 
   function toggle(option: string) {
     setSelected((current) =>
@@ -35,7 +37,7 @@ export default function Contact() {
           artist: String(data.get("artist") ?? ""),
           services: selected,
           message: String(data.get("message") ?? ""),
-          source: "contacto",
+          source: lang === "es" ? "contacto" : `contacto-${lang}`,
         }),
       });
       if (!response.ok) throw new Error("lead_failed");
@@ -53,7 +55,7 @@ export default function Contact() {
         <aside className="lg:col-span-4">
           <dl className="grid gap-8">
             <div>
-              <dt className="label">Correo</dt>
+              <dt className="label">{t({ es: "Correo", en: "Email" })}</dt>
               <dd className="mt-2">
                 <a href={`mailto:${contact.email}`} className="u-link text-xl">
                   {contact.email}
@@ -71,7 +73,7 @@ export default function Contact() {
               </div>
             ))}
             <div>
-              <dt className="label">Base</dt>
+              <dt className="label">{t({ es: "Base", en: "Based in" })}</dt>
               <dd className="mt-2 text-xl">{contact.base}</dd>
             </div>
           </dl>
@@ -79,15 +81,16 @@ export default function Contact() {
 
         <form onSubmit={handleSubmit} className="lg:col-span-7 lg:col-start-6">
           <fieldset className="border-t border-line pt-8">
-            <legend className="label float-left mb-6 w-full">Tipo de proyecto</legend>
+            <legend className="label float-left mb-6 w-full">{t({ es: "Tipo de proyecto", en: "Project type" })}</legend>
             <div className="clear-both flex flex-wrap gap-2">
               {serviceOptions.map((option) => {
-                const active = selected.includes(option);
+                // Se guarda el nombre en español para que la solicitud llegue igual desde ambos idiomas
+                const active = selected.includes(option.es);
                 return (
                   <button
-                    key={option}
+                    key={option.es}
                     type="button"
-                    onClick={() => toggle(option)}
+                    onClick={() => toggle(option.es)}
                     aria-pressed={active}
                     className={`h-11 rounded-full border px-4 text-sm transition-colors duration-500 ${
                       active
@@ -95,7 +98,7 @@ export default function Contact() {
                         : "border-bone/20 text-bone/75 hover:border-bone/60 hover:text-bone"
                     }`}
                   >
-                    {option}
+                    {t(option)}
                   </button>
                 );
               })}
@@ -104,25 +107,25 @@ export default function Contact() {
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2">
             <label className="block">
-              <span className="label">Nombre</span>
+              <span className="label">{t({ es: "Nombre", en: "Name" })}</span>
               <input required name="name" autoComplete="name" className={field} />
             </label>
             <label className="block">
-              <span className="label">Correo</span>
+              <span className="label">{t({ es: "Correo", en: "Email" })}</span>
               <input required type="email" name="email" autoComplete="email" className={field} />
             </label>
             <label className="block sm:col-span-2">
-              <span className="label">Artista o proyecto</span>
+              <span className="label">{t({ es: "Artista o proyecto", en: "Artist or project" })}</span>
               <input name="artist" className={field} />
             </label>
             <label className="block sm:col-span-2">
-              <span className="label">Mensaje</span>
+              <span className="label">{t({ es: "Mensaje", en: "Message" })}</span>
               <textarea
                 required
                 name="message"
                 rows={5}
                 className={`${field} resize-none`}
-                placeholder="Etapa del proyecto, referencias y fechas."
+                placeholder={t({ es: "Etapa del proyecto, referencias y fechas.", en: "Where the project stands, references and key dates." })}
               />
             </label>
           </div>
@@ -130,13 +133,19 @@ export default function Contact() {
           <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-xs text-sm text-bone/45" aria-live="polite">
               {status === "sent"
-                ? "Mensaje recibido. Responderemos por correo."
+                ? t({ es: "Mensaje recibido. Responderemos por correo.", en: "Message received. We’ll reply by email." })
                 : status === "error"
-                  ? `No se pudo enviar. Escríbenos directamente a ${contact.email}.`
-                  : "Los datos se usan solo para responder esta solicitud."}
+                  ? t({
+                      es: `No se pudo enviar. Escríbenos directamente a ${contact.email}.`,
+                      en: `Something went wrong. Email us directly at ${contact.email}.`,
+                    })
+                  : t({
+                      es: "Los datos se usan solo para responder esta solicitud.",
+                      en: "We only use your details to reply to this inquiry.",
+                    })}
             </p>
             <button type="submit" className="btn shrink-0" disabled={status === "sending"} data-magnetic>
-              {status === "sending" ? "Enviando" : "Enviar"}
+              {status === "sending" ? t({ es: "Enviando", en: "Sending" }) : t({ es: "Enviar", en: "Send" })}
               <span className="btn-icon">
                 <Arrow className="size-4" direction="right" />
               </span>

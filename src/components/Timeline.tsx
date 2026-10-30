@@ -7,10 +7,19 @@ import { useEffect, useRef } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
 import { blurDataUrl, timeline, ytThumb, ytZoom } from "@/data/site";
+import type { Text } from "@/i18n";
+import { useLang } from "@/i18n/LangProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Timeline({ index = "05", label = "El fundador — Fran G Genuino" }: { index?: string; label?: string }) {
+export default function Timeline({
+  index = "05",
+  label = { es: "El fundador — Fran G Genuino", en: "The founder — Fran G Genuino" },
+}: {
+  index?: string;
+  label?: Text;
+}) {
+  const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLOListElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -56,13 +65,16 @@ export default function Timeline({ index = "05", label = "El fundador — Fran G
       <div className="flex flex-col justify-center overflow-hidden py-24 md:sticky md:top-0 md:h-[100dvh] md:py-0">
         <div className="shell mb-12 grid gap-6 md:mb-16 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <SectionLabel index={index}>{label}</SectionLabel>
+            <SectionLabel index={index}>{t(label)}</SectionLabel>
             <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
-              <Words text="Trayectoria" />
+              <Words text={t({ es: "Trayectoria", en: "Track record" })} />
             </h2>
           </div>
           <p className="max-w-sm text-bone/60 md:col-span-4 md:justify-self-end">
-            La experiencia detrás de la productora: escenario, estudio y medios.
+            {t({
+              es: "La experiencia detrás de la productora: escenario, estudio y medios.",
+              en: "The experience behind the company: stage, studio and media.",
+            })}
           </p>
         </div>
 
@@ -71,10 +83,10 @@ export default function Timeline({ index = "05", label = "El fundador — Fran G
           className="flex w-full flex-col px-[var(--gutter)] md:w-max md:flex-row md:pr-[20vw]"
         >
           {timeline.map((item, position) => {
-            const isFamily = item.title === "Genuino Family";
+            const isFamily = item.family === true;
             return (
               <li
-                key={item.title}
+                key={t(item.title)}
                 className={`relative border-l border-line pb-12 pl-6 last:pb-0 md:w-[clamp(18rem,26vw,24rem)] md:shrink-0 md:px-8 md:pb-0 ${
                   position % 2 === 1 ? "md:pt-16" : ""
                 }`}
@@ -87,12 +99,12 @@ export default function Timeline({ index = "05", label = "El fundador — Fran G
                 />
                 <p className="flex items-baseline gap-2">
                   <span className={`display tabular text-[clamp(3rem,5.5vw,5rem)] ${isFamily ? "text-signal" : ""}`}>
-                    {item.mark}
+                    {t(item.mark)}
                   </span>
-                  {item.unit ? <span className="label !text-bone/70">{item.unit}</span> : null}
+                  {item.unit ? <span className="label !text-bone/70">{t(item.unit)}</span> : null}
                 </p>
-                <h3 className="mt-4 text-xl font-medium tracking-[-0.02em]">{item.title}</h3>
-                <p className="mt-3 max-w-[20rem] text-pretty text-sm leading-relaxed text-bone/60">{item.body}</p>
+                <h3 className="mt-4 text-xl font-medium tracking-[-0.02em]">{t(item.title)}</h3>
+                <p className="mt-3 max-w-[20rem] text-pretty text-sm leading-relaxed text-bone/60">{t(item.body)}</p>
                 {item.videoId ? (
                   <div className="relative mt-6 aspect-video w-full max-w-[20rem] overflow-hidden rounded-xl bg-ink-sunk">
                     <Image

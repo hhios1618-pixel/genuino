@@ -1,13 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { blurDataUrl, fieldPhotos } from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 export default function FieldPhotos({ index }: { index: string }) {
+  const { t } = useLang();
+
   return (
     <section className="pb-24 md:pb-36">
       <div className="shell mb-8 flex items-baseline justify-between gap-6 border-t border-line pt-6">
-        <SectionLabel index={index}>Detrás de cámara</SectionLabel>
-        <p className="label">Fotografía</p>
+        <SectionLabel index={index}>{t({ es: "Detrás de cámara", en: "Behind the scenes" })}</SectionLabel>
+        <p className="label">{t({ es: "Fotografía", en: "Photography" })}</p>
       </div>
       <div className="shell">
         <div
@@ -19,7 +24,7 @@ export default function FieldPhotos({ index }: { index: string }) {
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.1rem] bg-ink-sunk">
                 <Image
                   src={photo.src}
-                  alt={`${photo.title}. ${photo.caption}`}
+                  alt={`${t(photo.title)}. ${t(photo.caption)}`}
                   fill
                   sizes="(min-width: 768px) 31vw, 62vw"
                   placeholder="blur"
@@ -29,8 +34,8 @@ export default function FieldPhotos({ index }: { index: string }) {
                 />
               </div>
               <figcaption className="mt-4">
-                <p className="font-medium">{photo.title}</p>
-                <p className="mt-1 text-sm text-bone/55">{photo.caption}</p>
+                <p className="font-medium">{t(photo.title)}</p>
+                <p className="mt-1 text-sm text-bone/55">{t(photo.caption)}</p>
               </figcaption>
             </figure>
           ))}

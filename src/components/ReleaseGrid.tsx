@@ -1,22 +1,27 @@
+"use client";
+
 import SectionLabel from "@/components/ui/SectionLabel";
 import YouTubeFeature from "@/components/YouTubeFeature";
 import { releases } from "@/data/site";
+import type { Text } from "@/i18n";
+import { useLang } from "@/i18n/LangProvider";
 
 type ReleaseGridProps = {
   index: string;
-  label: string;
+  label: Text;
   onlyFran?: boolean;
 };
 
 export default function ReleaseGrid({ index, label, onlyFran = false }: ReleaseGridProps) {
   const items = onlyFran ? releases.filter((release) => release.byFran) : releases;
   const [featured, ...rest] = items;
+  const { t } = useLang();
 
   return (
     <section className="pb-24 md:pb-36">
       <div className="shell">
         <div className="mb-8 flex items-baseline justify-between gap-6 border-t border-line pt-6">
-          <SectionLabel index={index}>{label}</SectionLabel>
+          <SectionLabel index={index}>{t(label)}</SectionLabel>
           <p className="label tabular">{String(items.length).padStart(2, "0")} videos</p>
         </div>
 
@@ -28,7 +33,7 @@ export default function ReleaseGrid({ index, label, onlyFran = false }: ReleaseG
             <h2 className="display text-[clamp(1.9rem,4.2vw,4rem)] md:col-span-7">{featured.title}</h2>
             <div className="md:col-span-5 md:pt-3 md:text-right">
               <p className="text-bone/85">{featured.artist}</p>
-              <p className="label mt-2">{featured.note}</p>
+              <p className="label mt-2">{t(featured.note)}</p>
             </div>
           </div>
         </article>
@@ -44,7 +49,7 @@ export default function ReleaseGrid({ index, label, onlyFran = false }: ReleaseG
                   <h3 className="text-2xl font-medium tracking-[-0.025em] md:text-3xl">{release.title}</h3>
                   <p className="mt-1.5 text-bone/60">{release.artist}</p>
                 </div>
-                <p className="label max-w-[45%] pt-2 text-right">{release.note}</p>
+                <p className="label max-w-[45%] pt-2 text-right">{t(release.note)}</p>
               </div>
             </li>
           ))}

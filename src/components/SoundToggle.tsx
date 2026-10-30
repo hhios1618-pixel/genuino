@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { useLang } from "@/i18n/LangProvider";
 
 /*
   Música de fondo del sitio.
@@ -133,10 +134,11 @@ export function SoundProvider({ children }: { children: ReactNode }) {
   );
 }
 
-/* Botón de la barra: círculo en celular, con etiqueta desde sm */
+/* Botón de la barra: círculo en celular y en lg (donde la barra va justa), con etiqueta en sm-md y desde xl */
 export function SoundButton() {
   const { playing, toggle } = useContext(SoundContext);
-  const label = playing ? "Silenciar música" : "Activar música";
+  const { t } = useLang();
+  const label = playing ? t({ es: "Silenciar música", en: "Mute music" }) : t({ es: "Activar música", en: "Play music" });
   return (
     <button
       type="button"
@@ -145,7 +147,7 @@ export function SoundButton() {
       aria-pressed={playing}
       aria-label={label}
       title={label}
-      className="sound-toggle grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone/60 sm:flex sm:w-auto sm:gap-3 sm:px-4"
+      className="sound-toggle grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone/60 sm:flex sm:w-auto sm:gap-3 sm:px-4 lg:grid lg:w-11 lg:px-0 xl:flex xl:w-auto xl:px-4"
     >
       <span className={`eq ${playing ? "eq-on" : ""}`} aria-hidden="true">
         <i />
@@ -153,7 +155,7 @@ export function SoundButton() {
         <i />
         <i />
       </span>
-      <span className="label hidden text-bone/80 sm:inline">{playing ? "Sonido" : "Sin sonido"}</span>
+      <span className="label hidden whitespace-nowrap text-bone/80 sm:inline lg:hidden xl:inline">{playing ? t({ es: "Sonido", en: "Sound on" }) : t({ es: "Sin sonido", en: "Sound off" })}</span>
     </button>
   );
 }

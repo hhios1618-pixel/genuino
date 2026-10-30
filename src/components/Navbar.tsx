@@ -3,18 +3,20 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import LangSwitch from "@/components/LangSwitch";
 import { SoundButton } from "@/components/SoundToggle";
 import Arrow from "@/components/ui/Arrow";
-import { contact, navItems } from "@/data/site";
+import { contact, contactNav, navItems } from "@/data/site";
+import { useLang, usePagePath } from "@/i18n/LangProvider";
 
 const ease = [0.32, 0.72, 0, 1] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePagePath();
+  const { t, href } = useLang();
 
   useEffect(() => {
     let frame = 0;
@@ -52,8 +54,8 @@ export default function Navbar() {
           solid && !open ? "bg-ink/80 backdrop-blur-xl" : "bg-transparent"
         }`}
       >
-        <nav className="shell flex h-20 items-center justify-between gap-6" aria-label="Principal">
-          <Link href="/" className="relative z-10 flex items-center gap-3" aria-label="Genuino Family, inicio">
+        <nav className="shell flex h-20 items-center justify-between gap-6" aria-label={t({ es: "Principal", en: "Main" })}>
+          <Link href={href("/")} className="relative z-10 flex items-center gap-3" aria-label={t({ es: "Genuino Family, inicio", en: "Genuino Family, home" })}>
             <Image
               src="/brand/genuino-mark.png"
               alt=""
@@ -67,15 +69,15 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-5 lg:flex xl:gap-8">
             {navItems.map((item) => {
               const active = pathname === item.href;
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={href(item.href)}
                     aria-current={active ? "page" : undefined}
-                    className={`group relative flex items-center gap-2 text-sm transition-colors duration-500 ${
+                    className={`group relative flex items-center gap-2 whitespace-nowrap text-sm transition-colors duration-500 ${
                       active ? "text-bone" : "text-bone/55 hover:text-bone"
                     }`}
                   >
@@ -85,21 +87,22 @@ export default function Navbar() {
                       }`}
                       aria-hidden="true"
                     />
-                    {item.label}
+                    {t(item.label)}
                   </Link>
                 </li>
               );
             })}
           </ul>
 
-          <div className="relative z-10 flex items-center gap-3">
+          <div className="relative z-10 flex items-center gap-2 sm:gap-3">
+            <LangSwitch />
             <SoundButton />
             <Link
-              href="/contacto"
+              href={href(contactNav.href)}
               data-magnetic
               className="hidden h-11 items-center gap-2 rounded-full bg-bone px-5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-signal hover:text-bone sm:inline-flex"
             >
-              Contacto
+              {t(contactNav.label)}
               <Arrow className="size-3.5" />
             </Link>
 
@@ -107,7 +110,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpen((value) => !value)}
               className="relative grid size-11 place-items-center rounded-full border border-bone/20 lg:hidden"
-              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-label={open ? t({ es: "Cerrar menú", en: "Close menu" }) : t({ es: "Abrir menú", en: "Open menu" })}
               aria-expanded={open}
               aria-controls="menu-movil"
             >
@@ -136,9 +139,9 @@ export default function Navbar() {
             exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
             transition={{ duration: 0.8, ease }}
           >
-            <nav className="shell flex flex-1 flex-col justify-center pt-20" aria-label="Menú">
+            <nav className="shell flex flex-1 flex-col justify-center pt-20" aria-label={t({ es: "Menú", en: "Menu" })}>
               <ul>
-                {[...navItems, { label: "Contacto", href: "/contacto" }].map((item, index) => (
+                {[...navItems, contactNav].map((item, index) => (
                   <li key={item.href} className="overflow-hidden border-b border-line">
                     <motion.div
                       initial={{ y: "110%" }}
@@ -147,12 +150,12 @@ export default function Navbar() {
                       transition={{ duration: 0.8, ease, delay: 0.12 + index * 0.05 }}
                     >
                       <Link
-                        href={item.href}
+                        href={href(item.href)}
                         onClick={() => setOpen(false)}
                         aria-current={pathname === item.href ? "page" : undefined}
                         className="flex items-baseline justify-between py-3"
                       >
-                        <span className="display text-[clamp(2rem,9vw,3.5rem)]">{item.label}</span>
+                        <span className="display text-[clamp(2rem,9vw,3.5rem)]">{t(item.label)}</span>
                         <span className="label">0{index + 1}</span>
                       </Link>
                     </motion.div>

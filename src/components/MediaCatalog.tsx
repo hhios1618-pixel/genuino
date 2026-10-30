@@ -8,7 +8,17 @@ import Arrow from "@/components/ui/Arrow";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
 import YtEmbed from "@/components/ui/YtEmbed";
-import { blurDataUrl, catalog, catalogFilters, type CatalogFilter, ytThumb, ytZoom, ytWatch } from "@/data/site";
+import {
+  blurDataUrl,
+  catalog,
+  catalogFilterLabels,
+  catalogFilters,
+  type CatalogFilter,
+  ytThumb,
+  ytZoom,
+  ytWatch,
+} from "@/data/site";
+import { useLang } from "@/i18n/LangProvider";
 
 const ease = [0.32, 0.72, 0, 1] as const;
 /* En móvil se muestran estas filas antes de "Ver todos" */
@@ -21,6 +31,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
   const [expanded, setExpanded] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
+  const { t } = useLang();
 
   const items = filter === "Todo" ? catalog : catalog.filter((item) => item.tags.includes(filter));
 
@@ -45,20 +56,23 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
       <div className="shell">
         <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <SectionLabel index={index}>Radio, televisión y prensa</SectionLabel>
+            <SectionLabel index={index}>{t({ es: "Radio, televisión y prensa", en: "Radio, TV & press" })}</SectionLabel>
             <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
-              <Words text="Medios" />
+              <Words text={t({ es: "Medios", en: "Media" })} />
             </h2>
           </div>
           <p className="max-w-sm text-bone/60 md:col-span-4 md:justify-self-end" data-fade>
-            Canciones y artistas gestionados por Genuino Family en medios de Chile.
+            {t({
+              es: "Canciones y artistas gestionados por Genuino Family en medios de Chile.",
+              en: "Songs and artists Genuino Family has placed across Chilean media.",
+            })}
           </p>
         </div>
 
         <div
           className="-mx-[var(--gutter)] mb-6 flex gap-2 overflow-x-auto px-[var(--gutter)] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
           role="group"
-          aria-label="Filtrar por tipo de trabajo"
+          aria-label={t({ es: "Filtrar por tipo de trabajo", en: "Filter by type of work" })}
         >
           {catalogFilters.map((option) => {
             const count =
@@ -80,7 +94,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                     : "border-bone/15 text-bone/70 hover:border-bone/50 hover:text-bone"
                 }`}
               >
-                {option}
+                {t(catalogFilterLabels[option])}
                 <span className={`font-mono text-[0.625rem] ${active ? "text-ink/60" : "text-bone/40"}`}>
                   {String(count).padStart(2, "0")}
                 </span>
@@ -151,12 +165,12 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                         {String(position + 1).padStart(2, "0")}
                       </span>
                       <span className="relative text-lg font-medium tracking-[-0.02em] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-2 md:col-span-5 md:text-2xl">
-                        {item.title}
+                        {t(item.title)}
                       </span>
                       <span className="relative col-start-2 row-start-2 text-sm text-bone/55 md:col-span-3 md:col-start-auto md:row-start-auto md:text-base">
-                        {item.artist}
+                        {t(item.artist)}
                       </span>
-                      <span className="label relative hidden md:col-span-2 md:block">{item.work}</span>
+                      <span className="label relative hidden md:col-span-2 md:block">{t(item.work)}</span>
                       <span
                         className={`relative col-start-3 row-span-2 row-start-1 grid size-9 place-items-center justify-self-end rounded-full border transition-all duration-500 md:col-span-1 md:col-start-auto md:row-span-1 md:row-start-auto ${
                           isOpen
@@ -179,17 +193,17 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
                         >
                           <div className="grid gap-6 pb-8 md:grid-cols-12">
                             <div className="relative aspect-video overflow-hidden rounded-2xl bg-ink-sunk md:col-span-8 md:col-start-2">
-                              <YtEmbed videoId={item.videoId} title={`${item.title} — ${item.artist}`} />
+                              <YtEmbed videoId={item.videoId} title={`${t(item.title)} — ${t(item.artist)}`} />
                             </div>
                             <div className="flex flex-col justify-end gap-4 md:col-span-3">
-                              <p className="label">{item.work}</p>
+                              <p className="label">{t(item.work)}</p>
                               <a
                                 href={ytWatch(item.videoId)}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="u-link w-fit text-sm text-bone/80"
                               >
-                                Abrir en YouTube
+                                {t({ es: "Abrir en YouTube", en: "Watch on YouTube" })}
                               </a>
                             </div>
                           </div>
@@ -209,7 +223,7 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
             onClick={() => setExpanded(true)}
             className="btn-line mt-8 w-full justify-center md:hidden"
           >
-            Ver los {items.length} trabajos
+            {t({ es: `Ver los ${items.length} trabajos`, en: `See all ${items.length}` })}
             <Arrow className="size-4" direction="down" />
           </button>
         ) : null}
