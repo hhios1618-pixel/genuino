@@ -3,13 +3,12 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import Link from "next/link";
 import { type CSSProperties, useEffect, useRef } from "react";
 import { openCatalog } from "@/components/MediaCatalog";
 import Arrow from "@/components/ui/Arrow";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Words from "@/components/ui/Words";
-import { artistCredits, blurDataUrl, catalog, outlets, releases, workAreas, workVideos, ytZoom } from "@/data/site";
+import { artistCredits, blurDataUrl, catalog, outlets, workAreas, workVideos, ytZoom } from "@/data/site";
 import { useLang } from "@/i18n/LangProvider";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -61,14 +60,10 @@ function WallRow({ ids, reverse }: { ids: string[]; reverse?: boolean }) {
   Cada área abre su lista ya filtrada en el catálogo de medios.
 */
 export default function WorkVolume({ index = "03" }: { index?: string }) {
-  const { t, href } = useLang();
+  const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
 
-  const counts = workAreas.map((area) =>
-    area.filter
-      ? catalog.filter((item) => item.tags.includes(area.filter!)).length
-      : releases.filter((item) => item.byFran).length,
-  );
+  const counts = workAreas.map((area) => catalog.filter((item) => item.tags.includes(area.filter)).length);
 
   const proof = [
     { value: { es: "N.º 1", en: "#1" }, label: { es: "en radio en Chile", en: "on Chilean radio" } },
@@ -136,7 +131,7 @@ export default function WorkVolume({ index = "03" }: { index?: string }) {
       </div>
 
       <div className="shell">
-        <ul className="mt-12 grid grid-cols-2 border-l border-t border-line md:mt-16 lg:grid-cols-5">
+        <ul className="mt-12 grid grid-cols-2 border-l border-t border-line md:mt-16 lg:grid-cols-4">
           {workAreas.map((area, position) => {
             const content = (
               <>
@@ -149,7 +144,7 @@ export default function WorkVolume({ index = "03" }: { index?: string }) {
                 <span className="mt-6 block text-lg font-medium tracking-[-0.01em]">{t(area.label)}</span>
                 <span className="mt-2 block text-pretty text-sm leading-relaxed text-bone/55">{t(area.detail)}</span>
                 <span className="label mt-auto flex items-center gap-2 pt-6 !text-bone/70 group-hover:!text-bone">
-                  {area.filter ? t({ es: "Ver lista", en: "See list" }) : t({ es: "Escuchar", en: "Listen" })}
+                  {t({ es: "Ver lista", en: "See list" })}
                   <Arrow
                     className="size-3 transition-transform duration-500 group-hover:translate-x-0.5"
                     direction="right"
@@ -160,19 +155,10 @@ export default function WorkVolume({ index = "03" }: { index?: string }) {
             const tileClass =
               "group flex h-full min-h-[15rem] w-full flex-col p-5 text-left transition-colors duration-500 hover:bg-bone/[0.03] md:min-h-[18rem] md:p-7";
             return (
-              <li
-                key={area.label.es}
-                className={`border-b border-r border-line ${position === workAreas.length - 1 ? "col-span-2 lg:col-span-1" : ""}`}
-              >
-                {area.filter ? (
-                  <button type="button" onClick={() => openCatalog(area.filter!)} className={tileClass}>
-                    {content}
-                  </button>
-                ) : (
-                  <Link href={href(area.href!)} className={tileClass}>
-                    {content}
-                  </Link>
-                )}
+              <li key={area.label.es} className="border-b border-r border-line">
+                <button type="button" onClick={() => openCatalog(area.filter)} className={tileClass}>
+                  {content}
+                </button>
               </li>
             );
           })}

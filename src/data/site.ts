@@ -313,8 +313,8 @@ export const catalog: {
   {
     title: "Ella Baila Sola",
     artist: "GO feat. Fran G Genuino",
-    work: role.radioViaX,
-    tags: ["Radio", "TV"],
+    work: { es: "Single, radio y Vía X", en: "Single, radio & Vía X" },
+    tags: ["Producción", "Radio", "TV"],
     videoId: "Q9wHNUH1eq8",
   },
   {
@@ -346,6 +346,41 @@ export const catalog: {
     videoId: "0cJH7mw8dKM",
   },
   {
+    title: "Historia",
+    artist: "Genuino × Campbell G",
+    work: { es: "Video en Miami, producido en Chile", en: "Shot in Miami, produced in Chile" },
+    tags: ["Producción"],
+    videoId: "aJG0zRex7EU",
+  },
+  {
+    title: "Lejos de Ti",
+    artist: "Hermanos Bernal feat. Genuino",
+    work: { es: "Single grabado en Suecia", en: "Single recorded in Sweden" },
+    tags: ["Producción"],
+    videoId: "uKG4RBnhghE",
+  },
+  {
+    title: "Diosa",
+    artist: "Genuino × Campbell G",
+    work: { es: "Single y video oficial", en: "Single & official video" },
+    tags: ["Producción"],
+    videoId: "IMRNuKaX9qM",
+  },
+  {
+    title: "Champagne",
+    artist: "Fran G Genuino feat. Afy",
+    work: { es: "Single y video oficial", en: "Single & official video" },
+    tags: ["Producción"],
+    videoId: "bPJhFwQz_Ok",
+  },
+  {
+    title: "Pensándote",
+    artist: "Fran G Genuino",
+    work: { es: "Single y lyric video", en: "Single & lyric video" },
+    tags: ["Producción"],
+    videoId: "BJMqy8UdpK8",
+  },
+  {
     title: "No, No, No",
     artist: "Blue Mary feat. Rami, DW & Genuino",
     work: { es: "Conexión, composición e interpretación", en: "Collab, songwriting & performance" },
@@ -355,8 +390,8 @@ export const catalog: {
   {
     title: "Venimos de Abajo",
     artist: "Arte Elegante × Genuino",
-    work: { es: "Single y radio", en: "Single & radio" },
-    tags: ["Radio"],
+    work: { es: "Single, video y radio", en: "Single, video & radio" },
+    tags: ["Producción", "Radio"],
     videoId: "zH5C4T0C-F0",
   },
   {
@@ -944,12 +979,15 @@ export const workVideos = Array.from(
   ]),
 );
 
-/* Áreas que abren su lista filtrada en el catálogo; la música propia lleva a su página */
-export const workAreas: { filter?: CatalogFilter; href?: string; label: L; detail: L }[] = [
+/* Áreas del volumen de trabajo: cada una abre su lista filtrada en el catálogo */
+export const workAreas: { filter: CatalogFilter; label: L; detail: L }[] = [
   {
     filter: "Producción",
-    label: { es: "Producción y video", en: "Production & video" },
-    detail: { es: "Producción general, singles y videoclips.", en: "Lead production, singles and music videos." },
+    label: { es: "Producción y música", en: "Production & music" },
+    detail: {
+      es: "Producción general, singles propios y videoclips.",
+      en: "Lead production, original singles and music videos.",
+    },
   },
   {
     filter: "Radio",
@@ -965,10 +1003,5 @@ export const workAreas: { filter?: CatalogFilter; href?: string; label: L; detai
     filter: "Prensa",
     label: { es: "Prensa", en: "Press" },
     detail: { es: "Entrevistas y notas en medios nacionales.", en: "Interviews and features in national outlets." },
-  },
-  {
-    href: "/sonido",
-    label: { es: "Música propia", en: "Original music" },
-    detail: { es: "Singles y videos oficiales de Fran G Genuino.", en: "Fran G Genuino’s singles and official videos." },
   },
 ];

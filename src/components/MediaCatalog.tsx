@@ -83,8 +83,8 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
           </div>
           <p className="max-w-sm text-bone/60 md:col-span-4 md:justify-self-end" data-fade>
             {t({
-              es: "Canciones y artistas gestionados por Genuino Family en medios de Chile.",
-              en: "Songs and artists Genuino Family has placed across Chilean media.",
+              es: "Producciones propias y canciones gestionadas por Genuino Family en radio, televisión y prensa de Chile.",
+              en: "Original productions plus songs Genuino Family has placed across Chilean radio, TV and press.",
             })}
           </p>
         </div>
