@@ -339,6 +339,13 @@ export const catalog: {
     videoId: "Ll-l9N5NmlM",
   },
   {
+    title: "Caribe",
+    artist: "Fran G Genuino feat. Solo di Medina & DW",
+    work: { es: "Producción general, videoclip y medios", en: "Lead production, music video & media" },
+    tags: ["Producción"],
+    videoId: "0cJH7mw8dKM",
+  },
+  {
     title: "No, No, No",
     artist: "Blue Mary feat. Rami, DW & Genuino",
     work: { es: "Conexión, composición e interpretación", en: "Collab, songwriting & performance" },
@@ -925,3 +932,43 @@ export const profileImages = {
     alt: { es: "Fran G Genuino en la calle, en Valparaíso", en: "Fran G Genuino on the street in Valparaíso" },
   },
 };
+
+/* ---------- Volumen de trabajo ---------- */
+
+/* Cada video cuenta una sola vez entre casos, apariciones, catálogo y música */
+export const workVideos = Array.from(
+  new Set([
+    ...cases.flatMap((item) => [item.videoId, ...(item.appearances?.map((appearance) => appearance.videoId) ?? [])]),
+    ...catalog.map((item) => item.videoId),
+    ...releases.map((item) => item.videoId),
+  ]),
+);
+
+/* Áreas que abren su lista filtrada en el catálogo; la música propia lleva a su página */
+export const workAreas: { filter?: CatalogFilter; href?: string; label: L; detail: L }[] = [
+  {
+    filter: "Producción",
+    label: { es: "Producción y video", en: "Production & video" },
+    detail: { es: "Producción general, singles y videoclips.", en: "Lead production, singles and music videos." },
+  },
+  {
+    filter: "Radio",
+    label: { es: "Radio", en: "Radio" },
+    detail: { es: "Difusión radial, con singles N.º 1 en Chile.", en: "Radio promotion, with #1 singles in Chile." },
+  },
+  {
+    filter: "TV",
+    label: { es: "Televisión", en: "Television" },
+    detail: { es: "TVN, Chilevisión, Vía X, Zona Latina y TNT Sports.", en: "TVN, Chilevisión, Vía X, Zona Latina and TNT Sports." },
+  },
+  {
+    filter: "Prensa",
+    label: { es: "Prensa", en: "Press" },
+    detail: { es: "Entrevistas y notas en medios nacionales.", en: "Interviews and features in national outlets." },
+  },
+  {
+    href: "/sonido",
+    label: { es: "Música propia", en: "Original music" },
+    detail: { es: "Singles y videos oficiales de Fran G Genuino.", en: "Fran G Genuino’s singles and official videos." },
+  },
+];

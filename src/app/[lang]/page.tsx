@@ -8,6 +8,7 @@ import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
 import Statement from "@/components/Statement";
 import Timeline from "@/components/Timeline";
+import WorkVolume from "@/components/WorkVolume";
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
         <CreditsMarquee />
         <Statement />
         <CaseStack />
-        <MediaCatalog />
-        <Disciplines />
-        <Timeline />
-        <ClosingCTA />
+        <WorkVolume index="03" />
+        <MediaCatalog index="04" />
+        <Disciplines index="05" />
+        <Timeline index="06" />
+        <ClosingCTA index="07" />
       </main>
       <Footer />
     </>

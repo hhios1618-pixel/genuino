@@ -7,6 +7,7 @@ import MediaCatalog from "@/components/MediaCatalog";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import Reels from "@/components/Reels";
+import WorkVolume from "@/components/WorkVolume";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/proyectos">): Promise<Metadata> {
@@ -47,10 +48,11 @@ export default function ProyectosPage() {
             en: "Lead production, single direction and campaigns across TV, radio and press.",
           }}
         />
-        <MediaCatalog index="02" />
-        <Reels index="03" />
-        <FieldPhotos index="04" />
-        <ClosingCTA index="05" />
+        <WorkVolume index="02" />
+        <MediaCatalog index="03" />
+        <Reels index="04" />
+        <FieldPhotos index="05" />
+        <ClosingCTA index="06" />
       </main>
       <Footer />
     </>

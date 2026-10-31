@@ -25,22 +25,20 @@ type CaseStackProps = {
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
-const caseSizes = "(min-width: 1440px) 1440px, (min-width: 1024px) 100vw, (min-width: 768px) 52vw, 86vw";
+const caseSizes = "(min-width: 1440px) 1440px, 100vw";
 type Appearance = { outlet: string; program: Text; minutes: number; videoId: string };
 
 /* Apariciones de un caso de medios: cada una se reproduce en la tarjeta.
-   Escritorio: fila de fichas bajo el video. Móvil: lista de una columna. */
+   Escritorio: fila de fichas bajo el video. Móvil: fila deslizable dentro de la tarjeta. */
 function Appearances({
   items,
   active,
   onSelect,
-  list = false,
   className = "",
 }: {
   items: Appearance[];
   active: string | null;
   onSelect: (videoId: string) => void;
-  list?: boolean;
   className?: string;
 }) {
   const { t } = useLang();
@@ -50,45 +48,8 @@ function Appearances({
       en: `Play ${t(appearance.program)}, ${appearance.outlet}, ${appearance.minutes} minutes`,
     });
 
-  if (list) {
-    return (
-      <ul aria-label={t({ es: "Apariciones", en: "Appearances" })} className={`border-t border-line ${className}`}>
-        {items.map((appearance) => {
-          const selected = active === appearance.videoId;
-          return (
-            <li key={appearance.videoId} className="border-b border-line">
-              <button
-                type="button"
-                onClick={() => onSelect(appearance.videoId)}
-                aria-pressed={selected}
-                aria-label={playLabel(appearance)}
-                className="flex min-h-11 w-full items-center gap-3 py-2 text-left"
-              >
-                <svg
-                  viewBox="0 0 10 12"
-                  className={`size-2 shrink-0 ${selected ? "text-signal" : "text-bone/50"}`}
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M0 0v12l10-6z" />
-                </svg>
-                <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                  <span className={`label ${selected ? "!text-signal" : ""}`}>{appearance.outlet}</span>
-                  <span className={`truncate text-sm ${selected ? "text-bone" : "text-bone/80"}`}>
-                    {t(appearance.program)}
-                  </span>
-                </span>
-                <span className="label tabular shrink-0">{appearance.minutes} min</span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-
   return (
-    <ul aria-label={t({ es: "Apariciones", en: "Appearances" })} className={`grid gap-1.5 ${className}`}>
+    <ul aria-label={t({ es: "Apariciones", en: "Appearances" })} className={`gap-1.5 ${className}`}>
       {items.map((appearance) => {
         const selected = active === appearance.videoId;
         return (
@@ -126,8 +87,8 @@ const caseMedia =
   "media-dim transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]";
 
 /*
-  Escritorio: tarjetas apiladas que se encogen al pasar la siguiente.
-  Móvil y tablet: carrusel deslizable con la información dentro de cada tarjeta.
+  Tarjetas apiladas hacia abajo: cada una queda fija y se encoge cuando la siguiente pasa encima.
+  En móvil y tablet la tarjeta ocupa casi toda la pantalla, con la información bajo el video.
 */
 export default function CaseStack({
   index = "02",
@@ -141,14 +102,13 @@ export default function CaseStack({
   const { t, href } = useLang();
   const listRef = useRef<HTMLOListElement>(null);
   const [playing, setPlaying] = useState<string | null>(null);
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const list = listRef.current;
     if (!list || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const media = gsap.matchMedia();
-    media.add("(min-width: 1024px)", () => {
+    media.add("all", () => {
       const items = gsap.utils.toArray<HTMLElement>("[data-case]", list);
       items.forEach((item, position) => {
         const next = items[position + 1];
@@ -170,30 +130,6 @@ export default function CaseStack({
     return () => media.revert();
   }, []);
 
-  /* Tarjeta visible en el carrusel: la más cercana al borde izquierdo */
-  const onCarouselScroll = () => {
-    const list = listRef.current;
-    if (!list || list.scrollWidth <= list.clientWidth) return;
-    const start = list.scrollLeft + parseFloat(getComputedStyle(list).paddingLeft);
-    const items = Array.from(list.children) as HTMLElement[];
-    const nearest = items.reduce(
-      (best, item, position) =>
-        Math.abs(item.offsetLeft - start) < Math.abs(items[best].offsetLeft - start) ? position : best,
-      0,
-    );
-    if (nearest !== current) {
-      setCurrent(nearest);
-      setPlaying(null);
-    }
-  };
-
-  const goTo = (position: number) => {
-    const list = listRef.current;
-    const item = list?.children[position] as HTMLElement | undefined;
-    if (!list || !item) return;
-    list.scrollTo({ left: item.offsetLeft - parseFloat(getComputedStyle(list).paddingLeft), behavior: "smooth" });
-  };
-
   return (
     <section id="casos" className="py-24 md:py-36">
       <div className="shell">
@@ -213,9 +149,8 @@ export default function CaseStack({
 
         <ol
           ref={listRef}
-          onScroll={onCarouselScroll}
           aria-label={t({ es: "Proyectos destacados", en: "Featured projects" })}
-          className="relative -mx-[var(--gutter)] flex snap-x snap-mandatory scroll-px-[var(--gutter)] gap-3 overflow-x-auto px-[var(--gutter)] pb-1 [scrollbar-width:none] sm:gap-4 lg:mx-0 lg:block lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden"
+          className="relative"
         >
           {cases.map((item, position) => {
             const videos = item.appearances?.map((appearance) => appearance.videoId) ?? [item.videoId];
@@ -226,17 +161,23 @@ export default function CaseStack({
                 key={item.videoId}
                 data-case
                 aria-label={`${pad(position + 1)} ${t({ es: "de", en: "of" })} ${pad(cases.length)}: ${item.title}`}
-                className="w-[86%] shrink-0 snap-start sm:w-[64%] md:w-[52%] lg:sticky lg:mb-[8vh] lg:w-auto lg:last:mb-0"
-                style={{ "--case-top": `calc(5.5rem + ${position * 1.1}rem)`, top: "var(--case-top)" } as CSSProperties}
+                className="sticky mb-[6vh] [--case-base:5.25rem] [--case-step:0.5rem] last:mb-0 lg:mb-[8vh] lg:[--case-base:5.5rem] lg:[--case-step:1.1rem]"
+                style={
+                  {
+                    "--case-top": `calc(var(--case-base) + ${position} * var(--case-step))`,
+                    top: "var(--case-top)",
+                  } as CSSProperties
+                }
               >
                 <article
                   data-case-card
-                  className="flex h-full origin-top flex-col rounded-[1.5rem] bg-bone/[0.035] p-1.5 ring-1 ring-bone/10 will-change-transform md:rounded-[2.25rem] md:p-2"
+                  className="flex origin-top flex-col overflow-hidden rounded-[1.5rem] bg-[#090909] p-1.5 ring-1 ring-bone/10 will-change-transform max-lg:h-[min(calc(100svh-var(--case-top)-1rem),46rem)] md:rounded-[2.25rem] md:p-2"
                 >
-                  <div className="relative overflow-hidden rounded-[calc(1.5rem-0.375rem)] bg-ink-sunk md:rounded-[calc(2.25rem-0.5rem)]">
-                    {/* Con apariciones, el video cede alto para que las fichas quepan siempre en pantalla */}
+                  <div className="relative overflow-hidden rounded-[calc(1.5rem-0.375rem)] bg-ink-sunk max-lg:min-h-0 max-lg:flex-1 md:rounded-[calc(2.25rem-0.5rem)]">
+                    {/* Móvil: la imagen llena el alto libre de la tarjeta. Escritorio: con apariciones,
+                        el video cede alto para que las fichas quepan siempre en pantalla */}
                     <div
-                      className={`relative aspect-[16/10] w-full lg:aspect-[16/8] ${
+                      className={`relative w-full max-lg:h-full lg:aspect-[16/8] ${
                         item.appearances ? "lg:max-h-[calc(100svh-var(--case-top)-7rem)] lg:min-h-[20rem]" : ""
                       }`}
                     >
@@ -331,7 +272,7 @@ export default function CaseStack({
                     />
                   ) : null}
 
-                  <div className="flex flex-1 flex-col px-3 pb-3 pt-5 sm:px-4 lg:hidden">
+                  <div className="flex shrink-0 flex-col px-3 pb-3 pt-5 sm:px-4 lg:hidden">
                     <p className="label !text-signal">{t(item.role)}</p>
                     <h3 className="display mt-2.5 text-[clamp(1.5rem,6vw,2.25rem)]">
                       {item.title}
@@ -342,17 +283,16 @@ export default function CaseStack({
                       ) : null}
                     </h3>
                     <p className="mt-2 text-bone/80">{t(item.artist)}</p>
-                    <p className="mt-4 text-pretty text-sm leading-relaxed text-bone/60">{t(item.summary)}</p>
+                    <p className="mt-4 line-clamp-4 text-pretty text-sm leading-relaxed text-bone/60">{t(item.summary)}</p>
                     {item.appearances ? (
                       <Appearances
                         items={item.appearances}
                         active={activeVideo}
                         onSelect={setPlaying}
-                        list
-                        className="mt-5"
+                        className="-mx-3 flex overflow-x-auto px-3 pt-5 [scrollbar-width:none] sm:-mx-4 sm:px-4 [&::-webkit-scrollbar]:hidden [&>li]:w-[12.5rem] [&>li]:shrink-0"
                       />
                     ) : (
-                      <ul className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                      <ul className="flex flex-wrap gap-1.5 pt-5">
                         {item.scope.map((scope) => (
                           <li key={scope.es} className="rounded-full border border-bone/15 px-2.5 py-1 text-xs text-bone/75">
                             {t(scope)}
@@ -366,38 +306,6 @@ export default function CaseStack({
             );
           })}
         </ol>
-
-        <div className="mt-6 flex items-center gap-5 lg:hidden">
-          <p className="label tabular !text-bone" aria-live="polite">
-            {pad(current + 1)} <span className="text-bone/40">/ {pad(cases.length)}</span>
-          </p>
-          <div className="relative h-0.5 flex-1 overflow-hidden bg-bone/15" aria-hidden="true">
-            <span
-              className="absolute inset-y-0 left-0 bg-gold transition-[width] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
-              style={{ width: `${((current + 1) / cases.length) * 100}%` }}
-            />
-          </div>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => goTo(current - 1)}
-              disabled={current === 0}
-              aria-label={t({ es: "Proyecto anterior", en: "Previous project" })}
-              className="grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone disabled:opacity-30"
-            >
-              <Arrow className="size-3.5" direction="left" />
-            </button>
-            <button
-              type="button"
-              onClick={() => goTo(current + 1)}
-              disabled={current === cases.length - 1}
-              aria-label={t({ es: "Proyecto siguiente", en: "Next project" })}
-              className="grid size-11 place-items-center rounded-full border border-bone/20 transition-colors duration-500 hover:border-bone disabled:opacity-30"
-            >
-              <Arrow className="size-3.5" direction="right" />
-            </button>
-          </div>
-        </div>
 
         {showAllLink ? (
           <div className="mt-12 flex justify-center md:mt-16" data-fade>

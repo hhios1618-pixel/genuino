@@ -24,6 +24,16 @@ const ease = [0.32, 0.72, 0, 1] as const;
 /* En móvil se muestran estas filas antes de "Ver todos" */
 const MOBILE_LIMIT = 6;
 
+/* Otras secciones abren el catálogo ya filtrado (p. ej. las categorías de volumen) */
+const filterEvent = "catalog:filter";
+export function openCatalog(filter: CatalogFilter) {
+  window.dispatchEvent(new CustomEvent<CatalogFilter>(filterEvent, { detail: filter }));
+  const target = document.getElementById("catalogo");
+  if (!target) return;
+  if (window.__lenis) window.__lenis.scrollTo(target, { offset: -80 });
+  else target.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function MediaCatalog({ index = "03" }: { index?: string }) {
   const [filter, setFilter] = useState<CatalogFilter>("Todo");
   const [hovered, setHovered] = useState<string | null>(null);
@@ -34,6 +44,16 @@ export default function MediaCatalog({ index = "03" }: { index?: string }) {
   const { t } = useLang();
 
   const items = filter === "Todo" ? catalog : catalog.filter((item) => item.tags.includes(filter));
+
+  useEffect(() => {
+    const onFilter = (event: Event) => {
+      setFilter((event as CustomEvent<CatalogFilter>).detail);
+      setOpen(null);
+      setExpanded(false);
+    };
+    window.addEventListener(filterEvent, onFilter);
+    return () => window.removeEventListener(filterEvent, onFilter);
+  }, []);
 
   useEffect(() => {
     const list = listRef.current;
