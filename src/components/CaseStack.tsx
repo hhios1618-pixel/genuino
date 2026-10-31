@@ -199,7 +199,7 @@ export default function CaseStack({
       <div className="shell">
         <div className="mb-10 grid gap-6 md:mb-20 md:grid-cols-12 md:items-end md:gap-8">
           <div className="md:col-span-8">
-            <SectionLabel index={index}>{t({ es: "Selección 2025 — 2026", en: "Selected work 2025 — 2026" })}</SectionLabel>
+            <SectionLabel index={index}>{t({ es: "Selección 2015 — 2026", en: "Selected work 2015 — 2026" })}</SectionLabel>
             <h2 data-split className="display mt-6 text-[clamp(2.1rem,6vw,5.75rem)]">
               <Words text={t(title)} />
             </h2>

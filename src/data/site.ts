@@ -5,13 +5,13 @@ export const blurDataUrl =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIHZpZXdCb3g9JzAgMCAxNiAxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTYnIGZpbGw9JyMwYjBiMGInLz48L3N2Zz4=";
 
 /* Videos sin miniatura en máxima calidad: se usa la siguiente disponible */
-const noMaxres = ["nyTFrpVucUY"];
+const noMaxres = ["nyTFrpVucUY", "aNly-s3WQBQ", "0I2huXieZhg"];
 export const ytThumb = (videoId: string) =>
   `https://i.ytimg.com/vi/${videoId}/${noMaxres.includes(videoId) ? "sddefault" : "maxresdefault"}.jpg`;
 export const ytWatch = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`;
 
 /* Miniaturas con franjas negras de formato cine: se amplían para llenar el cuadro */
-const letterboxed = ["Q9wHNUH1eq8"];
+const letterboxed = ["Q9wHNUH1eq8", "0cJH7mw8dKM"];
 export const ytZoom = (source: string) => (letterboxed.some((id) => source.includes(id)) ? 1.34 : 1);
 
 export const contact = {
@@ -59,6 +59,7 @@ export const artistCredits = [
   "Campbell G",
   "Modo Avión",
   "Afy",
+  "Vallejo 777",
 ];
 
 export const outlets = ["TVN", "Chilevisión", "Vía X", "Zona Latina", "TNT Sports Chile", "BioBioChile"];
@@ -132,6 +133,23 @@ export const cases: {
       },
       { outlet: "Vía X", program: { es: "Especial en vivo", en: "Live special" }, minutes: 84, videoId: "5Rxye57JIGI" },
     ],
+  },
+  {
+    title: "Caribe",
+    artist: "Fran G Genuino feat. Solo di Medina & DW",
+    year: "2015",
+    role: role.production,
+    scope: [
+      { es: "Producción general", en: "Lead production" },
+      { es: "Videoclip", en: "Music video" },
+      { es: "Medios", en: "Media" },
+      { es: "Conexión de artistas", en: "Artist collaboration" },
+    ],
+    summary: {
+      es: "Uno de los singles principales de Fran G Genuino. La producción general del tema, el videoclip, la salida en medios y la conexión de los artistas estuvieron a cargo de Fran G.",
+      en: "One of Fran G Genuino’s signature singles. Fran G led the track’s overall production, the music video, the media rollout and brought the artists together.",
+    },
+    videoId: "0cJH7mw8dKM",
   },
   {
     title: "Around the Sky",
@@ -347,6 +365,27 @@ export const catalog: {
     work: role.radio,
     tags: ["Radio"],
     videoId: "teyyiHkEwqY",
+  },
+  {
+    title: "Bandida",
+    artist: "Vallejo 777",
+    work: { es: "Difusión radial · N.º 1 en Chile", en: "Radio promotion · #1 in Chile" },
+    tags: ["Radio"],
+    videoId: "aNly-s3WQBQ",
+  },
+  {
+    title: "Weekend",
+    artist: "Vallejo 777",
+    work: { es: "Difusión radial · N.º 1 en Chile", en: "Radio promotion · #1 in Chile" },
+    tags: ["Radio"],
+    videoId: "CbR3gr1kHxI",
+  },
+  {
+    title: "Adicta al Perreo",
+    artist: "Fariana",
+    work: role.radio,
+    tags: ["Radio"],
+    videoId: "0I2huXieZhg",
   },
   {
     title: "Feel the Fire",
@@ -652,7 +691,10 @@ export const timeline: { mark: string | L; unit?: L; title: string | L; body: L;
   {
     mark: "2015",
     title: "Caribe",
-    body: { es: "Con Vladi Cachai, DW y Solo di Medina.", en: "With Vladi Cachai, DW and Solo di Medina." },
+    body: {
+      es: "Single con Solo di Medina y DW: producción general, videoclip y medios de Fran G.",
+      en: "Single with Solo di Medina and DW: lead production, music video and media by Fran G.",
+    },
     videoId: "0cJH7mw8dKM",
   },
   {
@@ -729,7 +771,10 @@ export const releases: { title: string; artist: string; note: L; videoId: string
   {
     title: "Historia",
     artist: "Genuino × Campbell G",
-    note: { es: "Video oficial.", en: "Official video." },
+    note: {
+      es: "Grabado en Miami en 2016 por Jay Vega, producido en Chile.",
+      en: "Shot in Miami in 2016 by Jay Vega, produced in Chile.",
+    },
     videoId: "aJG0zRex7EU",
     byFran: true,
   },
@@ -756,8 +801,11 @@ export const releases: { title: string; artist: string; note: L; videoId: string
   },
   {
     title: "Caribe",
-    artist: "Vladi Cachai × DW × Solo di Medina × Fran G",
-    note: { es: "Video oficial, 2015.", en: "Official video, 2015." },
+    artist: "Fran G Genuino feat. Solo di Medina & DW",
+    note: {
+      es: "Producción general, videoclip, medios y conexión de artistas de Fran G. 2015.",
+      en: "Lead production, music video, media and artist collab by Fran G. 2015.",
+    },
     videoId: "0cJH7mw8dKM",
     byFran: true,
   },
