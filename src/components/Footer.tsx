@@ -83,7 +83,7 @@ export default function Footer() {
             © {year} Genuino Family. {t({ es: "Todos los derechos reservados.", en: "All rights reserved." })}
           </p>
           <p>
-            {t({ es: "Sitio desarrollado por", en: "Site by" })}{" "}
+            {t({ es: "Brazo tecnológico y desarrollo del sitio:", en: "Technology arm and site build:" })}{" "}
             <a
               href={siteCredit.href}
               target="_blank"

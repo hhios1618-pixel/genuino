@@ -2,6 +2,7 @@ import CaseStack from "@/components/CaseStack";
 import ClosingCTA from "@/components/ClosingCTA";
 import CreditsMarquee from "@/components/CreditsMarquee";
 import Disciplines from "@/components/Disciplines";
+import Ecosystem from "@/components/Ecosystem";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import MediaCatalog from "@/components/MediaCatalog";
@@ -23,7 +24,8 @@ export default function Home() {
         <MediaCatalog index="04" />
         <Disciplines index="05" />
         <Timeline index="06" />
-        <ClosingCTA index="07" />
+        <Ecosystem index="07" />
+        <ClosingCTA index="08" />
       </main>
       <Footer />
     </>

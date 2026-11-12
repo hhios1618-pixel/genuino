@@ -27,14 +27,18 @@ export const navItems = [
   { label: { es: "Música", en: "Music" }, href: "/sonido" },
   { label: { es: "Video", en: "Video" }, href: "/video" },
   { label: { es: "Fran G", en: "Fran G" }, href: "/perfil" },
+  { label: { es: "Tecnología", en: "Technology" }, href: "/tecnologia" },
 ];
 
 export const contactNav = { label: { es: "Contacto", en: "Contact" }, href: "/contacto" };
 
-/* Firma del estudio que construyó el sitio; los UTM le permiten medir el tráfico que llega desde aquí */
+/* Altius Ignite, brazo tecnológico de Genuino Family. Los UTM separan el tráfico de cada lugar del sitio */
+const altiusUrl = (campaign: string) =>
+  `https://www.altiusignite.com/?utm_source=genuinofamily.cl&utm_medium=referral&utm_campaign=${campaign}`;
+
 export const siteCredit = {
   studio: "Altius Ignite",
-  href: "https://www.altiusignite.com/?utm_source=genuinofamily.cl&utm_medium=referral&utm_campaign=site-credit",
+  href: altiusUrl("site-credit"),
 };
 
 export const legalLinks = [
@@ -705,6 +709,7 @@ export const serviceOptions: L[] = [
   { es: "Radio y medios", en: "Radio & media" },
   { es: "Management", en: "Management" },
   { es: "Prensa / booking", en: "Press / booking" },
+  { es: "Tecnología: web, CRM o IA", en: "Technology: web, CRM or AI" },
   { es: "Otro", en: "Other" },
 ];
 
@@ -1003,5 +1008,139 @@ export const workAreas: { filter: CatalogFilter; label: L; detail: L }[] = [
     filter: "Prensa",
     label: { es: "Prensa", en: "Press" },
     detail: { es: "Entrevistas y notas en medios nacionales.", en: "Interviews and features in national outlets." },
+  },
+];
+
+/* ---------- Tecnología: Altius Ignite ----------
+   Solo datos publicados en altiusignite.com. Se muestra capacidad, no personas:
+   el equipo vive en el sitio de Altius. */
+
+export const altius = {
+  name: "Altius Ignite",
+  product: "Atlas ONE",
+  href: altiusUrl("tecnologia"),
+  ecosystemHref: altiusUrl("ecosistema"),
+  teamHref: `https://www.altiusignite.com/nosotros?utm_source=genuinofamily.cl&utm_medium=referral&utm_campaign=tecnologia`,
+  casesHref: `https://www.altiusignite.com/casos?utm_source=genuinofamily.cl&utm_medium=referral&utm_campaign=tecnologia`,
+  whatsapp: "https://wa.me/56920621512",
+};
+
+export const techPillars: { index: string; name: L; line: L; items: L[] }[] = [
+  {
+    index: "01",
+    name: { es: "Sitio", en: "Website" },
+    line: {
+      es: "Tu vitrina en internet. Atiende de noche y deja a cada persona con su ficha.",
+      en: "Your storefront online. It works overnight and files every visitor with their own record.",
+    },
+    items: [
+      { es: "Web a medida, en uno o más idiomas", en: "Custom website, in one or more languages" },
+      { es: "Captación de contactos y cotizaciones", en: "Lead and quote capture" },
+      { es: "Dominio, hosting y SEO", en: "Domain, hosting and SEO" },
+    ],
+  },
+  {
+    index: "02",
+    name: { es: "Operación y CRM", en: "Operations & CRM" },
+    line: {
+      es: "Cada cliente, fan o contratación en una sola ficha: la venta, el cobro y los números de la semana.",
+      en: "Every client, fan or booking in one record: the sale, the payment and the week's numbers.",
+    },
+    items: [
+      { es: "Ficha única por cliente", en: "One record per client" },
+      { es: "Cobros y links de pago", en: "Billing and payment links" },
+      { es: "Finanzas, ventas, soporte y campañas", en: "Finance, sales, support and campaigns" },
+    ],
+  },
+  {
+    index: "03",
+    name: { es: "Agentes de IA", en: "AI agents" },
+    line: {
+      es: "Trabajan todos los días dentro de la operación. Proponen la próxima acción y tu equipo aprueba.",
+      en: "They work inside your operation every day. They propose the next step and your team approves it.",
+    },
+    items: [
+      { es: "Agente en WhatsApp Business", en: "WhatsApp Business agent" },
+      { es: "Voz, WhatsApp y correo en una bandeja", en: "Voice, WhatsApp and email in one inbox" },
+      { es: "Seguimiento automático de cada contacto", en: "Automatic follow-up on every contact" },
+    ],
+  },
+];
+
+/* Cifras y casos publicados por Altius Ignite */
+export const techProof: { value: string; label: L; source: L }[] = [
+  {
+    value: "−30 %",
+    label: { es: "Horas hombre en tres meses", en: "Fewer man-hours in three months" },
+    source: { es: "Fénix Store, Bolivia", en: "Fénix Store, Bolivia" },
+  },
+  {
+    value: "5",
+    label: { es: "Ciudades donde cobra, partiendo de una sucursal", en: "Cities it bills in, starting from one branch" },
+    source: { es: "Fénix Store, Bolivia", en: "Fénix Store, Bolivia" },
+  },
+  {
+    value: "3",
+    label: { es: "Países con equipo propio", en: "Countries with an in-house team" },
+    source: { es: "Chile · Bolivia · Brasil", en: "Chile · Bolivia · Brazil" },
+  },
+  {
+    value: "48 h",
+    label: { es: "Para entregar la propuesta", en: "To deliver a proposal" },
+    source: { es: "Después del diagnóstico gratis", en: "After the free assessment" },
+  },
+];
+
+export const techCases: { name: string; place: L; detail: L }[] = [
+  {
+    name: "Genuino Family",
+    place: { es: "Chile", en: "Chile" },
+    detail: { es: "Este sitio y Atlas ONE con el pulso de su música.", en: "This website and Atlas ONE, in tune with its music." },
+  },
+  {
+    name: "Fénix Store",
+    place: { es: "Bolivia", en: "Bolivia" },
+    detail: { es: "Partió en una sucursal y hoy cobra en cinco ciudades.", en: "Started with one branch; now bills in five cities." },
+  },
+  {
+    name: "Geimser",
+    place: { es: "Chile", en: "Chile" },
+    detail: { es: "Finanzas, ventas, soporte y campañas en Atlas.", en: "Finance, sales, support and campaigns in Atlas." },
+  },
+  {
+    name: "Centro de Reflexiones Críticas",
+    place: { es: "Chile", en: "Chile" },
+    detail: { es: "Su web capta y da seguimiento sola.", en: "Its website captures and follows up on its own." },
+  },
+];
+
+export const techCredentials: L[] = [
+  { es: "Partner de Claude Partner Network · Anthropic", en: "Claude Partner Network partner · Anthropic" },
+  { es: "Proveedor de tecnología validado por Meta · WhatsApp Business", en: "Meta-validated technology provider · WhatsApp Business" },
+];
+
+export const techProcess: { index: string; title: L; body: L }[] = [
+  {
+    index: "01",
+    title: { es: "Diagnóstico", en: "Assessment" },
+    body: { es: "Gratis. Nos cuentas el problema y revisamos tu operación.", en: "Free. You tell us the problem and we review how you operate." },
+  },
+  {
+    index: "02",
+    title: { es: "Propuesta", en: "Proposal" },
+    body: { es: "En 48 horas, con alcance, plazos y plan.", en: "Within 48 hours, with scope, timeline and plan." },
+  },
+  {
+    index: "03",
+    title: { es: "Construcción", en: "Build" },
+    body: { es: "Sitio, operación y agente con el mismo equipo de punta a punta.", en: "Website, operations and agent, built by the same team end to end." },
+  },
+  {
+    index: "04",
+    title: { es: "Operación", en: "Run" },
+    body: {
+      es: "Seguimos contigo después de lanzar. Cada lunes ves tus números.",
+      en: "We stay with you after launch. Every Monday you see your numbers.",
+    },
   },
 ];
