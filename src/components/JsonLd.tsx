@@ -1,9 +1,10 @@
-import { contact } from "@/data/site";
+import { altius, contact, disciplines, techPillars } from "@/data/site";
 import { type Lang, localePath } from "@/i18n";
 import { siteName, siteUrl } from "@/lib/seo";
 
 const studioId = `${siteUrl}/#studio`;
 const founderId = `${siteUrl}/#fran-g-genuino`;
+const altiusId = "https://www.altiusignite.com/#organization";
 
 const copy = {
   es: {
@@ -54,6 +55,38 @@ export default function JsonLd({ lang }: { lang: Lang }) {
         sameAs: [contact.youtube.href, contact.instagram.href],
         areaServed: text.areaServed,
         knowsAbout: text.knowsAbout,
+        /* Servicios que ofrece; Tecnología la presta su brazo tecnológico, Altius Ignite */
+        makesOffer: [
+          ...disciplines.map((discipline) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: discipline.name[lang],
+              description: discipline.line[lang],
+              provider: { "@id": studioId },
+            },
+          })),
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: lang === "es" ? "Tecnología: web, CRM y agentes de IA" : "Technology: web, CRM and AI agents",
+              description: techPillars.map((pillar) => pillar.name[lang]).join(" · "),
+              url: `${siteUrl}${localePath(lang, "/tecnologia")}`,
+              provider: { "@id": altiusId },
+            },
+          },
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": altiusId,
+        name: altius.name,
+        url: "https://www.altiusignite.com",
+        description:
+          lang === "es"
+            ? "Brazo tecnológico de Genuino Family: sitio, CRM y agentes de IA con Atlas ONE."
+            : "Technology arm of Genuino Family: websites, CRM and AI agents with Atlas ONE.",
       },
       {
         "@type": "Person",
